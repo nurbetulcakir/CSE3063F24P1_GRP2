@@ -1,10 +1,15 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student extends Person {
 	
+	private Advisor advisor;
+	private int year;
+	private List<CourseSection> enrolledCourses;
+	private List<Course> successfulCourses;
+	
 	private int studentID;
 	private String password = "";
-	private Advisor advisor;
 	private Transcript transcript;
 	private ArrayList<Course> choosableCourses = new ArrayList<Course>();
 	private ArrayList<Course> chosenCourses = new ArrayList<Course>();
@@ -21,8 +26,12 @@ public class Student extends Person {
 	        
     }
 	 
-	
-	
+	public List<Course> viewCourses() {
+		return ;
+	}
+	public String viewSchedule() {
+		return "";
+	}
 	
 	
 	

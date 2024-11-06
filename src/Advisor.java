@@ -1,5 +1,9 @@
+import java.util.List;
 
-public class Advisor extends Lecturer{
+public class Advisor extends Person {
+	
+	private List<Student> assignedStudents;
+	private List<Student> awaitingStudents;
 	
 	 private String firstName;
 	 private String lastName;
@@ -14,7 +18,14 @@ public class Advisor extends Lecturer{
 		    this.lecturerID = lecturerID;
 		    this.password = password;   
 		 
-	 }
+	}
+	 
+	public List<Student> viewAssignedStudents() {
+		 return ;
+	}
+	public List<Student> viewAwaitingStudents() {
+		return ;
+	}
 
 	public String getFirstName() {
 		return firstName;
