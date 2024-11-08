@@ -1,18 +1,18 @@
-import java.util.Arrays;
-import java.util.List;
-
-public class SampleData {
-
-	public static List<Student> generateStudent() {
-		Student student1 = new Student("Albert", "Morgan", 222222, "123456", new Advisor("Naomi", "Mosley", 333333, "987654"));
+//import java.util.Arrays;
+//import java.util.List;
+//
+//public class SampleData {
+//
+//	public static List<Student> generateStudent() {
+//		Student student1 = new Student("Albert", "Morgan", 222222, "123456", new Advisor("Naomi", "Mosley", 333333, "987654"));
 //		Student student2 = new Student();
-		return Arrays.asList(student1);
-	}
-	public static RegistrationData generateRegistrationData() {
-		List<Student> sampleStudents = generateStudent();
+//		return Arrays.asList(student1);
+//	}
+//	public static RegistrationData generateRegistrationData() {
+//		List<Student> sampleStudents = generateStudent();
 //		List<Course> sampleCourses = generateCourse();
-		return new RegistrationData(sampleStudents);
-	}
+//		return new RegistrationData(sampleStudents);
+//	}
 
 //	public static List<Course> generateCourse() {
 //		Course course1 = new Course();
@@ -39,4 +39,4 @@ public class SampleData {
 //	}
 	
 	
-}
+//  }

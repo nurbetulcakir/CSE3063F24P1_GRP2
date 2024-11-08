@@ -1,8 +1,20 @@
 
-public class Person {
+public abstract class Person {
 
-	public Person(String firstName, String lastName) {
+	private ID PersonID;
+	private Password password;
+	private String firstName;
+	private String secondName;
+	public CourseRegistrationSystem courseRegistrationSystem;
+	
+	public Person(ID personID, Password password, String firstName, String secondName, CourseRegistrationSystem courseRegistrationSystem) {
 		
-	}
 
+	}
+	
+	public abstract boolean login(String personID, Password password);
+	
+	public abstract void logout();
 }
+	
+	

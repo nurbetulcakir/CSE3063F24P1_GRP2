@@ -1,9 +1,13 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Course {
 	
-	private int courseID;
-	private String courseName = "";
+	private ID courseID;
+	private String courseName;
+	private List<Course> prerequisites;
+	public CourseRegistrationSystem courseRegistrationSystem;
+	
 	private Lecturer lecturer;
 	private ArrayList<Course> prerequisiteCourses = new ArrayList<>();
 	private ArrayList<Student> takenStudentList = new ArrayList<>();
@@ -19,7 +23,9 @@ public class Course {
 		this.courseCredit = courseCredit;
 }
 
-	
+	public void addPrerequisite(Course course) {
+		
+	}
 	
 	
 	
