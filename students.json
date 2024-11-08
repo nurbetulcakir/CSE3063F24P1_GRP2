@@ -1,0 +1,245 @@
+{
+  "students": [
+    {
+      "studentID": 150121674,
+      "advisor": {
+        "lecturerID": 300121674,
+        "firstName": "Naomi",
+        "lastName": "Mosley"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Albert",
+      "lastName": "Morgan",
+      "password": "123456"
+      
+    },
+    {
+      "studentID": 150121675,
+      "advisor": {
+        "lecturerID": 300121674,
+        "firstName": "Naomi",
+        "lastName": "Mosley"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Pauline",
+      "lastName": "Berg",
+      "password": "01111995"
+    },
+    {
+      "studentID": 150121676,
+      "advisor": {
+        "lecturerID": 300121674,
+        "firstName": "Naomi",
+        "lastName": "Mosley"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Gail",
+      "lastName": "Parsons",
+      "password": "BobbyTheGoodBoy192837"
+    },
+    {
+      "studentID": 150121677,
+      "advisor": {
+        "lecturerID": 300121674,
+        "firstName": "Naomi",
+        "lastName": "Mosley"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Maisy",
+      "lastName": "Knox",
+      "password": "badbeachxxx"
+    },
+    {
+      "studentID": 150121678,
+      "advisor": {
+        "lecturerID": 300121674,
+        "firstName": "Naomi",
+        "lastName": "Mosley"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Jon",
+      "lastName": "Sherman",
+      "password": "Oz+cD$$!-"
+    },
+    {
+      "studentID": 150121679,
+      "advisor": {
+        "lecturerID": 300109320,
+        "firstName": "Hugo",
+        "lastName": "Warren"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Renee",
+      "lastName": "Jennings",
+      "password": "password"
+    },
+    {
+      "studentID": 150121680,
+      "advisor": {
+        "lecturerID": 300109320,
+        "firstName": "Hugo",
+        "lastName": "Warren"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Damon",
+      "lastName": "Donaldson",
+      "password": "IAmTheBEST!!!"
+    },
+    {
+      "studentID": 150121681,
+      "advisor": {
+        "lecturerID": 300109320,
+        "firstName": "Hugo",
+        "lastName": "Warren"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Velma",
+      "lastName": "Martinez",
+      "password": "velmamartinez"
+    },
+    {
+      "studentID": 150121682,
+      "advisor": {
+        "lecturerID": 300109320,
+        "firstName": "Hugo",
+        "lastName": "Warren"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Eric",
+      "lastName": "Allen",
+      "password": "00zero0zerozero"
+    },
+    {
+      "studentID": 150121683,
+      "advisor": {
+        "lecturerID": 300109320,
+        "firstName": "Hugo",
+        "lastName": "Warren"
+      },
+      "term": "6",
+      "passedCourses": [
+        {
+          "courseID": {
+            "id": "CSE3055"
+          },
+          "CourseName": "Software Engineering",
+          "prerequisiteCourse": []
+          
+        }
+      ],
+      "chosenCourses": [],
+      "approvedCourses": [],
+      "firstName": "Emma",
+      "lastName": "Jones",
+      "password": "qwerty"
+    }
+  ]
+}
