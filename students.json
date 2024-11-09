@@ -3,19 +3,40 @@
     {
       "studentID": 150121674,
       "advisor": {
-        "lecturerID": 300121674,
+        "lecturerID": 100031,
         "firstName": "Naomi",
         "lastName": "Mosley"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -28,19 +49,40 @@
     {
       "studentID": 150121675,
       "advisor": {
-        "lecturerID": 300121674,
+        "lecturerID": 100031,
         "firstName": "Naomi",
         "lastName": "Mosley"
       },
-      "term": "6",
-      "passedCourses": [
+      "term": "5",
+     "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -52,19 +94,33 @@
     {
       "studentID": 150121676,
       "advisor": {
-        "lecturerID": 300121674,
+        "lecturerID": 100031,
         "firstName": "Naomi",
         "lastName": "Mosley"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -76,19 +132,25 @@
     {
       "studentID": 150121677,
       "advisor": {
-        "lecturerID": 300121674,
+        "lecturerID": 100031,
         "firstName": "Naomi",
         "lastName": "Mosley"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -100,19 +162,18 @@
     {
       "studentID": 150121678,
       "advisor": {
-        "lecturerID": 300121674,
+        "lecturerID": 100031,
         "firstName": "Naomi",
         "lastName": "Mosley"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -124,19 +185,33 @@
     {
       "studentID": 150121679,
       "advisor": {
-        "lecturerID": 300109320,
+        "lecturerID": 100545,
         "firstName": "Hugo",
         "lastName": "Warren"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -148,19 +223,25 @@
     {
       "studentID": 150121680,
       "advisor": {
-        "lecturerID": 300109320,
+        "lecturerID": 100545,
         "firstName": "Hugo",
         "lastName": "Warren"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -172,19 +253,40 @@
     {
       "studentID": 150121681,
       "advisor": {
-        "lecturerID": 300109320,
+        "lecturerID": 100545,
         "firstName": "Hugo",
         "lastName": "Warren"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -196,19 +298,40 @@
     {
       "studentID": 150121682,
       "advisor": {
-        "lecturerID": 300109320,
+        "lecturerID": 100545,
         "firstName": "Hugo",
         "lastName": "Warren"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
@@ -220,19 +343,40 @@
     {
       "studentID": 150121683,
       "advisor": {
-        "lecturerID": 300109320,
+        "lecturerID": 100545,
         "firstName": "Hugo",
         "lastName": "Warren"
       },
-      "term": "6",
+      "term": "5",
       "passedCourses": [
         {
           "courseID": {
-            "id": "CSE3055"
-          },
-          "CourseName": "Software Engineering",
-          "prerequisiteCourse": []
-          
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
         }
       ],
       "chosenCourses": [],
