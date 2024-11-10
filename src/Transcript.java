@@ -22,6 +22,20 @@ public class Transcript extends Student{
 		
 		
 	}
+	
+	
+	public void viewTranscript() {
+		System.out.println("Transcript Details:");
+        System.out.println("Student ID: " + super.getStudentID());
+        System.out.println("First Name: " + super.getFirstName());
+        System.out.println("Last Name: " + super.getLastName());
+        System.out.println("GPA: " + gpa);
+        System.out.println("CGPA: " + cpga);
+        System.out.println("Credits Received: " + creditReceived);
+        System.out.println("Credits Earned: " + creditEarned);
+        System.out.println("Total Credits Received: " + totalCreditReceived);
+        System.out.println("Total Credits Earned: " + totalCreditEarned);
+	}
 
 	public double getGpa() {
 		return gpa;
