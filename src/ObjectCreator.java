@@ -38,11 +38,6 @@ public class ObjectCreator {
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath9));
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath10));
 
-        // Example usage: Print student information
-        for (Student student : students) {
 
-            for (Course course : student.getPassedCourses()) {
-            }
-        }
 	}
 }

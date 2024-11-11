@@ -59,6 +59,8 @@ public class Transcript extends Student{
         	System.out.println();
 		}
 	}
+	
+	
 
 	public double getGpa() {
 		return gpa;
