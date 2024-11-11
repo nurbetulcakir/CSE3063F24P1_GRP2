@@ -34,7 +34,7 @@ public class Student extends Person {
     }
     
     public Student(ID studentID, String firstName, String lastName) {
-    	super(lastName, lastName);
+    	super(firstName, lastName);
     	this.setStudentID(studentID);
     }
     
@@ -67,14 +67,14 @@ public class Student extends Person {
    	for(int i = 0; i < this.chosenCourses.size(); i++) {
    		
    		schedule.concat("Course Name:" + this.chosenCourses.get(i).getCourse().getCourseName() + ", Course Section No: " + this.chosenCourses.get(i).getSectionID() +
-   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + "-" + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");
+   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + " - " + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");
        
    		}
    	
 		return null;
    }
    
-   public void sendForApproval() {
+   public void sendToApprove() {
    	// later
    }
 
@@ -99,9 +99,8 @@ public class Student extends Person {
         System.out.println("First Name: " + this.getAdvisor().getFirstName());
         System.out.println("Last Name: " + this.getAdvisor().getLastName());
         System.out.println("Given Courses:");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < this.getAdvisor().getGivenCourses().size(); i++) {
         	System.out.println(this.getAdvisor().getGivenCourses().get(i).getCourseName());
-        		break;
         }
 	}
 

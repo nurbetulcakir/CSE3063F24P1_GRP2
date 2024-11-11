@@ -8,7 +8,7 @@ public class SessionTime extends CourseSection{
     	super(sectionID, course, capacity);
     	this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
-        this.classroom = classroom;
+        this.setClassroom(classroom);
     }
     // Method to check if the session time is valid
     public boolean isValidSession() {
@@ -23,4 +23,10 @@ public class SessionTime extends CourseSection{
     public String getEndTime() {
     	return this.endDateTime;
     }
+	public String getClassroom() {
+		return classroom;
+	}
+	public void setClassroom(String classroom) {
+		this.classroom = classroom;
+	}
 }
