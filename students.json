@@ -1,14 +1,17 @@
-{
-  "students": [
+[
     {
-      "studentID": 150121674,
+      "studentID": {
+                "id": "150121674"
+              },
       "firstName": "Gordon",
       "lastName": "Freeman",
      "password": {
         "password": "123456"
       },
       "advisor": {
-        "lecturerID": 100031,
+        "lecturerID": {
+                "id": "100031"
+              },
         "firstName": "Lara",
         "lastName": "Croft"
       },
@@ -48,14 +51,18 @@
       "approvedCourses": [] 
     },
     {
-      "studentID": 150121675,
+      "studentID": {
+        "id": "150121675"
+      },
       "firstName": "Karlach",
       "lastName": "Cliffgate",
      "password": {
         "password": "01111995"
       },
       "advisor": {
-        "lecturerID": 100031,
+        "lecturerID": {
+                "id": "100031"
+              },
         "firstName": "Lara",
         "lastName": "Croft"
       },
@@ -95,14 +102,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121676,
+      "studentID": {
+        "id": "150121676"
+      },
       "firstName": "Nathan",
       "lastName": "Drake",
       "password": {
         "password": "BobbyTheGoodBoy192837"
       },
       "advisor": {
-        "lecturerID": 100031,
+        "lecturerID": {
+                "id": "100031"
+              },
         "firstName": "Lara",
         "lastName": "Croft"
       },
@@ -135,14 +146,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121677,
+      "studentID": {
+        "id": "150121677"
+      },
       "firstName": "Jane",
       "lastName": "Shepard",
      "password": {
         "password": "badbeachxxx"
       },
       "advisor": {
-        "lecturerID": 100031,
+        "lecturerID": {
+                "id": "100031"
+              },
         "firstName": "Lara",
         "lastName": "Croft"
       },
@@ -167,14 +182,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121678,
+      "studentID": {
+        "id": "150121678"
+      },
       "firstName": "Alan",
       "lastName": "Wake",
       "password": {
         "password": "Oz+cD$$!-"
       },
       "advisor": {
-        "lecturerID": 100031,
+        "lecturerID": {
+                "id": "100031"
+              },
         "firstName": "Lara",
         "lastName": "Croft"
       },
@@ -192,14 +211,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121679,
+      "studentID": {
+        "id": "150121679"
+      },
       "firstName": "Chloe",
       "lastName": "Price",
       "password": {
         "password": "password"
       },
       "advisor": {
-        "lecturerID": 100545,
+        "lecturerID": {
+          "id": "100545"
+        },
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
@@ -232,14 +255,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121680,
+      "studentID": {
+        "id": "150121680"
+      },
       "firstName": "Max",
       "lastName": "Payne",
       "password": {
         "password": "IAmTheBEST!!!"
       },
       "advisor": {
-        "lecturerID": 100545,
+        "lecturerID": {
+          "id": "100545"
+        },
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
@@ -264,14 +291,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121681,
+      "studentID": {
+        "id": "150121681"
+      },
       "firstName": "Jenevelle",
       "lastName": "Hallowleaf",
       "password": {
         "password": "jenevellehallowleaf"
       },
       "advisor": {
-        "lecturerID": 100545,
+        "lecturerID": {
+          "id": "100545"
+        },
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
@@ -311,14 +342,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121682,
+      "studentID": {
+        "id": "150121682"
+      },
       "firstName": "Wyll",
       "lastName": "Ravengard",
       "password": {
         "password": "00zero0zerozero"
       },
       "advisor": {
-        "lecturerID": 100545,
+        "lecturerID": {
+          "id": "100545"
+        },
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
@@ -358,14 +393,18 @@
       "approvedCourses": []
     },
     {
-      "studentID": 150121683,
+      "studentID": {
+        "id": "150121683"
+      },
       "firstName": "Alyx",
       "lastName": "Vance",
       "password": {
         "password": "qwerty"
       },
       "advisor": {
-        "lecturerID": 100545,
+        "lecturerID": {
+          "id": "100545"
+        },
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
@@ -405,4 +444,3 @@
       "approvedCourses": []
     }
   ]
-}

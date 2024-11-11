@@ -1,5 +1,4 @@
-{
-  "advisors": [
+[
     {
       "lecturerID": {
                 "id": "100031"
@@ -227,4 +226,3 @@
       "awaitingStudents": []
     }
   ]
-}
