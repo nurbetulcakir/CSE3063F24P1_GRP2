@@ -46,6 +46,8 @@ public class UserInterface {
                         advisorFound = true;  // Advisor found
                         if (oc.advisors.get(i).getPassword().getPassword().equals(passwordInput)) {
                             // Login success
+                        	AdvisorInterface ai = new AdvisorInterface();
+                        	ai.run();
                             break outerloop;
                         } else {
                             System.out.println("Id or password is wrong. Please try again.");
