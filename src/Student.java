@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class Student extends Person {
     // Attributes
     private ID studentID;
-    private Advisor advisor = null;
+    private Advisor advisor=null;
     private int term;
     private ArrayList<Course> passedCourses = new ArrayList<Course>();
-    private ArrayList<Course> failedCourses = new ArrayList<Course>();
     private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>();
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
+    private ArrayList<Course> failedCourses = new ArrayList<Course>();
     
     // Constructor
     public Student(ID studentID, String firstName, String lastName, Password password,
@@ -34,7 +34,7 @@ public class Student extends Person {
     }
     
     public Student(ID studentID, String firstName, String lastName) {
-    	super(firstName, lastName);
+    	super(lastName, lastName);
     	this.setStudentID(studentID);
     }
     
@@ -67,14 +67,14 @@ public class Student extends Person {
    	for(int i = 0; i < this.chosenCourses.size(); i++) {
    		
    		schedule.concat("Course Name:" + this.chosenCourses.get(i).getCourse().getCourseName() + ", Course Section No: " + this.chosenCourses.get(i).getSectionID() +
-   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + " -" + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");
+   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + "-" + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");
        
    		}
    	
 		return null;
    }
    
-   public void sendToApprove() {
+   public void sendForApproval() {
    	// later
    }
 
@@ -99,8 +99,9 @@ public class Student extends Person {
         System.out.println("First Name: " + this.getAdvisor().getFirstName());
         System.out.println("Last Name: " + this.getAdvisor().getLastName());
         System.out.println("Given Courses:");
-        for (int i = 0; i < this.getAdvisor().getGivenCourses().size(); i++) {
+        for (int i = 0; i < 5; i++) {
         	System.out.println(this.getAdvisor().getGivenCourses().get(i).getCourseName());
+        		break;
         }
 	}
 
@@ -119,6 +120,13 @@ public class Student extends Person {
 	public void setPassedCourses(ArrayList<Course> passedCourses) {
 		this.passedCourses = passedCourses;
 	}
+	
+	public ArrayList<Course> getFailedCourses() {
+		return failedCourses;
+	}
+	public void setFailedCourses(ArrayList<Course> failedCourses) {
+		this.failedCourses = failedCourses;
+	}
 
 	public ArrayList<CourseSection> getChosenCourses() {
 		return chosenCourses;
@@ -134,14 +142,6 @@ public class Student extends Person {
 
 	public void setApprovedCourses(ArrayList<CourseSection> approvedCourses) {
 		this.approvedCourses = approvedCourses;
-	}
-
-	public ArrayList<Course> getFailedCourses() {
-		return failedCourses;
-	}
-
-	public void setFailedCourses(ArrayList<Course> failedCourses) {
-		this.failedCourses = failedCourses;
 	}
 
    }

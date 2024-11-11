@@ -27,6 +27,7 @@ public class Advisor extends Lecturer {
 	
 	public void setStudentList(ArrayList<Student> studentList) {
 		this.studentList = studentList;
+		Advisor.studentList = studentList;
 	}
 	
 	/*public ArrayList<Student> getAwaitingStudents() {
@@ -53,5 +54,12 @@ public class Advisor extends Lecturer {
 			}
 		}
 		
+	}
+	
+	public ID getAdvisorID() {
+		return advisorID;
+	}
+	public void setAdvisorID(ID advisorID) {
+		this.advisorID = advisorID;
 	}
 }

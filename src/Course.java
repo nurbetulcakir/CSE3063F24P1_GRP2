@@ -62,4 +62,7 @@ public class Course {
 	public void setCourseLetterGrade(String courseLetterGrade) {
 		this.courseLetterGrade = courseLetterGrade;
 	}
+    
+    
+    
 }

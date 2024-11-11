@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class StudentInterface {
-	int currentStudentsElement;
-	int currentTranscriptsElement;
+	int currentStudentsIndex;
+	int currentTranscriptsIndex;
 	public void run() {
 		Scanner scanner = new Scanner(System.in);
         WhileLoop:
@@ -18,14 +18,14 @@ public class StudentInterface {
             
             for (int i = 0; i < 10; i++) {
             	if (ObjectCreator.students.get(i).getStudentID().getId() == UserInterface.userIdInput) {
-            		currentStudentsElement = i;
+            		currentStudentsIndex = i;
             		break;
             	}
             }
             
             for (int i = 0; i < 10; i++) {
             	if (ObjectCreator.transcripts.get(i).getStudentID().getId() == UserInterface.userIdInput) {
-            		currentTranscriptsElement = i;
+            		currentTranscriptsIndex = i;
             		break;
             	}
             }
@@ -35,23 +35,25 @@ public class StudentInterface {
 
             switch (choice) {
                 case 1:
+                	ObjectCreator.students.get(currentStudentsIndex).viewSchedule();
                     break;
                 case 2:
-                	ObjectCreator.transcripts.get(currentTranscriptsElement).viewTranscript();
+                	ObjectCreator.transcripts.get(currentTranscriptsIndex).viewTranscript();
                     break;
                 case 3:
-                	ObjectCreator.students.get(currentStudentsElement).viewAdvisor();
+                	ObjectCreator.students.get(currentStudentsIndex).viewAdvisor();
                     break;
                 case 4:
                     break;
                 case 5:
+                	ObjectCreator.students.get(currentStudentsIndex).sendForApproval();
                     break;
                 case 6:
                 	System.out.println("Logging out...");
                 	UserInterface.userIdInput = "";
                 	UserInterface.passwordInput = "";
-                	currentStudentsElement = 0;
-                	currentTranscriptsElement = 0;
+                	currentStudentsIndex = 0;
+                	currentTranscriptsIndex = 0;
                     break WhileLoop;
                 default:
                     System.out.println("Invalid option. Please try again.");
