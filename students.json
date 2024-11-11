@@ -15,7 +15,7 @@
         "firstName": "Lara",
         "lastName": "Croft"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -47,6 +47,7 @@
                   "prerequisiteCourse": []
         }
       ],
+      "failedCourses": [],
       "chosenCourses": [],
       "approvedCourses": [] 
     },
@@ -66,7 +67,7 @@
         "firstName": "Lara",
         "lastName": "Croft"
       },
-      "term": "5",
+      "term": 5,
      "passedCourses": [
         {
           "courseID": {
@@ -98,6 +99,7 @@
                   "prerequisiteCourse": []
         }
       ],
+      "failedCourses": [],
       "chosenCourses": [],
       "approvedCourses": []
     },
@@ -117,7 +119,7 @@
         "firstName": "Lara",
         "lastName": "Croft"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -139,6 +141,15 @@
                     "id": "CSE1242"
                   },
                   "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
                   "prerequisiteCourse": []
         }
       ],
@@ -161,7 +172,7 @@
         "firstName": "Lara",
         "lastName": "Croft"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -176,6 +187,23 @@
                   },
                   "CourseName": "Probability and Statistics for Computer Engineering",
                   "prerequisiteCourse": []
+        }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
         }
       ],
       "chosenCourses": [],
@@ -197,7 +225,7 @@
         "firstName": "Lara",
         "lastName": "Croft"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -205,6 +233,30 @@
                   },
                   "CourseName": "Probability and Statistics for Computer Engineering",
                   "prerequisiteCourse": []
+        }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
         }
       ],
       "chosenCourses": [],
@@ -226,7 +278,7 @@
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -248,6 +300,15 @@
                     "id": "CSE1242"
                   },
                   "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
                   "prerequisiteCourse": []
         }
       ],
@@ -270,7 +331,7 @@
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -285,6 +346,23 @@
                   },
                   "CourseName": "Probability and Statistics for Computer Engineering",
                   "prerequisiteCourse": []
+        }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
         }
       ],
       "chosenCourses": [],
@@ -306,7 +384,7 @@
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -338,6 +416,7 @@
                   "prerequisiteCourse": []
         }
       ],
+      "failedCourses": [],
       "chosenCourses": [],
       "approvedCourses": []
     },
@@ -357,7 +436,7 @@
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -389,6 +468,7 @@
                   "prerequisiteCourse": []
         }
       ],
+      "failedCourses": [],
       "chosenCourses": [],
       "approvedCourses": []
     },
@@ -408,7 +488,7 @@
         "firstName": "Arthur",
         "lastName": "Morgan"
       },
-      "term": "5",
+      "term": 5,
       "passedCourses": [
         {
           "courseID": {
@@ -440,6 +520,7 @@
                   "prerequisiteCourse": []
         }
       ],
+      "failedCourses": [],
       "chosenCourses": [],
       "approvedCourses": []
     }

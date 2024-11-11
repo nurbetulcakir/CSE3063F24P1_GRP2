@@ -20,6 +20,30 @@
                   "courseCredit": 5.0,
                   "courseLetterGrade": "BB"
         }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        }
       ]     
   }
 ]

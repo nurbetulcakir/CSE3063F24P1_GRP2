@@ -13,68 +13,78 @@
           "courseID": {
                 "id": "CSE3055"
               },
-              "CourseName": "Database Systems",
+              "courseName": "Database Systems",
               "prerequisiteCourse":[
                 {
                   "courseID": {
                     "id": "CSE2225"
                   },
-                  "CourseName": "Data Structures",
+                  "courseName": "Data Structures",
                   "prerequisiteCourse": [
                     {
                       "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
+                  "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                     }
                   ]
                 }
-              ]
+              ],
+              "courseTerm": 5,
+              "courseCredit": 7.0
         },
         {
           "courseID": {
                     "id": "CSE4074"
                   },
-                  "CourseName": "Computer Networks",
-                  "prerequisiteCourse": []
+                  "courseName": "Computer Networks",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 7,
+                  "courseCredit": 5.0
         },
         {
           "courseID": {
                     "id": "STAT2253"
                   },
-                  "CourseName": "Probability and Statistics for Computer Engineering",
-                  "prerequisiteCourse": []
+                  "courseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 4,
+                  "courseCredit": 5.0
         },
         {
           "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
-                  "prerequisiteCourse": []
+                  "courseName": "Computer Programming II",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 2,
+                  "courseCredit": 6.0
         },
         {
           "courseID": {
                 "id": "CSE3033"
               },
-              "CourseName": "Operating Systems",
+              "courseName": "Operating Systems",
               "prerequisiteCourse":[
                 {
                   "courseID": {
                     "id": "CSE2225"
                   },
-                  "CourseName": "Data Structures",
+                  "courseName": "Data Structures",
                   "prerequisiteCourse": [
                     {
                       "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
+                  "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                     }
                   ]
                 }
-              ]
+              ],
+              "courseTerm": 5,
+              "courseCredit": 7.0
         }
       ],
       "studentList": [
@@ -130,60 +140,70 @@
           "courseID": {
                 "id": "CSE2225"
               },
-              "CourseName": "Data Structures",
+              "courseName": "Data Structures",
               "prerequisiteCourse":[
                 {
                   "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
+                  "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                 }
-              ]
+              ],
+              "courseTerm": 3,
+              "courseCredit": 7.0
         },
         {
           "courseID": {
                     "id": "CSE4288"
                   },
-                  "CourseName": "Introduction to Machine Learning",
+                  "courseName": "Introduction to Machine Learning",
                   "prerequisiteCourse": [
                     {
                       "courseID": {
                     "id": "STAT2253"
                   },
-                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "courseName": "Probability and Statistics for Computer Engineering",
                   "prerequisiteCourse": []
                     }
-                  ]
+                  ],
+                  "courseTerm": 7,
+                  "courseCredit": 5.0
         },
         {
           "courseID": {
                     "id": "IE3081"
                   },
-                  "CourseName": "Modeling and Discrete Simulation",
-                  "prerequisiteCourse": []
+                  "courseName": "Modeling and Discrete Simulation",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 5,
+                  "courseCredit": 4.0
         },
         {
           "courseID": {
                     "id": "CSE3063"
                   },
-                  "CourseName": "Object-Oriented Software Design",
+                  "courseName": "Object-Oriented Software Design",
                   "prerequisiteCourse": [
                     {
                       "courseID": {
                       "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
+                  "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                     }
-                  ]
+                  ],
+                  "courseTerm": 5,
+                  "courseCredit": 5.0
         },
         {
           "courseID": {
                     "id": "CSE3215"
                   },
-                  "CourseName": "Digital Logic Design",
-                  "prerequisiteCourse": []
+                  "courseName": "Digital Logic Design",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 5,
+                  "courseCredit": 6.0
         }
       ],
       "studentList": [

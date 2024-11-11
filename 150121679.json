@@ -38,6 +38,15 @@
                   "courseCredit": 6.0,
                   "courseLetterGrade": "CB"
         }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
+        }
       ]      
   }
 ]
