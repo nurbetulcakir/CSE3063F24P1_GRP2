@@ -3,9 +3,10 @@ import java.util.ArrayList;
 public class Student extends Person {
     // Attributes
     private ID studentID;
-    private Advisor advisor;
+    private Advisor advisor = null;
     private int term;
     private ArrayList<Course> passedCourses = new ArrayList<Course>();
+    private ArrayList<Course> failedCourses = new ArrayList<Course>();
     private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>();
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
     
@@ -21,7 +22,7 @@ public class Student extends Person {
     
     public Student(ID studentID, String firstName, String lastName, Password password,
     		Advisor advisor, int term, ArrayList<Course> passedCourses, ArrayList<CourseSection> chosenCourses,
-    		ArrayList<CourseSection> approvedCourses) {
+    		ArrayList<CourseSection> approvedCourses, ArrayList<Course> failedCourses) {
         super(firstName, lastName, password);
         this.setStudentID(studentID);
         this.setAdvisor(advisor);
@@ -29,6 +30,7 @@ public class Student extends Person {
         this.setPassedCourses(passedCourses);
         this.setChosenCourses(chosenCourses);
         this.setApprovedCourses(approvedCourses);
+        this.setFailedCourses(failedCourses);
     }
     
     public Student(ID studentID, String firstName, String lastName) {
@@ -132,6 +134,14 @@ public class Student extends Person {
 
 	public void setApprovedCourses(ArrayList<CourseSection> approvedCourses) {
 		this.approvedCourses = approvedCourses;
+	}
+
+	public ArrayList<Course> getFailedCourses() {
+		return failedCourses;
+	}
+
+	public void setFailedCourses(ArrayList<Course> failedCourses) {
+		this.failedCourses = failedCourses;
 	}
 
    }

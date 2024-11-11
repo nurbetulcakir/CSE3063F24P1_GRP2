@@ -14,7 +14,7 @@ public class Advisor extends Lecturer {
 		return studentList;
 	}
 	public void setStudentList(ArrayList<Student> studentList) {
-		this.studentList = studentList;
+		Advisor.studentList = studentList;
 	}
 	public ArrayList<Student> getAwaitingStudents() {
 		return awaitingStudents;
@@ -30,6 +30,12 @@ public class Advisor extends Lecturer {
 	public void ViewAdvisorInfo() {
 		// TODO Auto-generated method stub
 		
+	}
+	public ID getAdvisorID() {
+		return advisorID;
+	}
+	public void setAdvisorID(ID advisorID) {
+		this.advisorID = advisorID;
 	}
 	
 }

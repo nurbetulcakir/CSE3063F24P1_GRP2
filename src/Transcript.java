@@ -59,6 +59,30 @@ public class Transcript extends Student{
         	System.out.println();
 		}
 	}
+	
+	public void viewSuccessfulCourses() {
+		
+		System.out.println("Succesful Courses: ");
+		
+		for (int i = 0; i < super.getPassedCourses().size(); i++) {
+			System.out.println(super.getPassedCourses().get(i).getCourseName() +
+					" - " + super.getPassedCourses().get(i).getCourseLetterGrade());
+		}
+		
+	}
+	
+	public void viewFailedCourses() {
+		
+		System.out.println("Failed Courses: ");
+		
+		for (int i = 0; i < super.getFailedCourses().size(); i++) {
+			
+			System.out.println(super.getFailedCourses().get(i).getCourseName() +
+					" - " + super.getFailedCourses().get(i).getCourseLetterGrade());
+			
+		}
+		
+	}
 
 	public double getGpa() {
 		return gpa;

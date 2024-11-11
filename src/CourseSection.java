@@ -41,7 +41,7 @@ public class CourseSection{
 		this.enrolledStudents = enrolledStudents;
 	}
 	public int getCapacity() {
-		return capacity;
+		return this.capacity;
 	}
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
