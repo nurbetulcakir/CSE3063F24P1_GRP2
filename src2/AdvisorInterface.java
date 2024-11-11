@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class AdvisorInterface {
-    private int currentAdvisorIndex;
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +15,7 @@ public class AdvisorInterface {
 
             for (int i = 0; i < ObjectCreator.advisors.size(); i++) {
                 if (ObjectCreator.advisors.get(i).getLecturerID().getId().equals(UserInterface.userIdInput)) {
-                    currentAdvisorIndex = i;
+                    StudentInterface.currentAdvisorsIndex = i;
                     break;
                 }
             }
@@ -26,19 +25,21 @@ public class AdvisorInterface {
 
             switch (choice) {
                 case 1:
-                	ObjectCreator.advisors.get(currentAdvisorIndex).viewStudentList();
+                	ObjectCreator.advisors.get(StudentInterface.currentAdvisorsIndex).viewStudentList();
                     break;
                 case 2:
 
                     break;
                 case 3:
-                    ObjectCreator.advisors.get(currentAdvisorIndex).ViewAdvisorInfo();
+                    ObjectCreator.advisors.get(StudentInterface.currentAdvisorsIndex).ViewAdvisorInfo();
                     break;
                 case 4:
-                    System.out.println("Logging out...");
-                    UserInterface.userIdInput = "";
-                    UserInterface.passwordInput = "";
-                    currentAdvisorIndex = 0;
+                	System.out.println("Logging out...");
+                	UserInterface.userIdInput = "";
+                	UserInterface.passwordInput = "";
+                	StudentInterface.currentStudentsIndex = 999;
+                	StudentInterface.currentTranscriptsIndex = 999;
+                	StudentInterface.currentAdvisorsIndex = 999;
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please try again.");

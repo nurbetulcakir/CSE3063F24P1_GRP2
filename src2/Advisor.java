@@ -33,11 +33,9 @@ public class Advisor extends Lecturer {
 	}
 	public void viewStudentList() {
 		for (int i = 0; i < ObjectCreator.students.size();i++) {
-			if (this.advisorID == ObjectCreator.students.get(i).getAdvisor().getLecturerID()) {
-				System.out.println("ID:" + ObjectCreator.students.get(i).getStudentID()); 
-				System.out.println("First Name:" + ObjectCreator.students.get(i).getFirstName());
-				System.out.println("Last Name:" + ObjectCreator.students.get(i).getLastName() + "\n");
-			}
+				System.out.println("ID: " + ObjectCreator.students.get(i).getStudentID().getId()); 
+				System.out.println("First Name: " + ObjectCreator.students.get(i).getFirstName());
+				System.out.println("Last Name: " + ObjectCreator.students.get(i).getLastName() + "\n");
 		}
 	}
 	
