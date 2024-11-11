@@ -8,12 +8,13 @@ public class Course {
     private double courseCredit;
     private String courseLetterGrade;
     // Constructor
-    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm, double courseCredit) {
+    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm, double courseCredit, String courseLetterGrade) {
         this.setCourseID(courseID);
         this.setCourseName(courseName);
         this.prerequisiteCourse = new ArrayList<>();
         this.courseTerm = courseTerm;
         this.courseCredit = courseCredit;
+        this.courseLetterGrade = courseLetterGrade;
     }
     
     public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse) {

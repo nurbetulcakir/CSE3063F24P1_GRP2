@@ -4,9 +4,9 @@ public class ObjectCreator {
 	 static ArrayList<Student> students;
      static ArrayList<Advisor> advisors;
      static ArrayList<Course> courses;
-     static ArrayList<Transcript> transcripts;
-
-	
+     static ArrayList<Transcript> transcripts = new ArrayList<Transcript>();
+    
+     
 	public void createObjects() {
 		// File paths for the JSON files
         String studentFilePath = "students.json";
@@ -37,7 +37,5 @@ public class ObjectCreator {
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath8));
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath9));
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath10));
-
-
 	}
 }

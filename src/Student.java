@@ -61,20 +61,15 @@ public class Student extends Person {
 		return isPassed;
     }
    
-   public String viewSchedule() {
-   	
-   	String schedule = "";
-   	for(int i = 0; i < this.chosenCourses.size(); i++) {
-   		
-   		schedule.concat("Course Name:" + this.chosenCourses.get(i).getCourse().getCourseName() + ", Course Section No: " + this.chosenCourses.get(i).getSectionID() +
-   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + " - " + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");
-       
-   		}
-   	
-		return null;
+   public void viewSchedule() {
+	   String schedule = "";
+	   for(int i = 0; i < this.chosenCourses.size(); i++) {
+		   schedule.concat("Course Name:" + this.chosenCourses.get(i).getCourse().getCourseName() + ", Course Section No: " + this.chosenCourses.get(i).getSectionID() +
+	   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + " - " + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");		
+	   }
    }
    
-   public void sendToApprove() {
+   public void sendForApproval() {
    	// later
    }
 
@@ -101,6 +96,7 @@ public class Student extends Person {
         System.out.println("Given Courses:");
         for (int i = 0; i < this.getAdvisor().getGivenCourses().size(); i++) {
         	System.out.println(this.getAdvisor().getGivenCourses().get(i).getCourseName());
+        		break;
         }
 	}
 

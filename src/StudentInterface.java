@@ -33,33 +33,32 @@ public class StudentInterface {
 			    int choice = scanner.nextInt(); 
 			    scanner.nextLine(); // Consume newline
 
-			    switch (choice) {
-			        case 1:
-			        	ObjectCreator.students.get(currentStudentsIndex).viewSchedule();
-			            break;
-			        case 2:
-			        	ObjectCreator.transcripts.get(currentTranscriptsIndex).viewTranscript();
-			            break;
-			        case 3:
-			        	ObjectCreator.students.get(currentStudentsIndex).viewAdvisor();
-			            break;
-			        case 4:
-			            break;
-			        case 5:
-			        	ObjectCreator.students.get(currentStudentsIndex).sendToApprove();
-			            break;
-			        case 6:
-			        	System.out.println("Logging out...");
-			        	UserInterface.userIdInput = "";
-			        	UserInterface.passwordInput = "";
-			        	currentStudentsIndex = 0;
-			        	currentTranscriptsIndex = 0;
-			            break WhileLoop;
-			        default:
-			            System.out.println("Invalid option. Please try again.");
-			    }
-			}
-		}
+            switch (choice) {
+                case 1:
+                	ObjectCreator.students.get(currentStudentsIndex).viewSchedule();
+                    break;
+                case 2:
+                	ObjectCreator.transcripts.get(currentTranscriptsIndex).viewTranscript();
+                    break;
+                case 3:
+                	ObjectCreator.students.get(currentStudentsIndex).viewAdvisor();
+                    break;
+                case 4:
+                    break;
+                case 5:
+                	ObjectCreator.students.get(currentStudentsIndex).sendForApproval();
+                    break;
+                case 6:
+                	System.out.println("Logging out...");
+                	UserInterface.userIdInput = "";
+                	UserInterface.passwordInput = "";
+                	currentStudentsIndex = 0;
+                	currentTranscriptsIndex = 0;
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
+      }
 	}
-	
 }

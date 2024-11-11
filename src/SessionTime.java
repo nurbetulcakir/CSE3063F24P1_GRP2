@@ -1,7 +1,7 @@
 public class SessionTime extends CourseSection{
     // Attributes
-    private String startDateTime;
-    private String endDateTime;
+	private String startDateTime;
+	private String endDateTime;
     private String classroom;
     // Constructor    
     public SessionTime(int sectionID, Course course, int capacity, String startDateTime, String endDateTime, String classroom) {
@@ -13,17 +13,17 @@ public class SessionTime extends CourseSection{
     // Method to check if the session time is valid
     public boolean isValidSession() {
         // Checks if startDateTime is before endDateTime
-        return true; //startDateTime.isBefore(endDateTime);
+    	return true; //startDateTime.isBefore(endDateTime);
     }
-
+    
     public String getStartTime() {
     	return this.startDateTime;
     }
-
+    
     public String getEndTime() {
     	return this.endDateTime;
     }
-	public String getClassroom() {
+    public String getClassroom() {
 		return classroom;
 	}
 	public void setClassroom(String classroom) {
