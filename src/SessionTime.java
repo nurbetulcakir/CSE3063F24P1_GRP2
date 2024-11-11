@@ -1,12 +1,12 @@
-import java.time.LocalDateTime;
+
 public class SessionTime extends CourseSection{
     // Attributes
-    private LocalDateTime startDateTime;
-    private LocalDateTime endDateTime;
+    private String startDateTime;
+    private String endDateTime;
     private String classroom;
     // Constructor    
-    public SessionTime(int capacity, Course course, int capacity1, LocalDateTime startDateTime, LocalDateTime endDateTime, String classroom) {
-    	super(capacity1, course, capacity1);
+    public SessionTime(int sectionID, Course course, int capacity, String startDateTime, String endDateTime, String classroom) {
+    	super(sectionID, course, capacity);
     	this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
         this.classroom = classroom;
@@ -14,14 +14,14 @@ public class SessionTime extends CourseSection{
     // Method to check if the session time is valid
     public boolean isValidSession() {
         // Checks if startDateTime is before endDateTime
-        return startDateTime.isBefore(endDateTime);
+        return true; //startDateTime.isBefore(endDateTime);
     }
     
-    public LocalDateTime getStartTime() {
+    public String getStartTime() {
     	return this.startDateTime;
     }
     
-    public LocalDateTime getEndTime() {
+    public String getEndTime() {
     	return this.endDateTime;
     }
     

@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class StudentInterface {
-	String currentStudentID;
 	int currentStudentsElement;
 	int currentTranscriptsElement;
 	public void run() {

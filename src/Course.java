@@ -5,12 +5,15 @@ public class Course {
     private String courseName;
     private ArrayList<Course> prerequisiteCourse = new ArrayList<Course>();
     private int courseTerm;
+    private double courseCredit;
+    private String courseLetterGrade;
     // Constructor
-    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm) {
+    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm, double courseCredit) {
         this.setCourseID(courseID);
         this.setCourseName(courseName);
         this.prerequisiteCourse = new ArrayList<>();
         this.courseTerm = courseTerm;
+        this.courseCredit = courseCredit;
     }
     
     public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse) {
@@ -45,7 +48,18 @@ public class Course {
 	public void setCourseTerm(int courseTerm) {
 		this.courseTerm = courseTerm;
 	}
-    
-    
-    
+	public double getCourseCredit() {
+		return courseCredit;
+	}
+	public void setCourseCredit(double courseCredit) {
+		this.courseCredit = courseCredit;
+	}
+
+	public String getCourseLetterGrade() {
+		return courseLetterGrade;
+	}
+
+	public void setCourseLetterGrade(String courseLetterGrade) {
+		this.courseLetterGrade = courseLetterGrade;
+	}
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Transcript extends Student{
 	
@@ -10,7 +11,7 @@ public class Transcript extends Student{
 	
 	public Transcript(ID StudentID, String firstName, String lastName, double gpa,
 			double cpga, int creditReceived, int creditEarned, int totalCreditReceived,
-			int totalCreditEarned) {
+			int totalCreditEarned, ArrayList<Course> passedCourses) {
 		
 		super(StudentID, firstName, lastName);
 		this.setGpa(gpa);
@@ -19,7 +20,23 @@ public class Transcript extends Student{
 		this.setCreditEarned(creditEarned);
 		this.setTotalCreditReceived(totalCreditReceived);
 		this.setTotalCreditEarned(totalCreditEarned);
+		this.setPassedCourses(passedCourses);
 		
+		
+	}
+	
+	public Transcript(ID StudentID, String firstName, String lastName, double gpa,
+			double cpga, int creditReceived, int creditEarned, ArrayList<Course> passedCourses, ArrayList<String> courseLetterGrade) {
+		
+		super(StudentID, firstName, lastName);
+		this.setGpa(gpa);
+		this.setCpga(cpga);
+		this.setCreditReceived(creditReceived);
+		this.setCreditEarned(creditEarned);
+		super.setPassedCourses(passedCourses);
+		for(int i=0; i<super.getPassedCourses().size(); i++) {
+			super.getPassedCourses().get(i).setCourseLetterGrade(courseLetterGrade.get(i));
+		}
 		
 	}
 	
@@ -27,14 +44,20 @@ public class Transcript extends Student{
 	public void viewTranscript() {
 		System.out.println("Transcript Details:");
         System.out.println("Student ID: " + super.getStudentID());
+        System.out.println("Current Term: " + super.getTerm());
         System.out.println("First Name: " + super.getFirstName());
         System.out.println("Last Name: " + super.getLastName());
         System.out.println("GPA: " + gpa);
         System.out.println("CGPA: " + cpga);
         System.out.println("Credits Received: " + creditReceived);
         System.out.println("Credits Earned: " + creditEarned);
-        System.out.println("Total Credits Received: " + totalCreditReceived);
-        System.out.println("Total Credits Earned: " + totalCreditEarned);
+        System.out.println("Passed Courses: ");
+        for(int i=0; i<super.getPassedCourses().size(); i++) {
+        	System.out.println("Course ID: " + super.getPassedCourses().get(i).getCourseID().getId());
+        	System.out.println("Course Name: " + super.getPassedCourses().get(i).getCourseName());
+        	System.out.println("Final Letter Grade: " + super.getPassedCourses().get(i).getCourseLetterGrade());
+        	System.out.println();
+		}
 	}
 
 	public double getGpa() {
