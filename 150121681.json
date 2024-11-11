@@ -1,0 +1,49 @@
+[
+  {
+    "studentID": {
+        "id": "150121681"
+      },
+      "firstName": "Jenevelle",
+      "lastName": "Hallowleaf",
+    "gpa": 3.02,
+    "cgpa": 2.29,
+    "creditReceived": 18,
+    "creditEarned": 18,
+    "passedCourses": [
+        {
+          "courseID": {
+                "id": "CSE2225"
+              },
+              "CourseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
+        }
+      ],
+    "courseLetterGrade": [
+        "CB",
+        "CC",
+        "BB"
+    ]        
+  }
+]

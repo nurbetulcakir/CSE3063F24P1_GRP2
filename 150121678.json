@@ -1,0 +1,25 @@
+[
+  {
+    "studentID": {
+        "id": "150121678"
+      },
+      "firstName": "Alan",
+      "lastName": "Wake",
+    "gpa": 1.88,
+    "cgpa": 2.61,
+    "creditReceived": 5,
+    "creditEarned": 5,
+    "passedCourses": [
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
+        }
+      ],
+    "courseLetterGrade": [
+        "BB"
+    ]        
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "studentID": {
+        "id": "150121680"
+      },
+      "firstName": "Max",
+      "lastName": "Payne",
+    "gpa": 1.42,
+    "cgpa": 1.80,
+    "creditReceived": 11,
+    "creditEarned": 11,
+    "passedCourses": [
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
+        }
+      ],
+    "courseLetterGrade": [
+        "DC",
+        "BA"
+    ]        
+  }
+]

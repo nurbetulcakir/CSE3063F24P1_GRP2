@@ -1,0 +1,33 @@
+[
+  {
+    "studentID": {
+        "id": "150121677"
+      },
+      "firstName": "Jane",
+      "lastName": "Shepard",
+    "gpa": 1.94,
+    "cgpa": 3.89,
+    "creditReceived": 11,
+    "creditEarned": 11,
+    "passedCourses": [
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "CourseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
+        }
+      ],
+    "courseLetterGrade": [
+        "CC",
+        "CB"
+    ]        
+  }
+]
