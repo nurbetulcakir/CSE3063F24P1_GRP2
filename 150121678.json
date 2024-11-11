@@ -14,12 +14,12 @@
           "courseID": {
                     "id": "STAT2253"
                   },
-                  "CourseName": "Probability and Statistics for Computer Engineering",
-                  "prerequisiteCourse": []
+                  "courseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 4,
+                  "courseCredit": 5.0,
+                  "courseLetterGrade": "BB"
         }
-      ],
-    "courseLetterGrade": [
-        "BB"
-    ]        
+      ]     
   }
 ]

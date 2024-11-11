@@ -14,36 +14,40 @@
           "courseID": {
                 "id": "CSE2225"
               },
-              "CourseName": "Data Structures",
+              "courseName": "Data Structures",
               "prerequisiteCourse":[
                 {
                   "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
+                  "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                 }
-              ]
+              ],
+              "courseTerm": 3,
+              "courseCredit": 7.0,
+              "courseLetterGrade": "AA"
         },
         {
           "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
-                  "prerequisiteCourse": []
+                  "courseName": "Computer Programming II",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 2,
+                  "courseCredit": 6.0,
+                  "courseLetterGrade": "AA"
         },
         {
           "courseID": {
                     "id": "STAT2253"
                   },
-                  "CourseName": "Probability and Statistics for Computer Engineering",
-                  "prerequisiteCourse": []
+                  "courseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 4,
+                  "courseCredit": 5.0,
+                  "courseLetterGrade": "AA"
         }
-      ],
-      "courseLetterGrade": [
-          "AA",
-          "AA",
-          "AA"
-      ]        
+      ]     
     }
 ]

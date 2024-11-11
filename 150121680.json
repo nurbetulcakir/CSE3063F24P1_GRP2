@@ -14,20 +14,22 @@
           "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
-                  "prerequisiteCourse": []
+                  "courseName": "Computer Programming II",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 2,
+                  "courseCredit": 6.0,
+                  "courseLetterGrade": "DC"
         },
         {
           "courseID": {
                     "id": "STAT2253"
                   },
-                  "CourseName": "Probability and Statistics for Computer Engineering",
-                  "prerequisiteCourse": []
+                  "courseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 4,
+                  "courseCredit": 5.0,
+                  "courseLetterGrade": "BA"
         }
-      ],
-    "courseLetterGrade": [
-        "DC",
-        "BA"
-    ]        
+      ]       
   }
 ]
