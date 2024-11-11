@@ -88,6 +88,7 @@ public class UserInterface {
                 System.out.println("Invalid id or password");
             }
         }
+        input1.close();
     }
 
     public CourseRegistrationSystem getCrs() {
