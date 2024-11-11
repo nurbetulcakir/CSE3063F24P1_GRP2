@@ -35,6 +35,46 @@ public class Student extends Person {
     	super(lastName, lastName);
     	this.setStudentID(studentID);
     }
+    
+   public boolean isPrerequisiteCoursesPassed(Course course) {
+    	
+    	boolean isPassed= false;
+    	int temp = 0;
+    	
+    	for(int i = 0; i < course.viewPrerequisiteCourses().size(); i++) {
+    		
+    	if (this.passedCourses.contains(course.viewPrerequisiteCourses().get(i))){
+    		temp++;
+    		
+    		}
+    	}
+    	
+	    	if (temp == course.viewPrerequisiteCourses().size()) {
+	    		isPassed = true;
+	    	}
+	    	else {
+	    		isPassed = false;
+	    	}
+    	
+		return isPassed;
+    }
+   
+   public String viewSchedule() {
+   	
+   	String schedule = "";
+   	for(int i = 0; i < this.chosenCourses.size(); i++) {
+   		
+   		schedule.concat("Course Name:" + this.chosenCourses.get(i).getCourse().getCourseName() + ", Course Section No: " + this.chosenCourses.get(i).getSectionID() +
+   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + "-" + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");
+       
+   		}
+   	
+		return null;
+   }
+   
+   public void sendToApprove() {
+   	// later
+   }
 
 	public ID getStudentID() {
 		return studentID;
@@ -56,12 +96,11 @@ public class Student extends Person {
 		System.out.println("Advisor Details:");
         System.out.println("First Name: " + this.getAdvisor().getFirstName());
         System.out.println("Last Name: " + this.getAdvisor().getLastName());
-        System.out.println("GPA: " + "");
-        System.out.println("CGPA: " + "");
-        System.out.println("Credits Received: " + "");
-        System.out.println("Credits Earned: " + "");
-        System.out.println("Total Credits Received: " + "");
-        System.out.println("Total Credits Earned: " + "");
+        System.out.println("Given Courses:");
+        for (int i = 0; i < 5; i++) {
+        	System.out.println(this.getAdvisor().getGivenCourses().get(i).getCourseName());
+        		break;
+        }
 	}
 
 	public int getTerm() {

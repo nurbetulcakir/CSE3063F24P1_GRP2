@@ -6,7 +6,8 @@ public class StudentInterface {
 	int currentTranscriptsElement;
 	public void run() {
 		Scanner scanner = new Scanner(System.in);
-        while (true) {
+        WhileLoop:
+		while (true) {
             System.out.println("Welcome to Information Management System! What would you like to do?");
             System.out.println("1. View schedule");
             System.out.println("2. View transcript");
@@ -17,14 +18,14 @@ public class StudentInterface {
             System.out.print("Please type the number of your selection: ");
             
             for (int i = 0; i < 10; i++) {
-            	if (ObjectCreator.students.get(i).getStudentID().getId() == currentStudentID) {
+            	if (ObjectCreator.students.get(i).getStudentID().getId() == UserInterface.userIdInput) {
             		currentStudentsElement = i;
             		break;
             	}
             }
             
             for (int i = 0; i < 10; i++) {
-            	if (ObjectCreator.transcripts.get(i).getStudentID().getId() == currentStudentID) {
+            	if (ObjectCreator.transcripts.get(i).getStudentID().getId() == UserInterface.userIdInput) {
             		currentTranscriptsElement = i;
             		break;
             	}
@@ -40,14 +41,19 @@ public class StudentInterface {
                 	ObjectCreator.transcripts.get(currentTranscriptsElement).viewTranscript();
                     break;
                 case 3:
-                	ObjectCreator.students.get(currentStudentsElement).getAdvisor();
+                	ObjectCreator.students.get(currentStudentsElement).viewAdvisor();
                     break;
                 case 4:
                     break;
                 case 5:
                     break;
                 case 6:
-                    return;
+                	System.out.println("Logging out...");
+                	UserInterface.userIdInput = "";
+                	UserInterface.passwordInput = "";
+                	currentStudentsElement = 0;
+                	currentTranscriptsElement = 0;
+                    break WhileLoop;
                 default:
                     System.out.println("Invalid option. Please try again.");
             }

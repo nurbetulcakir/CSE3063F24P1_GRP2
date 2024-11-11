@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class Advisor extends Lecturer {
     // Attributes
     private ArrayList<Student> studentList = new ArrayList<Student>();
@@ -22,7 +21,6 @@ public class Advisor extends Lecturer {
 	public void setAwaitingStudents(ArrayList<Student> awaitingStudents) {
 		this.awaitingStudents = awaitingStudents;
 	}
-
    
 	 
 	

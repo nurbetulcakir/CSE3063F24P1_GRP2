@@ -69,6 +69,8 @@ public class UserInterface {
                         studentFound = true;  // Student found
                         if (oc.students.get(i).getPassword().getPassword().equals(passwordInput)) {
                             // Login success
+                        	StudentInterface si = new StudentInterface();
+                        	si.run();
                             break outerloop;
                         } else {
                             System.out.println("Id or password is wrong. Please try again.");
