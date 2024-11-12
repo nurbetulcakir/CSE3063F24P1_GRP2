@@ -46,4 +46,33 @@ public class AdvisorInterface {
             }
         }
     }
+    
+    public boolean assignStudentToAdvisor(Student student, Advisor advisor) {
+		// Check if the student already has an assigned advisor
+		if (student.getAdvisor() != null) {
+			return false;
+		}
+	
+		// Check if the student is already in the advisor's student list
+		if (advisor.getStudentList().contains(student)) {
+			return false;
+		}
+	
+		// Add the student to the advisor's student list
+		advisor.getStudentList().add(student);
+		student.setAdvisor(advisor);
+	
+		return true;
+	}
+	public boolean removeStudentFromAdvisor(Student student, Advisor advisor) {
+		// Check if the student is assigned to this advisor
+		if (!advisor.getStudentList().contains(student)) {
+			return false;
+		}
+	
+		advisor.getStudentList().remove(student);
+		student.setAdvisor(null);
+	
+		return true;
+	}
 }

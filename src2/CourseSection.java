@@ -15,6 +15,9 @@ public class CourseSection{
         this.setAllSessions(new ArrayList<>()); // Start as an empty list
         this.setEnrolledStudents(new ArrayList<>()); // Start as an empty list
     }
+    public CourseSection() {
+    	
+    }
     
 	public int getSectionID() {
 		return sectionID;

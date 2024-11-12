@@ -61,6 +61,9 @@ public class Student extends Person {
 		return isPassed;
     }
    
+   
+   
+   
    public void viewSchedule() {
 	   String schedule = "";
 	   for(int i = 0; i < this.chosenCourses.size(); i++) {

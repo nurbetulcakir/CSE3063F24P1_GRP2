@@ -48,9 +48,32 @@ public class Advisor extends Lecturer {
 		this.studentList = studentList;
 	}
 	
-	public void ApproveDisapproveCourses() {
-		// TODO Auto-generated method stub
-		
+	public boolean approveCourses(Student student, Advisor advisor) {
+		// Check if the student is assigned to the advisor
+		if (!advisor.getStudentList().contains(student)) {
+			return false;
+		}
+	
+		// Check if the student is in the awaitingStudents list
+		if (!advisor.getAwaitingStudents().contains(student)) {
+			return false;
+		}
+	
+		// Approve each chosen course and move it to the approvedCourses list
+		for (CourseSection courseSection : student.getChosenCourses()) {
+			student.getApprovedCourses().add(courseSection);
+		}
+	
+		student.getChosenCourses().clear();
+		advisor.getAwaitingStudents().remove(student);
+	
+		return true;
+	}
+	
+	public void disapproveCourses(Student student) {
+		student.getAdvisor().getAwaitingStudents().remove(student);
+		student.getChosenCourses().clear();
+		System.out.println("Courses not approved for student: " + student.getStudentID());
 	}
 	public ID getAdvisorID() {
 		return advisorID;
