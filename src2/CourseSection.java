@@ -2,21 +2,28 @@ import java.util.ArrayList;
 public class CourseSection{
     // Attributes
     private int sectionID;
-    private ArrayList<SessionTime> allSessions = new ArrayList<SessionTime>();
     private Course course; // Composition relationship with Course
     private ArrayList<Student> enrolledStudents = new ArrayList<Student>();
     private int capacity;
     // Constructor
-    public CourseSection(int sectionID, Course course, int capacity) {
-    	super();
+    
+    public CourseSection(int sectionID, Course course, ArrayList<Student> enrolledStudents, int capacity) {
         this.setSectionID(sectionID);
         this.setCourse(course); // Course is a required component for CourseSection (Composition)
         this.setCapacity(capacity);
-        this.setAllSessions(new ArrayList<>()); // Start as an empty list
-        this.setEnrolledStudents(new ArrayList<>()); // Start as an empty list
+        this.setEnrolledStudents(enrolledStudents); // Start as an empty list
     }
-    public CourseSection() {
-    	
+    
+    public CourseSection(int sectionID, Course course, int capacity) {
+        this.setSectionID(sectionID);
+        this.setCourse(course); // Course is a required component for CourseSection (Composition)
+        this.setCapacity(capacity);
+    }
+
+    
+    // This function is different from setEnrolledStudents, this adds one student to already exists list, other is making a new list from beginning.
+    public void enrollStudent(Student student) {
+    	enrolledStudents.add(student);
     }
     
 	public int getSectionID() {
@@ -24,12 +31,6 @@ public class CourseSection{
 	}
 	public void setSectionID(int sectionID) {
 		this.sectionID = sectionID;
-	}
-	public ArrayList<SessionTime> getAllSessions() {
-		return allSessions;
-	}
-	public void setAllSessions(ArrayList<SessionTime> allSessions) {
-		this.allSessions = allSessions;
 	}
 	public Course getCourse() {
 		return course;
