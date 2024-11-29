@@ -13,6 +13,7 @@ public class Student extends Person {
     private String courseLetterGrade;
 	private int term;
 	private int regRequest = 0; // 1 when send
+	private ArrayList<String> letterGrade = new ArrayList<String>();
 
     
     // Constructor
@@ -55,6 +56,15 @@ public class Student extends Person {
     }
    
    
+   public void initLetterGrade(Course course, String letterGrade){
+	   if(this.passedCourses.contains(course)) {
+	   this.letterGrade.add(this.getPassedCourses().indexOf(course), letterGrade);
+	   }
+	   else if(this.failedCourses.contains(course)) {
+	   this.letterGrade.add(this.getFailedCourses().indexOf(course), letterGrade);
+	   }
+	   
+   }
    
    
    public String viewSchedule() {
@@ -153,6 +163,22 @@ public class Student extends Person {
 
 	public void setCourseLetterGrade(String courseLetterGrade) {
 		this.courseLetterGrade = courseLetterGrade;
+	}
+
+	public String getLetterGrade(Course course) {
+		if (this.passedCourses.contains(course)) {
+			return this.letterGrade.get(this.getPassedCourses().indexOf(course));
+		}
+		else if (this.failedCourses.contains(course)){
+			return this.letterGrade.get(this.getFailedCourses().indexOf(course));
+			
+		}
+		
+		return null;
+	}
+
+	public void setLetterGrade(ArrayList<String> letterGrade) {
+		this.letterGrade = letterGrade;
 	}
 
    }

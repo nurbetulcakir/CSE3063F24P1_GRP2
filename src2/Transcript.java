@@ -39,15 +39,15 @@ public class Transcript extends Student{
         for(int i=0; i<this.getPassedCourses().size(); i++) {
         	System.out.println("Course ID: " + this.getPassedCourses().get(i).getCourseID().getId());
         	System.out.println("Course Name: " + this.getPassedCourses().get(i).getCourseName());
-        	System.out.println("Final Letter Grade: " + this.getPassedCourses().get(i)));
+        	System.out.println("Letter Grade: " + this.getLetterGrade(this.getPassedCourses().get(i)));
         	System.out.println();
 		}
         
         System.out.println("Failed Courses: ");
         for(int i=0; i<this.getFailedCourses().size(); i++) {
         	System.out.println("Course ID: " + this.getFailedCourses().get(i).getCourseID().getId());
-        	System.out.println("Course Name: " + this.getFailedCourses().get(i).getCourseName());
-        	System.out.println("Final Letter Grade: " + this.getFailedCourses().get(i).getCourseLetterGrade());
+        	System.out.println("Course Name: " + this.getPassedCourses().get(i).getCourseName());
+        	System.out.println("Letter Grade" + this.getLetterGrade(this.getFailedCourses().get(i)));
         	System.out.println();
 		}
 	}
@@ -102,18 +102,18 @@ public class Transcript extends Student{
 	
 	public void viewSuccessfulCourses() {
 		System.out.println("Succesful Courses: ");
-		for (int i = 0; i < super.getPassedCourses().size(); i++) {
-			System.out.println(super.getPassedCourses().get(i).getCourseName() +
-					" - " + super.getPassedCourses().get(i).getCourseLetterGrade());
+		for (int i = 0; i < this.getPassedCourses().size(); i++) {
+			System.out.println(this.getPassedCourses().get(i).getCourseName() +
+					" - " + this.getLetterGrade(this.getPassedCourses().get(i)));
 		}
 		
 	}
 	
 	public void viewFailedCourses() {
 		System.out.println("Failed Courses: ");
-		for (int i = 0; i < super.getFailedCourses().size(); i++) {
-			System.out.println(super.getFailedCourses().get(i).getCourseName() +
-					" - " + super.getFailedCourses().get(i).getCourseLetterGrade());
+		for (int i = 0; i < this.getFailedCourses().size(); i++) {
+			System.out.println(this.getFailedCourses().get(i).getCourseName() +
+					" - " + this.getLetterGrade(this.getFailedCourses().get(i)));
 			
 		}
 		

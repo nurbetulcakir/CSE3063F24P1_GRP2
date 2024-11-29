@@ -9,7 +9,8 @@ public class Course {
     private Advisor advisor;
     
     // Constructor
-    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm, double courseCredit, Advisor advisor) {
+    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse,
+    		int courseTerm, double courseCredit, Advisor advisor) {
         this.setCourseID(courseID);
         this.setCourseName(courseName);
         this.setPrerequisiteCourse(prerequisiteCourse);

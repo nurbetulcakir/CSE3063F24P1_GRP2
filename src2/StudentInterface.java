@@ -50,7 +50,7 @@ public class StudentInterface {
                 	ObjectCreator.advisors.get(currentAdvisorsIndex).ViewAdvisorInfo();
                     break;
                 case 4:
-                	chooseCourse(ObjectCreator.students.get(currentStudentsIndex), new CourseSection());
+                	chooseCourse(ObjectCreator.students.get(currentStudentsIndex), new CourseSection(choice, null, null, choice));
                     break;
                 case 5:
                 	ObjectCreator.students.get(currentStudentsIndex).sendForApproval();
