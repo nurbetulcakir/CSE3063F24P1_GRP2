@@ -3,10 +3,35 @@ public class Lecturer extends Person{
 	private ID lecturerID;
 	private ArrayList<Course> givenCourses = new ArrayList<Course>();
 	
-	public Lecturer(ID lecturerID, String firstName, String lastName) {
+	public Lecturer(ID lecturerID, String firstName, String lastName, ArrayList<Course> givenCourses) {
 		super(firstName, lastName);
-		
+		this.setLecturerID(lecturerID);
+		this.setGivenCourses(givenCourses);
 	}
+	
+	public Lecturer(ID lecturerID, String firstName, String lastName) {
+		super(firstName,lastName);
+		this.setLecturerID(lecturerID);
+
+	}
+	
+	
+	
+	
+	@Override
+	public String viewSchedule() {
+		
+		for (int i = 0; i < 5; i++) {
+			System.out.println("Lecturer ID: " + this.getLecturerID() + ", Lecturer Name: " + this.getFirstName() + " " + this.getLastName());
+			System.out.println("Days: ");
+			
+			
+		}
+		
+		return null;
+	}
+	
+	
 	public ID getLecturerID() {
 		return lecturerID;
 	}
@@ -20,5 +45,11 @@ public class Lecturer extends Person{
 	public void setGivenCourses(ArrayList<Course> givenCourses) {
 		this.givenCourses = givenCourses;
 	}
+
+
+	
+
+
+
 	
 }

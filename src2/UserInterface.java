@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -5,6 +6,9 @@ public class UserInterface {
     static String passwordInput = "";
 
     public static void main(String[] args) {
+    	Lecturer lecturer = advisors.get
+    	lecturer.createSchedule();
+    	
 		ObjectCreator oc = new ObjectCreator();
 		oc.createObjects();
         UserInterface ui = new UserInterface();

@@ -35,3 +35,8 @@
 /CourseSessionData$StartTime.class
 /CourseSessionData.class
 /CourseSession.class
+/ScheduleData$Classroom.class
+/ScheduleData$Day.class
+/ScheduleData$EndTime.class
+/ScheduleData$StartTime.class
+/ScheduleData.class

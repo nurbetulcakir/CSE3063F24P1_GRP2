@@ -12,9 +12,6 @@ public class CourseSession extends CourseSection{
     	this.setStartTime(startTime);
     	this.setEndTime(endTime);
     	this.setClassroom(classroom);
-    	this.setCourse(course);
-    	this.setSectionID(sectionID);
-    	this.setCapacity(capacity);
     }
     
 

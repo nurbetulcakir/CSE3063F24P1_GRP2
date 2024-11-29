@@ -1,5 +1,5 @@
 
-public class CourseSessionData {
+public class ScheduleData {
 
 	protected enum Day{
 		MONDAY,
@@ -39,4 +39,8 @@ public class CourseSessionData {
     	M2_101,
     	M2_103;
     }
+    
+
+    
+    
 }

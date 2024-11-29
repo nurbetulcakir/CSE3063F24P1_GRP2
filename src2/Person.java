@@ -3,18 +3,32 @@ public abstract class Person {
     private String firstName;
     private String lastName;
     private Password password;
+    private String schedule;
     // Constructor
+    
+    public Person(String firstName, String lastName, Password password, String schedule) {
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+    	this.setPassword(password);
+    	this.setSchedule(schedule);
+    }
+    
     public Person(String firstName, String lastName, Password password) {
-    	super();
         this.setFirstName(firstName);
         this.setLastName(lastName);
     	this.setPassword(password);
     }
     
     public Person(String firstName, String lastName) {
-    	this.firstName = firstName;
-    	this.lastName = lastName;
+    	this.setFirstName(firstName);
+    	this.setLastName(lastName);
     }
+    
+    
+    public abstract String viewSchedule();
+    
+    
+    
 	public String getFirstName() {
 		return firstName;
 	}
@@ -32,5 +46,13 @@ public abstract class Person {
 	}
 	public void setPassword(Password password) {
 		this.password = password;
+	}
+
+	public String getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
 	}
 }

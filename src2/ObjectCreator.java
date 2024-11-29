@@ -8,6 +8,7 @@ public class ObjectCreator {
     
      
 	public void createObjects() {
+		
 		// File paths for the JSON files
         String studentFilePath = "students.json";
         String advisorFilePath = "advisors.json";
@@ -38,4 +39,6 @@ public class ObjectCreator {
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath9));
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath10));
 	}
+	
+	
 }

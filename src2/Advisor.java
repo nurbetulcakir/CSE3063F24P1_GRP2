@@ -9,7 +9,7 @@ public class Advisor extends Lecturer {
     // Constructor
     public Advisor(ID lecturerID, String firstName, String lastName, Password password) {
         super(lecturerID,firstName,lastName);
-        this.setStudentList(new ArrayList<>()); // Start as an empty list
+        this.setStudentList(studentList); // Start as an empty list
        // this.setAwaitingStudents(new ArrayList<>()); // Start as an empty list
     }
     
