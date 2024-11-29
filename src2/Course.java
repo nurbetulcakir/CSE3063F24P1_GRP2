@@ -4,17 +4,18 @@ public class Course {
     private ID courseID;
     private String courseName;
     private ArrayList<Course> prerequisiteCourse = new ArrayList<Course>();
-    private int courseTerm;
+    private int courseTerm; // it can be taken after that term, before is not allowed
     private double courseCredit;
-    private String courseLetterGrade;
+    private Advisor advisor;
+    
     // Constructor
-    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm, double courseCredit, String courseLetterGrade) {
+    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm, double courseCredit, Advisor advisor) {
         this.setCourseID(courseID);
         this.setCourseName(courseName);
-        this.prerequisiteCourse = new ArrayList<>();
-        this.courseTerm = courseTerm;
-        this.courseCredit = courseCredit;
-        this.courseLetterGrade = courseLetterGrade;
+        this.setPrerequisiteCourse(prerequisiteCourse);
+        this.setCourseTerm(courseTerm);
+        this.setCourseCredit(courseCredit);
+        this.setAdvisor(advisor);
     }
     
     public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse) {
@@ -40,8 +41,11 @@ public class Course {
 		this.courseName = courseName;
 	}
 	
-	public ArrayList<Course> viewPrerequisiteCourses(){
+	public ArrayList<Course> getPrerequisiteCourse(){
 		return this.prerequisiteCourse;
+	}
+	public void setPrerequisiteCourse(ArrayList<Course> prerequisiteCourse){
+		this.prerequisiteCourse = prerequisiteCourse;
 	}
 	public int getCourseTerm() {
 		return courseTerm;
@@ -56,13 +60,14 @@ public class Course {
 		this.courseCredit = courseCredit;
 	}
 
-	public String getCourseLetterGrade() {
-		return courseLetterGrade;
+	public Advisor getAdvisor() {
+		return advisor;
 	}
 
-	public void setCourseLetterGrade(String courseLetterGrade) {
-		this.courseLetterGrade = courseLetterGrade;
+	public void setAdvisor(Advisor advisor) {
+		this.advisor = advisor;
 	}
+
     
     
     
