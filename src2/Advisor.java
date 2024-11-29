@@ -4,14 +4,20 @@ public class Advisor extends Lecturer {
     // Attributes
 	private ArrayList<Student> studentList = new ArrayList<Student>();
     private ArrayList<Student> awaitingStudents = new ArrayList<Student>();
-    private ID advisorID;
     
     // Constructor
-    public Advisor(ID lecturerID, String firstName, String lastName, Password password) {
+    public Advisor(ID lecturerID, String firstName, String lastName, Password password, ArrayList<Student> studentList, ArrayList<Student> awaitingStudents) {
         super(lecturerID,firstName,lastName);
-        this.setStudentList(studentList); // Start as an empty list
-       // this.setAwaitingStudents(new ArrayList<>()); // Start as an empty list
+        this.setStudentList(studentList);
+        this.setAwaitingStudents(awaitingStudents);
     }
+    
+    public Advisor(ID lecturerID, String firstName, String lastName) {
+        super(lecturerID,firstName,lastName);
+    }
+    
+    
+    
     
 	public void ViewAdvisorInfo() {
 		for (int i = 0; i < ObjectCreator.advisors.size(); i++) {
@@ -75,12 +81,7 @@ public class Advisor extends Lecturer {
 		student.getChosenCourses().clear();
 		System.out.println("Courses not approved for student: " + student.getStudentID());
 	}
-	public ID getAdvisorID() {
-		return advisorID;
-	}
-	public void setAdvisorID(ID advisorID) {
-		this.advisorID = advisorID;
-	}
+
 	public ArrayList<Student> getAwaitingStudents() {
 		return awaitingStudents;
 	}
