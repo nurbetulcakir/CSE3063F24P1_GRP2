@@ -32,31 +32,33 @@ public class Transcript extends Student{
 		this.setCpga(cgpa);
 		this.setCreditReceived(creditReceived);
 		this.setCreditEarned(creditEarned);
-		super.setPassedCourses(passedCourses);
+		this.setPassedCourses(passedCourses);
+		this.setFailedCourses(failedCourses);
+		
 		}
 	
 	public void viewTranscript() {
 		System.out.println("Transcript Details:");
-        System.out.println("Student ID: " + super.getStudentID().getId());
-        System.out.println("Current Term: " + super.getTerm());
-        System.out.println("First Name: " + super.getFirstName());
-        System.out.println("Last Name: " + super.getLastName());
+        System.out.println("Student ID: " + this.getStudentID().getId());
+        System.out.println("Current Term: " + this.getTerm());
+        System.out.println("First Name: " + this.getFirstName());
+        System.out.println("Last Name: " + this.getLastName());
         System.out.println("GPA: " + gpa);
         System.out.println("CGPA: " + cgpa);
         System.out.println("Credits Received: " + creditReceived);
         System.out.println("Credits Earned: " + creditEarned);
         System.out.println();
         System.out.println("Passed Courses: ");
-        for(int i=0; i<super.getPassedCourses().size(); i++) {
-        	System.out.println("Course ID: " + super.getPassedCourses().get(i).getCourseID().getId());
-        	System.out.println("Course Name: " + super.getPassedCourses().get(i).getCourseName());
-        	System.out.println("Final Letter Grade: " + super.getPassedCourses().get(i).getCourseLetterGrade());
+        for(int i=0; i<this.getPassedCourses().size(); i++) {
+        	System.out.println("Course ID: " + this.getPassedCourses().get(i).getCourseID().getId());
+        	System.out.println("Course Name: " + this.getPassedCourses().get(i).getCourseName());
+        	System.out.println("Final Letter Grade: " + this.getPassedCourses().get(i).getCourseLetterGrade());
         	System.out.println();
 		}
-        for(int i=0; i<super.getFailedCourses().size(); i++) {
-        	System.out.println("Course ID: " + super.getFailedCourses().get(i).getCourseID().getId());
-        	System.out.println("Course Name: " + super.getFailedCourses().get(i).getCourseName());
-        	System.out.println("Final Letter Grade: " + super.getFailedCourses().get(i).getCourseLetterGrade());
+        for(int i=0; i<this.getFailedCourses().size(); i++) {
+        	System.out.println("Course ID: " + this.getFailedCourses().get(i).getCourseID().getId());
+        	System.out.println("Course Name: " + this.getFailedCourses().get(i).getCourseName());
+        	System.out.println("Final Letter Grade: " + this.getFailedCourses().get(i).getCourseLetterGrade());
         	System.out.println();
 		}
 	}

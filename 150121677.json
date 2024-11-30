@@ -36,13 +36,13 @@
           "courseID": {
                 "id": "CSE2225"
               },
-              "CourseName": "Data Structures",
+              "courseName": "Data Structures",
               "prerequisiteCourse":[
                 {
                   "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
+                  "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                 }
               ]

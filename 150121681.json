@@ -20,7 +20,7 @@
                   "courseID": {
                     "id": "CSE1242"
                   },
-                  "CourseName": "Computer Programming II",
+                  "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                 }
               ],

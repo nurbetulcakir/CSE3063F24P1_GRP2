@@ -4,8 +4,9 @@ import java.util.Scanner;
 public class UserInterface {
     static String userIdInput = "";
     static String passwordInput = "";
-    static int currentStudentIndex;
-    static int currentAdvisorIndex;
+	static int currentStudentsIndex;
+	static int currentTranscriptsIndex;
+	static int currentAdvisorsIndex;
 
     public static void main(String[] args) {
 		ObjectCreator oc = new ObjectCreator();
@@ -36,7 +37,7 @@ public class UserInterface {
         						advisorFound = true;  // Advisor found
         						if (oc.advisors.get(i).getPassword().getPassword().equals(passwordInput)) {
         							// Login success
-        							currentAdvisorIndex = i;
+        							currentAdvisorsIndex = i;
         							AdvisorInterface ai = new AdvisorInterface();
         							ai.run();
         							break outerloop;
@@ -60,7 +61,8 @@ public class UserInterface {
         						studentFound = true;  // Student found
         						if (oc.students.get(i).getPassword().getPassword().equals(passwordInput)) {
         							// Login success
-        							currentStudentIndex = i;
+        							currentStudentsIndex = i;
+        							currentTranscriptsIndex = i;
         							StudentInterface si = new StudentInterface();
         							si.run();
         							break outerloop;

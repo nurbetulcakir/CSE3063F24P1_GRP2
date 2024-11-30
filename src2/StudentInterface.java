@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
 public class StudentInterface {
-	static int currentStudentsIndex;
-	static int currentTranscriptsIndex;
-	static int currentAdvisorsIndex;
+
 	public void run() {
 		try (Scanner scanner = new Scanner(System.in)) {
 			WhileLoop:
@@ -17,51 +15,38 @@ public class StudentInterface {
 			    System.out.println("6. Logout");
 			    System.out.print("Please type the number of your selection: ");
 			    
-			    for (int i = 0; i < ObjectCreator.students.size(); i++) {
-			    	if (ObjectCreator.students.get(i).getStudentID().getId() == UserInterface.userIdInput) {
-			    		currentStudentsIndex = i;
-			    		break;
-			    	}
-			    }
-			    
-			    for (int i = 0; i < ObjectCreator.transcripts.size(); i++) {
-			    	if (ObjectCreator.transcripts.get(i).getStudentID().getId() == UserInterface.userIdInput) {
-			    		currentTranscriptsIndex = i;
-			    		break;
-			    	}
-			    }
 			    
 			    int choice = scanner.nextInt(); 
 			    scanner.nextLine(); // Consume newline
 
             switch (choice) {
                 case 1:
-                	ObjectCreator.students.get(currentStudentsIndex).viewSchedule();
+                	ObjectCreator.students.get(UserInterface.currentStudentsIndex).viewSchedule();
                     break;
                 case 2:
-                	ObjectCreator.transcripts.get(currentTranscriptsIndex).viewTranscript();
+                	ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).viewTranscript();
                     break;
                 case 3:
                 	for(int i = 0; i < ObjectCreator.advisors.size(); i++) {
-                		if (ObjectCreator.advisors.get(i).getLecturerID().getId() == ObjectCreator.students.get(StudentInterface.currentStudentsIndex).getAdvisor().getLecturerID().getId()) {
-            	    		StudentInterface.currentAdvisorsIndex = i;
+                		if (ObjectCreator.advisors.get(i).getLecturerID().getId() == ObjectCreator.students.get(UserInterface.currentStudentsIndex).getAdvisor().getLecturerID().getId()) {
+            	    		UserInterface.currentAdvisorsIndex = i;
                 		}
                 	}
-                	ObjectCreator.advisors.get(currentAdvisorsIndex).ViewAdvisorInfo();
+                	ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).ViewAdvisorInfo();
                     break;
                 case 4:
-                	chooseCourse(ObjectCreator.students.get(currentStudentsIndex), new CourseSection(choice, null, null, choice));
+                	chooseCourse(ObjectCreator.students.get(UserInterface.currentStudentsIndex), new CourseSection(choice, null, null, choice));
                     break;
                 case 5:
-                	ObjectCreator.students.get(currentStudentsIndex).sendForApproval();
+                	ObjectCreator.students.get(UserInterface.currentStudentsIndex).sendForApproval();
                     break;
                 case 6:
                 	System.out.println("Logging out...");
                 	UserInterface.userIdInput = "";
                 	UserInterface.passwordInput = "";
-                	currentStudentsIndex = 999;
-                	currentTranscriptsIndex = 999;
-                	currentAdvisorsIndex = 999;
+                	UserInterface.currentStudentsIndex = 999;
+                	UserInterface.currentTranscriptsIndex = 999;
+                	UserInterface.currentAdvisorsIndex = 999;
                     System.exit(0);
                 default:
                     System.out.println("Invalid option. Please try again.");
