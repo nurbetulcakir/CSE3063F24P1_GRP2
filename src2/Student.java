@@ -45,8 +45,8 @@ public class Student extends Person {
     	boolean isPassed= false;
     	int temp = 0;
     	for(int i = 0; i < course.viewPrerequisiteCourses().size(); i++) {
-    		
-    		if (isPassedCourse(course.viewPrerequisiteCourses().get(i))){
+    		// FD is not a passing grade, however with FD student can take the next course
+    		if (isPassedCourse(course.viewPrerequisiteCourses().get(i)) || course.getCourseLetterGrade().equals("FD")){
     		temp++;
     			}
     		}	

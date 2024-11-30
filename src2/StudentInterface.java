@@ -4,7 +4,6 @@ public class StudentInterface {
 
 	public void run() {
 		try (Scanner scanner = new Scanner(System.in)) {
-			WhileLoop:
 			while (true) {
 			    System.out.println("Welcome to Information Management System! What would you like to do?");
 			    System.out.println("1. View schedule");
@@ -15,7 +14,6 @@ public class StudentInterface {
 			    System.out.println("6. View notifications");
 			    System.out.println("7. Logout");
 			    System.out.print("Please type the number of your selection: ");
-			    
 			    
 			    int choice = scanner.nextInt(); 
 			    scanner.nextLine(); // Consume newline
@@ -36,7 +34,7 @@ public class StudentInterface {
                 	ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).ViewAdvisorInfo();
                     break;
                 case 4:
-                	chooseCourse(ObjectCreator.students.get(UserInterface.currentStudentsIndex), new CourseSection(choice, null, null, choice));
+                	System.out.println(ObjectCreator.students.get(UserInterface.currentStudentsIndex).getChoosableCourses());
                     break;
                 case 5:
                 	ObjectCreator.students.get(UserInterface.currentStudentsIndex).sendForApproval();

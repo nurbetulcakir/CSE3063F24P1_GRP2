@@ -32,10 +32,10 @@ public class UserInterface {
         			if (userIdInput.length() == 6) {  // Advisor login check
         				boolean advisorFound = false;
         				// Iterate through advisors to find the matching ID
-        				for (int i = 0; i < oc.advisors.size(); i++) {
-        					if (oc.advisors.get(i).getLecturerID().getId().equals(userIdInput)) {
+        				for (int i = 0; i < ObjectCreator.advisors.size(); i++) {
+        					if (ObjectCreator.advisors.get(i).getLecturerID().getId().equals(userIdInput)) {
         						advisorFound = true;  // Advisor found
-        						if (oc.advisors.get(i).getPassword().getPassword().equals(passwordInput)) {
+        						if (ObjectCreator.advisors.get(i).getPassword().getPassword().equals(passwordInput)) {
         							// Login success
         							currentAdvisorsIndex = i;
         							AdvisorInterface ai = new AdvisorInterface();
@@ -56,10 +56,10 @@ public class UserInterface {
         			} else if (userIdInput.length() == 9) {  // Student login check
         				boolean studentFound = false;
         				// Iterate through students to find the matching ID
-        				for (int i = 0; i < oc.students.size(); i++) {
-        					if (oc.students.get(i).getStudentID().getId().equals(userIdInput)) {
+        				for (int i = 0; i < ObjectCreator.students.size(); i++) {
+        					if (ObjectCreator.students.get(i).getStudentID().getId().equals(userIdInput)) {
         						studentFound = true;  // Student found
-        						if (oc.students.get(i).getPassword().getPassword().equals(passwordInput)) {
+        						if (ObjectCreator.students.get(i).getPassword().getPassword().equals(passwordInput)) {
         							// Login success
         							currentStudentsIndex = i;
         							currentTranscriptsIndex = i;
