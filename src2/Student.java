@@ -9,7 +9,7 @@ public class Student extends Person {
     private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>();
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
     private ArrayList<Course> failedCourses = new ArrayList<Course>();
-    private int approveRequest = 0;
+    private int approveRequest = 0; // 0 if not send for approval, 1 if send for approval, 2 if approved, 3 if disapproved
     
     // Constructor
     public Student(ID studentID, String firstName, String lastName, Password password,

@@ -49,6 +49,7 @@ public class Advisor extends Lecturer {
 	    
 	    }
 	}
+	
 	public void viewStudentList() {
 		for (int i = 0; i < ObjectCreator.students.size();i++) {
 				System.out.println("ID: " + ObjectCreator.students.get(i).getStudentID().getId()); 
@@ -57,15 +58,25 @@ public class Advisor extends Lecturer {
 		}
 	}
 	
+    public void selectNextStudent(int index) {
+        this.setAdvStudent(getAwaitingStudents().get(index - 1));
+    }
+	
+	
+    public void findAwaitingStudents() {
+        for (int i = 0; i < studentList.size(); i++) {
+            Student student = studentList.get(i);
+            if (!awaitingStudents.contains(student) && student.getApproveRequest() == 1) {
+                awaitingStudents.add(student);
+            }           
+        }
+    }
     
-	public ArrayList<Student> getStudentList() {
-		return studentList;
-	}
+	private void removeAwaitingStudent(Student s) {
+        this.awaitingStudents.remove(awaitingStudents.indexOf(s));
+    }
 	
-	public void setStudentList(ArrayList<Student> studentList) {
-		this.studentList = studentList;
-	}
-	
+
 	public void approveCourses() {
 		ArrayList<CourseSection> selectCourse = this.advStudent.getChosenCourses();
         for(int i = 0 ; i < selectCourse.size(); i++) {
@@ -74,7 +85,7 @@ public class Advisor extends Lecturer {
             courseSec.enrollStudent(this.advStudent);
         }
         this.advStudent.setChosenCourses(null);
-        this.advStudent.setApproveRequest(1);
+        this.advStudent.setApproveRequest(2);
         this.removeAwaitingStudent(this.advStudent);
         this.setAdvStudent(null);
 	}
@@ -86,35 +97,22 @@ public class Advisor extends Lecturer {
 	            courseSec.setCapacity(courseSec.getCapacity() + 1);
 	        }
 	        this.advStudent.setChosenCourses(null);
-	        this.advStudent.setApproveRequest(0);
+	        this.advStudent.setApproveRequest(3);
 	        this.removeAwaitingStudent(this.advStudent);
 	        this.setAdvStudent(null);
 	}
 	
-	
-//    public void sendNotification(String message, String type) {
-//        
-//        String sendMessage = "";
-//        if (message.isEmpty()) {
-//            if(type.equals("A")) {
-//                sendMessage = "The request is approved!";
-//            }
-//            else {
-//                sendMessage = "The request is disapproved!";
-//            }
-//        }
-//        else {
-//            sendMessage = message;
-//        }
-//        
-//        this.advStudent.addUnreadNotification(sendMessage);
-//    }
-//	
-	private void removeAwaitingStudent(Student s) {
-        this.awaitingStudents.remove(awaitingStudents.indexOf(s));
-    }
-	
 
+
+	public ArrayList<Student> getStudentList() {
+		return studentList;
+	}
+	
+	public void setStudentList(ArrayList<Student> studentList) {
+		this.studentList = studentList;
+	}
+	
+	
 	public ArrayList<Student> getAwaitingStudents() {
 		return awaitingStudents;
 	}
