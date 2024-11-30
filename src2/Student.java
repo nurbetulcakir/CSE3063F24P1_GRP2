@@ -47,7 +47,7 @@ public class Student extends Person {
     	int temp = 0;
     	for(int i = 0; i < course.viewPrerequisiteCourses().size(); i++) {
     		
-    		if (this.passedCourses.contains(course.viewPrerequisiteCourses().get(i))){
+    		if (isPassedCourse(course.viewPrerequisiteCourses().get(i))){
     		temp++;
     			}
     		}	
@@ -59,10 +59,75 @@ public class Student extends Person {
 	    		}
 		return isPassed;
     }
+   
+   public boolean isPassedCourse(Course course) {
+       for (int i = 0; i < this.getPassedCourses().size(); i++) {
+           if (this.getPassedCourses().get(i).getCourseID().getId().equals(course.getCourseID().getId())) {
+               return true;
+           }
+       }
+       return false;
+   }
+   
+   public boolean isFailedCourse(Course course) {
+       for (int i = 0; i < this.getFailedCourses().size(); i++) {
+           if (this.getFailedCourses().get(i).getCourseID().getId().equals(course.getCourseID().getId())) {
+               return true;
+           }
+       }
+       return false;
+   }
+   
+   public boolean isCourseTakenBefore(Course course) {
+       for (int i = 0; i < ObjectCreator.courses.size(); i++) {
+           if (isPassedCourse(course) || isFailedCourse(course)) {
+               return true;
+           }
+       }
+       return false;
+   }
+   
+   public boolean isChoosableCourse(Course course) {
+	   this.setChoosableCourses();
+       for (int i = 0; i < ObjectCreator.courses.size(); i++) {
+           if (this.getChoosableCourses().contains(course)) {
+               return true;
+           }
+       }
+       return false;
+   }
+   
+   public boolean isChosenCourse(CourseSection cs) {
+	   this.setChoosableCourses();
+       for (int i = 0; i < this.chosenCourses.size(); i++) {
+           if (this.getChosenCourses().contains(cs)) {
+               return true;
+           }
+       }
+       return false;
+   }
+   
+   
+   
+   public void addChosenCourse(CourseSection cs) {
+	   
+	   if (isChoosableCourse(cs.getCourse())) {
+	   this.chosenCourses.add(cs);
+	   this.choosableCourses.remove(cs.getCourse());
+	   }
+   }
+   
+   public void removeChosenCourse(CourseSection cs) {
+	   
+	   if (isChoosableCourse(cs.getCourse()) && isChosenCourse(cs)) {
+	   this.chosenCourses.remove(cs);
+	   this.choosableCourses.add(cs.getCourse());
+	   } 	   
+   }
   
 
-   public void addToApprovedCourses(CourseSection courseSec) {
-	   this.approvedCourses.add(courseSec);
+   public void addToApprovedCourses(CourseSection cs) {
+	   this.approvedCourses.add(cs);
    }
    
 
@@ -86,7 +151,7 @@ public class Student extends Person {
 	}
    
    public void sendForApproval() {
-	   approveRequest = 1;
+	   this.approveRequest = 1;
    }
 
 	public ID getStudentID() {
@@ -162,9 +227,8 @@ public class Student extends Person {
 		this.choosableCourses.clear();
 		for (int i = 0; i < ObjectCreator.courses.size(); i++) {
 			if (ObjectCreator.courses.get(i).getCourseTerm() <= this.getTerm()) {
-				
 				for (int j = 0; j < this.passedCourses.size(); j++) {
-				if (!(ObjectCreator.courses.get(i).viewPrerequisiteCourses().contains(this.getPassedCourses().get(j)))){
+				if (!(isPrerequisiteCoursesPassed(this.passedCourses.get(j)))){
 						temp = false;
 						}
 					}
