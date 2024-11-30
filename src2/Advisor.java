@@ -99,6 +99,24 @@ public class Advisor extends Lecturer {
 	        this.setAdvStudent(null);
 	}
 	
+    public void sendNotification(String message, int req) {
+        
+        String sendMessage = "";
+        if (message.isEmpty()) {
+            if(req == 2) {
+                sendMessage = "The request is approved!";
+            }
+            else if (req == 3) {
+                sendMessage = "The request is disapproved!";
+            }
+        }
+        else {
+            sendMessage = message;
+        }
+        
+        this.advStudent.addNotification(sendMessage);
+    }
+	
 
 
 	public ArrayList<Student> getStudentList() {
