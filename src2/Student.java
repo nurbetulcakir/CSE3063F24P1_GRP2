@@ -6,7 +6,7 @@ public class Student extends Person {
     private Advisor advisor;
     private int term;
     private ArrayList<Course> passedCourses = new ArrayList<Course>();
-    private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>();
+    private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>(); // Course Section, because student chooses section on registration system
     private ArrayList<Course> choosableCourses = new ArrayList<Course>();
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
     private ArrayList<Course> failedCourses = new ArrayList<Course>();
@@ -153,7 +153,7 @@ public class Student extends Person {
 	}
 
 	public ArrayList<Course> getChoosableCourses() {
-		return choosableCourses;
+		return this.choosableCourses;
 	}
 
 	public void setChoosableCourses() {
