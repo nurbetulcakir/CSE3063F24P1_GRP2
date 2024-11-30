@@ -27,6 +27,9 @@ public class CourseSection{
         this.setCourse(course);
         this.setCapacity(capacity);
     }
+    
+    public CourseSection()  {
+    }
 
     
     // This function is different from setEnrolledStudents, this adds one student to already exists list, other is making a new list from beginning.

@@ -13,6 +13,12 @@ public class CourseSession extends CourseSection{
     	this.setEndTime(endTime);
     	this.setClassroom(classroom);
     }
+    public CourseSession(String day, String startTime, String endTime, String classroom)  {
+    	this.setDay(day);
+    	this.setStartTime(startTime);
+    	this.setEndTime(endTime);
+    	this.setClassroom(classroom);
+    }
     
     // Method to check if the session time is valid
     public boolean isValidSession() {
