@@ -4,19 +4,17 @@ public class Course {
     private ID courseID;
     private String courseName;
     private ArrayList<Course> prerequisiteCourse = new ArrayList<Course>();
-    private int courseTerm; // it can be taken after that term, before is not allowed
+    private int courseTerm;
     private double courseCredit;
-    private Advisor advisor;
-    
+    private String courseLetterGrade;
     // Constructor
-    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse,
-    		int courseTerm, double courseCredit, Advisor advisor) {
+    public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse, int courseTerm, double courseCredit, String courseLetterGrade) {
         this.setCourseID(courseID);
         this.setCourseName(courseName);
-        this.setPrerequisiteCourse(prerequisiteCourse);
-        this.setCourseTerm(courseTerm);
-        this.setCourseCredit(courseCredit);
-        this.setAdvisor(advisor);
+        this.prerequisiteCourse = new ArrayList<>();
+        this.courseTerm = courseTerm;
+        this.courseCredit = courseCredit;
+        this.courseLetterGrade = courseLetterGrade;
     }
     
     public Course(ID courseID, String courseName, ArrayList<Course> prerequisiteCourse) {
@@ -42,11 +40,8 @@ public class Course {
 		this.courseName = courseName;
 	}
 	
-	public ArrayList<Course> getPrerequisiteCourse(){
+	public ArrayList<Course> viewPrerequisiteCourses(){
 		return this.prerequisiteCourse;
-	}
-	public void setPrerequisiteCourse(ArrayList<Course> prerequisiteCourse){
-		this.prerequisiteCourse = prerequisiteCourse;
 	}
 	public int getCourseTerm() {
 		return courseTerm;
@@ -61,14 +56,13 @@ public class Course {
 		this.courseCredit = courseCredit;
 	}
 
-	public Advisor getAdvisor() {
-		return advisor;
+	public String getCourseLetterGrade() {
+		return courseLetterGrade;
 	}
 
-	public void setAdvisor(Advisor advisor) {
-		this.advisor = advisor;
+	public void setCourseLetterGrade(String courseLetterGrade) {
+		this.courseLetterGrade = courseLetterGrade;
 	}
-
     
     
     
