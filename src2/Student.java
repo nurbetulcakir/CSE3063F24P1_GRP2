@@ -7,7 +7,7 @@ public class Student extends Person {
     private int term;
     private ArrayList<Course> passedCourses = new ArrayList<Course>();
     private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>();
-    private ArrayList<CourseSection> choosableCourses = new ArrayList<CourseSection>();
+    private ArrayList<Course> choosableCourses = new ArrayList<Course>();
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
     private ArrayList<Course> failedCourses = new ArrayList<Course>();
     private int approveRequest = 0; // 0 if not send for approval, 1 if send for approval, 2 if approved, 3 if disapproved
@@ -16,14 +16,14 @@ public class Student extends Person {
     
     
     // Constructor
-//    public Student(ID studentID, String firstName, String lastName, Password password,
-//    		Advisor advisor, int term, ArrayList<Course> passedCourses) {
-//        super(firstName, lastName, password);
-//        this.setStudentID(studentID);
-//        this.setAdvisor(advisor);
-//        this.setTerm(term);
-//        this.setPassedCourses(passedCourses); // Start as an empty list
-//    }
+    public Student(ID studentID, String firstName, String lastName, Password password,
+    		Advisor advisor, int term, ArrayList<Course> passedCourses) {
+        super(firstName, lastName, password);
+        this.setStudentID(studentID);
+        this.setAdvisor(advisor);
+        this.setTerm(term);
+        this.setPassedCourses(passedCourses);
+    }
     
     public Student(ID studentID, String firstName, String lastName, Password password,
     		Advisor advisor, int term, ArrayList<Course> passedCourses, ArrayList<Course> failedCourses,
@@ -152,11 +152,28 @@ public class Student extends Person {
 		this.approveRequest = approveRequest;
 	}
 
-	public ArrayList<CourseSection> getChoosableCourses() {
+	public ArrayList<Course> getChoosableCourses() {
 		return choosableCourses;
 	}
 
-	public void setChoosableCourses(Course course) {
+	public void setChoosableCourses() {
+		
+		boolean temp = true;
+		this.choosableCourses.clear();
+		for (int i = 0; i < ObjectCreator.courses.size(); i++) {
+			if (ObjectCreator.courses.get(i).getCourseTerm() <= this.getTerm()) {
+				
+				for (int j = 0; j < this.passedCourses.size(); j++) {
+				if (!(ObjectCreator.courses.get(i).viewPrerequisiteCourses().contains(this.getPassedCourses().get(j)))){
+						temp = false;
+						}
+					}
+				if (temp == true) {
+					this.choosableCourses.add(ObjectCreator.courses.get(i));
+					}
+				}
+			}
+		
 		
 	}
 
