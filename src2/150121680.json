@@ -16,20 +16,18 @@
                     "id": "CSE1242"
                   },
                   "courseName": "Computer Programming II",
-                  "prerequisiteCourse": [],
-                  "courseTerm": 2,
                   "courseCredit": 6.0,
-                  "courseLetterGrade": "DC"
+                  "courseLetterGrade": "DC",
+                  "prerequisiteCourse": []
         },
         {
           "courseID": {
                     "id": "STAT2253"
                   },
                   "courseName": "Probability and Statistics for Computer Engineering",
-                  "prerequisiteCourse": [],
-                  "courseTerm": 4,
                   "courseCredit": 5.0,
-                  "courseLetterGrade": "BA"
+                  "courseLetterGrade": "BA",
+                  "prerequisiteCourse": []
         }
       ],
       "failedCourses": [
@@ -38,6 +36,8 @@
                 "id": "CSE2225"
               },
               "courseName": "Data Structures",
+              "courseCredit": 7.0,
+              "courseLetterGrade": "DZ",
               "prerequisiteCourse":[
                 {
                   "courseID": {
