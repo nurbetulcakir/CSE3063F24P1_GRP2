@@ -78,7 +78,7 @@ public class Advisor extends Lecturer {
 		ArrayList<CourseSection> selectCourse = this.advStudent.getChosenCourses();
         for(int i = 0 ; i < selectCourse.size(); i++) {
             CourseSection courseSec = selectCourse.get(i);
-            this.advStudent.AddToApprovedCourses(courseSec);
+            this.advStudent.addToApprovedCourses(courseSec);
             courseSec.enrollStudent(this.advStudent);
         }
         this.advStudent.setChosenCourses(null);

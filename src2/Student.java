@@ -3,13 +3,17 @@ import java.util.ArrayList;
 public class Student extends Person {
     // Attributes
     private ID studentID;
-    private Advisor advisor=null;
+    private Advisor advisor;
     private int term;
     private ArrayList<Course> passedCourses = new ArrayList<Course>();
     private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>();
+    private ArrayList<CourseSection> choosableCourses = new ArrayList<CourseSection>();
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
     private ArrayList<Course> failedCourses = new ArrayList<Course>();
     private int approveRequest = 0; // 0 if not send for approval, 1 if send for approval, 2 if approved, 3 if disapproved
+    private ArrayList<String> unreadNotifications = new ArrayList<String>();
+    private ArrayList<String> readNotifications = new ArrayList<String>();
+    
     
     // Constructor
     public Student(ID studentID, String firstName, String lastName, Password password,
@@ -39,33 +43,30 @@ public class Student extends Person {
     	this.setStudentID(studentID);
     }
     
-   public boolean isPrerequisiteCoursesPassed(Course course) {
-    	
+   public boolean isPrerequisiteCoursesPassed(Course course) {	
     	boolean isPassed= false;
     	int temp = 0;
-    	
     	for(int i = 0; i < course.viewPrerequisiteCourses().size(); i++) {
     		
-    	if (this.passedCourses.contains(course.viewPrerequisiteCourses().get(i))){
+    		if (this.passedCourses.contains(course.viewPrerequisiteCourses().get(i))){
     		temp++;
-    		
-    		}
-    	}
-    	
+    			}
+    		}	
 	    	if (temp == course.viewPrerequisiteCourses().size()) {
 	    		isPassed = true;
-	    	}
+	    		}
 	    	else {
 	    		isPassed = false;
-	    	}
-    	
+	    		}
 		return isPassed;
     }
-   
-   
-   public void AddToApprovedCourses(CourseSection courseSec) {
+  
+
+   public void addToApprovedCourses(CourseSection courseSec) {
 	   this.approvedCourses.add(courseSec);
    }
+   
+
    
    public String viewSchedule() {
 //	   String schedule = "";
@@ -76,8 +77,17 @@ public class Student extends Person {
 	   return "";
    }
    
+   public void addNotification(String message) {
+	    this.unreadNotifications.add(message);
+	}
+
+	public void notificationsSeen() {
+	    this.readNotifications.addAll(unreadNotifications);
+	    this.unreadNotifications.clear();
+	}
+   
    public void sendForApproval() {
-   	// later
+	   approveRequest = 1;
    }
 
 	public ID getStudentID() {
@@ -141,6 +151,14 @@ public class Student extends Person {
 
 	public void setApproveRequest(int approveRequest) {
 		this.approveRequest = approveRequest;
+	}
+
+	public ArrayList<CourseSection> getChoosableCourses() {
+		return choosableCourses;
+	}
+
+	public void setChoosableCourses(Course course) {
+		
 	}
 
    }
