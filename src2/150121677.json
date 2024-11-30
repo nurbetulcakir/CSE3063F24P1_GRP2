@@ -3,8 +3,9 @@
     "studentID": {
         "id": "150121677"
       },
-      "firstName": "Jane",
-      "lastName": "Shepard",
+    "firstName": "Jane",
+    "lastName": "Shepard",
+    "term": 5,
     "gpa": 1.94,
     "cgpa": 3.89,
     "creditReceived": 11,

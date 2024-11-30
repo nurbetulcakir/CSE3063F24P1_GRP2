@@ -3,8 +3,9 @@
     "studentID": {
         "id": "150121679"
       },
-      "firstName": "Chloe",
-      "lastName": "Price",
+    "firstName": "Chloe",
+    "lastName": "Price",
+    "term": 5,
     "gpa": 3.22,
     "cgpa": 1.29,
     "creditReceived": 13,

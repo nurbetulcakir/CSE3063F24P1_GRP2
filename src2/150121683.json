@@ -3,8 +3,9 @@
     "studentID": {
         "id": "150121683"
       },
-      "firstName": "Alyx",
-      "lastName": "Vance",
+    "firstName": "Alyx",
+    "lastName": "Vance",
+    "term": 5,
     "gpa": 3.64,
     "cgpa": 3.19,
     "creditReceived": 18,
