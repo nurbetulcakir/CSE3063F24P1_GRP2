@@ -9,6 +9,7 @@ public class Student extends Person {
     private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>();
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
     private ArrayList<Course> failedCourses = new ArrayList<Course>();
+    private int approveRequest = 0;
     
     // Constructor
     public Student(ID studentID, String firstName, String lastName, Password password,
@@ -62,7 +63,9 @@ public class Student extends Person {
     }
    
    
-   
+   public void AddToApprovedCourses(CourseSection courseSec) {
+	   this.approvedCourses.add(courseSec);
+   }
    
    public String viewSchedule() {
 //	   String schedule = "";
@@ -130,6 +133,14 @@ public class Student extends Person {
 
 	public void setApprovedCourses(ArrayList<CourseSection> approvedCourses) {
 		this.approvedCourses = approvedCourses;
+	}
+
+	public int getApproveRequest() {
+		return approveRequest;
+	}
+
+	public void setApproveRequest(int approveRequest) {
+		this.approveRequest = approveRequest;
 	}
 
    }
