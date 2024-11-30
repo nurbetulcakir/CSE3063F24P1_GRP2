@@ -26,35 +26,32 @@ public class Advisor extends Lecturer {
 	    String courseName;
 	    int courseTerm ;
 	    double courseCredit;
-		for (int i = 0; i < ObjectCreator.advisors.size(); i++) {
-	    		System.out.println("ID: " + ObjectCreator.advisors.get(i).getLecturerID().getId());
-				System.out.println("First Name:" + ObjectCreator.advisors.get(i).getFirstName());
-				System.out.println("Last Name:" + ObjectCreator.advisors.get(i).getLastName());
+	    		System.out.println("ID: " + this.getLecturerID().getId());
+				System.out.println("First Name:" + this.getFirstName());
+				System.out.println("Last Name:" + this.getLastName());
 				System.out.println();
 				System.out.println("Given Courses: ");
 				System.out.printf("%-10s %-60s %-20s %-10s%n", "Course ID", "Course Name", "Course Term", "Course Credit");
 		        System.out.println("---------------------------------------------------------------"
 		        		+ "---------------------------------------------------------------");
-				for(int j = 0; j < ObjectCreator.advisors.get(i).getGivenCourses().size(); j++) {
-					courseId = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseID().getId();
-				    courseName = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseName();
-				    courseTerm = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseTerm();
-				    courseCredit = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseCredit();
+				for(int j = 0; j < this.getGivenCourses().size(); j++) {
+					courseId = this.getGivenCourses().get(j).getCourseID().getId();
+				    courseName = this.getGivenCourses().get(j).getCourseName();
+				    courseTerm = this.getGivenCourses().get(j).getCourseTerm();
+				    courseCredit = this.getGivenCourses().get(j).getCourseCredit();
 
 				    System.out.printf("%-10s %-60s %-20d %-10.1f%n", courseId, courseName, courseTerm, courseCredit);
 					
 					}
 				System.out.println();
-	    		break;
 	    
 	    }
-	}
 	
 	public void viewStudentList() {
-		for (int i = 0; i < ObjectCreator.students.size();i++) {
-				System.out.println("ID: " + ObjectCreator.students.get(i).getStudentID().getId()); 
-				System.out.println("First Name: " + ObjectCreator.students.get(i).getFirstName());
-				System.out.println("Last Name: " + ObjectCreator.students.get(i).getLastName() + "\n");
+		for (int i = 0; i < this.getStudentList().size();i++) {
+				System.out.println("ID: " + this.getStudentList().get(i).getStudentID().getId()); 
+				System.out.println("First Name: " + this.getStudentList().get(i).getFirstName());
+				System.out.println("Last Name: " + this.getStudentList().get(i).getLastName() + "\n");
 		}
 	}
 	
