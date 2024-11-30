@@ -10,7 +10,8 @@ public class AdvisorInterface {
             System.out.println("1. View Students");
             System.out.println("2. Approve/Disapprove Courses");
             System.out.println("3. View advisor information");
-            System.out.println("4. Logout");
+		    System.out.println("4. View notifications");
+            System.out.println("5. Logout");
             System.out.print("Please type the number of your selection: ");
 
             for (int i = 0; i < ObjectCreator.advisors.size(); i++) {
@@ -28,12 +29,15 @@ public class AdvisorInterface {
                 	ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).viewStudentList();
                     break;
                 case 2:
-
+                	/*APPROVE/DISAPPROVE COURSES*/
                     break;
                 case 3:
                     ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).ViewAdvisorInfo();
                     break;
                 case 4:
+                	/* VIEW NOTIFICATIONS */
+                	break;
+                case 5:
                 	System.out.println("Logging out...");
                 	UserInterface.userIdInput = "";
                 	UserInterface.passwordInput = "";

@@ -12,7 +12,8 @@ public class StudentInterface {
 			    System.out.println("3. View advisor information");
 			    System.out.println("4. Register for the current term");
 			    System.out.println("5. Send courses for approval");
-			    System.out.println("6. Logout");
+			    System.out.println("6. View notifications");
+			    System.out.println("7. Logout");
 			    System.out.print("Please type the number of your selection: ");
 			    
 			    
@@ -41,6 +42,9 @@ public class StudentInterface {
                 	ObjectCreator.students.get(UserInterface.currentStudentsIndex).sendForApproval();
                     break;
                 case 6:
+                	/* VIEW NOTIFICATIONS */
+                	break;
+                case 7:
                 	System.out.println("Logging out...");
                 	UserInterface.userIdInput = "";
                 	UserInterface.passwordInput = "";
