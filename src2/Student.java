@@ -16,14 +16,14 @@ public class Student extends Person {
     
     
     // Constructor
-    public Student(ID studentID, String firstName, String lastName, Password password,
-    		Advisor advisor, int term, ArrayList<Course> passedCourses) {
-        super(firstName, lastName, password);
-        this.setStudentID(studentID);
-        this.setAdvisor(advisor);
-        this.setTerm(term);
-        this.setPassedCourses(passedCourses); // Start as an empty list
-    }
+//    public Student(ID studentID, String firstName, String lastName, Password password,
+//    		Advisor advisor, int term, ArrayList<Course> passedCourses) {
+//        super(firstName, lastName, password);
+//        this.setStudentID(studentID);
+//        this.setAdvisor(advisor);
+//        this.setTerm(term);
+//        this.setPassedCourses(passedCourses); // Start as an empty list
+//    }
     
     public Student(ID studentID, String firstName, String lastName, Password password,
     		Advisor advisor, int term, ArrayList<Course> passedCourses, ArrayList<Course> failedCourses,
@@ -38,8 +38,7 @@ public class Student extends Person {
         this.setFailedCourses(failedCourses);
     }
     
-    public Student(ID studentID, String firstName, String lastName) {
-    	super(firstName, lastName);
+    public Student(ID studentID) {
     	this.setStudentID(studentID);
     }
     

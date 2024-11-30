@@ -9,32 +9,24 @@ public class Transcript extends Student{
 	private int totalCreditReceived;
 	private int totalCreditEarned;
 	
-	public Transcript(ID StudentID, String firstName, String lastName, double gpa,
-			double cpga, int creditReceived, int creditEarned, int totalCreditReceived,
-			int totalCreditEarned, ArrayList<Course> passedCourses) {
-		
-		super(StudentID, firstName, lastName);
-		this.setGpa(gpa);
-		this.setCpga(cpga);
-		this.setCreditReceived(creditReceived);
-		this.setCreditEarned(creditEarned);
-		this.setTotalCreditReceived(totalCreditReceived);
-		this.setTotalCreditEarned(totalCreditEarned);
-		this.setPassedCourses(passedCourses);
+	public Transcript(ID StudentID) {
+		super(StudentID);
 	}
 	
-	public Transcript(ID StudentID, String firstName, String lastName, double gpa,
-			double cgpa, int creditReceived, int creditEarned, ArrayList<Course> passedCourses,
-			ArrayList<Course> failedCourses) {
+	public Transcript(ID StudentID, String firstName, String lastName, int term, double gpa,
+			double cgpa, int creditReceived, int creditEarned, int totalCreditReceived, 
+			int totalCreditEarned, ArrayList<Course> passedCourses, ArrayList<Course> failedCourses) {
 		
-		super(StudentID, firstName, lastName);
+		super(StudentID);
+		this.getTerm();
 		this.setGpa(gpa);
 		this.setCpga(cgpa);
 		this.setCreditReceived(creditReceived);
 		this.setCreditEarned(creditEarned);
+		this.setCreditReceived(totalCreditReceived);
+		this.setTotalCreditEarned(totalCreditEarned);
 		this.setPassedCourses(passedCourses);
 		this.setFailedCourses(failedCourses);
-		
 		}
 	
 	public void viewTranscript() {

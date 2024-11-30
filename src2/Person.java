@@ -6,11 +6,9 @@ public abstract class Person {
     private String schedule;
     // Constructor
     
-    public Person(String firstName, String lastName, Password password, String schedule) {
+    public Person(String firstName, String lastName) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
-    	this.setPassword(password);
-    	this.setSchedule(schedule);
     }
     
     public Person(String firstName, String lastName, Password password) {
@@ -19,15 +17,11 @@ public abstract class Person {
     	this.setPassword(password);
     }
     
-    public Person(String firstName, String lastName) {
-    	this.setFirstName(firstName);
-    	this.setLastName(lastName);
+    public Person()  {
+    	
     }
     
-    
     public abstract String viewSchedule();
-    
-    
     
 	public String getFirstName() {
 		return firstName;

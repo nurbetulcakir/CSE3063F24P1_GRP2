@@ -13,12 +13,9 @@ public class Advisor extends Lecturer {
         this.setAwaitingStudents(awaitingStudents);
     }
     
-    public Advisor(ID lecturerID, String firstName, String lastName) {
-        super(lecturerID,firstName,lastName);
+    public Advisor(ID lecturerID) {
+        super(lecturerID);
     }
-    
-    
-    
     
 	public void ViewAdvisorInfo() {
 		

@@ -14,7 +14,9 @@ public class Lecturer extends Person{
 		this.setLecturerID(lecturerID);
 
 	}
-	
+	public Lecturer(ID lecturerID)  {
+		this.setLecturerID(lecturerID);
+	}
 	
 	
 	
