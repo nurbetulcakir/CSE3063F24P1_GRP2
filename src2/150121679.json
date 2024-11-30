@@ -1,0 +1,52 @@
+[
+  {
+    "studentID": {
+        "id": "150121679"
+      },
+      "firstName": "Chloe",
+      "lastName": "Price",
+    "gpa": 3.22,
+    "cgpa": 1.29,
+    "creditReceived": 13,
+    "creditEarned": 13,
+    "passedCourses": [
+        {
+          "courseID": {
+                "id": "CSE2225"
+              },
+              "courseName": "Data Structures",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "courseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ],
+              "courseTerm": 3,
+              "courseCredit": 7.0,
+              "courseLetterGrade": "CC"
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "courseName": "Computer Programming II",
+                  "prerequisiteCourse": [],
+                  "courseTerm": 2,
+                  "courseCredit": 6.0,
+                  "courseLetterGrade": "CB"
+        }
+      ],
+      "failedCourses": [
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "CourseName": "Probability and Statistics for Computer Engineering",
+                  "prerequisiteCourse": []
+        }
+      ]      
+  }
+]
