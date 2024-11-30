@@ -20,18 +20,29 @@ public class Advisor extends Lecturer {
     
     
 	public void ViewAdvisorInfo() {
+		
+		String courseId;
+	    String courseName;
+	    int courseTerm ;
+	    double courseCredit;
 		for (int i = 0; i < ObjectCreator.advisors.size(); i++) {
 	    		System.out.println("ID: " + ObjectCreator.advisors.get(i).getLecturerID().getId());
 				System.out.println("First Name:" + ObjectCreator.advisors.get(i).getFirstName());
 				System.out.println("Last Name:" + ObjectCreator.advisors.get(i).getLastName());
 				System.out.println();
 				System.out.println("Given Courses: ");
+				System.out.printf("%-10s %-60s %-20s %-10s%n", "Course ID", "Course Name", "Course Term", "Course Credit");
+		        System.out.println("---------------------------------------------------------------"
+		        		+ "---------------------------------------------------------------");
 				for(int j = 0; j < ObjectCreator.advisors.get(i).getGivenCourses().size(); j++) {
-					System.out.println("Course ID: " + ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseID().getId());
-					System.out.println("Course Name: " + ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseName());
-					System.out.println("Course Term: " + ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseTerm());
-					System.out.println("Course Credit: " + ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseCredit());
-				}
+					courseId = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseID().getId();
+				    courseName = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseName();
+				    courseTerm = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseTerm();
+				    courseCredit = ObjectCreator.advisors.get(i).getGivenCourses().get(j).getCourseCredit();
+
+				    System.out.printf("%-10s %-60s %-20d %-10.1f%n", courseId, courseName, courseTerm, courseCredit);
+					
+					}
 				System.out.println();
 	    		break;
 	    
