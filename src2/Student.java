@@ -17,12 +17,11 @@ public class Student extends Person {
     
     // Constructor
     public Student(ID studentID, String firstName, String lastName, Password password,
-    		Advisor advisor, int term, ArrayList<Course> passedCourses) {
+    		Advisor advisor, int term) {
         super(firstName, lastName, password);
         this.setStudentID(studentID);
         this.setAdvisor(advisor);
         this.setTerm(term);
-        this.setPassedCourses(passedCourses);
     }
     
     public Student(ID studentID, String firstName, String lastName, Password password,
