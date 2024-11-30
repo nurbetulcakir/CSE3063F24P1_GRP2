@@ -4,12 +4,10 @@ public class Student extends Person {
     // Attributes
     private ID studentID;
     private Advisor advisor;
+    private Transcript transcript;
     private int term;
-    private ArrayList<Course> passedCourses = new ArrayList<Course>();
-    private ArrayList<CourseSection> chosenCourses = new ArrayList<CourseSection>(); // Course Section, because student chooses section on registration system
-    private ArrayList<Course> choosableCourses = new ArrayList<Course>();
+    private ArrayList<CourseSection> chosenCourses; // Course Section, because student chooses section on registration system
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
-    private ArrayList<Course> failedCourses = new ArrayList<Course>();
     private int approveRequest = 0; // 0 if not send for approval, 1 if send for approval, 2 if approved, 3 if disapproved
     private ArrayList<String> unreadNotifications = new ArrayList<String>();
     private ArrayList<String> readNotifications = new ArrayList<String>();
@@ -31,98 +29,94 @@ public class Student extends Person {
         this.setStudentID(studentID);
         this.setAdvisor(advisor);
         this.setTerm(term);
-        this.setPassedCourses(passedCourses);
         this.setChosenCourses(chosenCourses);
         this.setApprovedCourses(approvedCourses);
-        this.setFailedCourses(failedCourses);
     }
     
     public Student(ID studentID) {
     	this.setStudentID(studentID);
     }
     
-   public boolean isPrerequisiteCoursesPassed(Course course) {	
-    	boolean isPassed= false;
-    	int temp = 0;
-    	for(int i = 0; i < course.viewPrerequisiteCourses().size(); i++) {
-    		// FD is not a passing grade, however with FD student can take the next course
-    		if (isPassedCourse(course.viewPrerequisiteCourses().get(i)) || course.getCourseLetterGrade().equals("FD")){
-    		temp++;
-    			}
-    		}	
-	    	if (temp == course.viewPrerequisiteCourses().size()) {
-	    		isPassed = true;
-	    		}
-	    	else {
-	    		isPassed = false;
-	    		}
-		return isPassed;
-    }
+//   public boolean isPrerequisiteCoursesPassed(Course course) {	
+//    	int temp = 0;
+//    	for(int i = 0; i < course.viewPrerequisiteCourses().size(); i++) {
+//    		// FD is not a passing grade, however with FD student can take the next course
+//    		if (isPassedCourse(course.viewPrerequisiteCourses().get(i)) || course.getCourseLetterGrade().equals("FD")){
+//    		temp++;
+//    		}
+//    	}	
+//	    if (temp == course.viewPrerequisiteCourses().size()) {
+//	    	return true;
+//	    }
+//	    else {
+//	    	return false;
+//	    }
+//    }
    
-   public boolean isPassedCourse(Course course) {
-       for (int i = 0; i < this.getPassedCourses().size(); i++) {
-           if (this.getPassedCourses().get(i).getCourseID().getId().equals(course.getCourseID().getId())) {
-               return true;
-           }
-       }
-       return false;
-   }
+//   public boolean isPassedCourse(Course course) {
+//	   if (this.getPassedCourses().contains(course)) {
+//           return true;
+//       }
+//       else  {
+//	       return false;
+//       }
+//   }
    
-   public boolean isFailedCourse(Course course) {
-       for (int i = 0; i < this.getFailedCourses().size(); i++) {
-           if (this.getFailedCourses().get(i).getCourseID().getId().equals(course.getCourseID().getId())) {
-               return true;
-           }
-       }
-       return false;
-   }
+//   public boolean isFailedCourse(Course course) {
+//       for (int i = 0; i < this.getFailedCourses().size(); i++) {
+//           if (this.getFailedCourses().get(i).getCourseID().getId().equals(course.getCourseID().getId())) {
+//               return true;
+//           }
+//       }
+//       return false;
+//   }
    
-   public boolean isCourseTakenBefore(Course course) {
-       for (int i = 0; i < ObjectCreator.courses.size(); i++) {
-           if (isPassedCourse(course) || isFailedCourse(course)) {
-               return true;
-           }
-       }
-       return false;
-   }
+//   public boolean isCourseTakenBefore(Course course) {
+//       for (int i = 0; i < ObjectCreator.courses.size(); i++) {
+//           if (isPassedCourse(course) || isFailedCourse(course)) {
+//               return true;
+//           }
+//       }
+//       return false;
+//   }
    
-   public boolean isChoosableCourse(Course course) {
-	   this.setChoosableCourses();
-       for (int i = 0; i < ObjectCreator.courses.size(); i++) {
-           if (this.getChoosableCourses().contains(course)) {
-               return true;
-           }
-       }
-       return false;
-   }
+//   public boolean isChoosableCourse(Course course) {
+//	   this.setChoosableCourses();
+//       for (int i = 0; i < ObjectCreator.courses.size(); i++) {
+//           if (this.getChoosableCourses().contains(course)) {
+//               return true;
+//           }
+//       }
+//       return false;
+//   }
    
-   public boolean isChosenCourse(CourseSection cs) {
-	   this.setChoosableCourses();
-       for (int i = 0; i < this.chosenCourses.size(); i++) {
-           if (this.getChosenCourses().contains(cs)) {
-               return true;
-           }
-       }
-       return false;
-   }
+//   public boolean isChosenCourse(CourseSection cs) {
+//	   this.setChoosableCourses();
+//       for (int i = 0; i < this.chosenCourses.size(); i++) {
+//           if (this.getChosenCourses().contains(cs)) {
+//               return true;
+//           }
+//       }
+//       return false;
+//   }
    
    
    
-   public void addChosenCourse(CourseSection cs) {
-	   
-	   if (isChoosableCourse(cs.getCourse())) {
-	   this.chosenCourses.add(cs);
-	   this.choosableCourses.remove(cs.getCourse());
-	   }
-   }
+//   public void addChosenCourse(CourseSection cs) {
+//	   
+//	   if (isChoosableCourse(cs.getCourse())) {
+//	   this.chosenCourses.add(cs);
+//	   this.choosableCourses.remove(cs.getCourse());
+//	   }
+//   }
    
-   public void removeChosenCourse(CourseSection cs) {
-	   
-	   if (isChoosableCourse(cs.getCourse()) && isChosenCourse(cs)) {
-	   this.chosenCourses.remove(cs);
-	   this.choosableCourses.add(cs.getCourse());
-	   } 	   
-   }
+//   public void removeChosenCourse(CourseSection cs) {
+//	   
+//	   if (isChoosableCourse(cs.getCourse()) && isChosenCourse(cs)) {
+//	   this.chosenCourses.remove(cs);
+//	   this.choosableCourses.add(cs.getCourse());
+//	   } 	   
+//   }
   
 
    public void addToApprovedCourses(CourseSection cs) {
@@ -177,20 +171,6 @@ public class Student extends Person {
 		this.term = term;
 	}
 
-	public ArrayList<Course> getPassedCourses() {
-		return passedCourses;
-	}
-
-	public void setPassedCourses(ArrayList<Course> passedCourses) {
-		this.passedCourses = passedCourses;
-	}
-	
-	public ArrayList<Course> getFailedCourses() {
-		return failedCourses;
-	}
-	public void setFailedCourses(ArrayList<Course> failedCourses) {
-		this.failedCourses = failedCourses;
-	}
 
 	public ArrayList<CourseSection> getChosenCourses() {
 		return chosenCourses;
@@ -216,28 +196,26 @@ public class Student extends Person {
 		this.approveRequest = approveRequest;
 	}
 
-	public ArrayList<Course> getChoosableCourses() {
-		return this.choosableCourses;
+	public Transcript getTranscript() {
+		return transcript;
 	}
 
-	public void setChoosableCourses() {
-		
-		boolean temp = true;
-		this.choosableCourses.clear();
-		for (int i = 0; i < ObjectCreator.courses.size(); i++) {
-			if (ObjectCreator.courses.get(i).getCourseTerm() <= this.getTerm()) {
-				for (int j = 0; j < this.passedCourses.size(); j++) {
-				if (!(isPrerequisiteCoursesPassed(this.passedCourses.get(j)))){
-						temp = false;
-						}
-					}
-				if (temp == true) {
-					this.choosableCourses.add(ObjectCreator.courses.get(i));
-					}
-				}
-			}
-		
-		
+	public void setTranscript(Transcript transcript) {
+		this.transcript = transcript;
 	}
 
+
+
+//	public void setChoosableCourses() {
+//		choosableCourses = new ArrayList<Course>();
+//		for (int i = 0; i < ObjectCreator.courses.size(); i++) {
+//			// each course in all courses is evaluated. if one's term is lower than student's and one is in the student's passed courses list
+//			if ((ObjectCreator.courses.get(i).getCourseTerm() <= this.getTerm()) && !(this.getPassedCourses().contains(ObjectCreator.courses.get(i)) 
+//					&& isPrerequisiteCoursesPassed(ObjectCreator.courses.get(i)))) {
+//				// each course in all courses is evaluated. if one's prerequisite is not passed
+//				this.choosableCourses.add(ObjectCreator.courses.get(i));
+//				}
+//			}
+//		}
+	
    }

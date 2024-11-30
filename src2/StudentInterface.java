@@ -34,7 +34,10 @@ public class StudentInterface {
                 	ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).ViewAdvisorInfo();
                     break;
                 case 4:
-                	System.out.println(ObjectCreator.students.get(UserInterface.currentStudentsIndex).getChoosableCourses());
+                	ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).setChoosableCourses();
+                	for (int i = 0; i < ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).getChoosableCourses().size(); i++ ) {
+                	System.out.println(ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).getChoosableCourses().get(i).getCourseName());
+                	}
                     break;
                 case 5:
                 	ObjectCreator.students.get(UserInterface.currentStudentsIndex).sendForApproval();
@@ -57,35 +60,35 @@ public class StudentInterface {
       }
 	}
 	
-	public boolean chooseCourse(Student student, CourseSection courseSection) {
-		// Check prerequisites
-		if (!student.isPrerequisiteCoursesPassed(courseSection.getCourse())) {
-			return false;
-		}
-	
-		// Check course capacity
-		if (courseSection.getCapacity() <= 0) {
-			return false;
-		}
-	
-		// Check if the student is already enrolled in this course section
-		if (student.getChosenCourses().contains(courseSection)) {
-			return false;
-		}
-		// Check if the student's term matches the course term
-		if (student.getTerm() < courseSection.getCourse().getCourseTerm()) {
-			return false;
-		}
-		// Check if the student has reached the maximum number of courses
-		if (student.getChosenCourses().size() >= 5) {
-			return false;
-		}
-	
-		student.getChosenCourses().add(courseSection);
-		courseSection.getEnrolledStudents().add(student);
-		courseSection.setCapacity(courseSection.getCapacity() - 1);
-		return true;
-	}
+//	public boolean chooseCourse(Student student, CourseSection courseSection) {
+//		// Check prerequisites
+//		if (!student.isPrerequisiteCoursesPassed(courseSection.getCourse())) {
+//			return false;
+//		}
+//	
+//		// Check course capacity
+//		if (courseSection.getCapacity() <= 0) {
+//			return false;
+//		}
+//	
+//		// Check if the student is already enrolled in this course section
+//		if (student.getChosenCourses().contains(courseSection)) {
+//			return false;
+//		}
+//		// Check if the student's term matches the course term
+//		if (student.getTerm() < courseSection.getCourse().getCourseTerm()) {
+//			return false;
+//		}
+//		// Check if the student has reached the maximum number of courses
+//		if (student.getChosenCourses().size() >= 5) {
+//			return false;
+//		}
+//	
+//		student.getChosenCourses().add(courseSection);
+//		courseSection.getEnrolledStudents().add(student);
+//		courseSection.setCapacity(courseSection.getCapacity() - 1);
+//		return true;
+//	}
 	
 	public boolean dropCourse(Student student, CourseSection courseSection) {
 		// Check if the student is enrolled in the course section
