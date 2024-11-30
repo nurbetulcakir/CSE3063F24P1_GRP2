@@ -30,6 +30,11 @@ public class Course {
         this.setCourseName(courseName);
         this.prerequisiteCourse = new ArrayList<>(); // Start as an empty list
     }
+    
+    public Course(ID courseID, String courseName)  {
+        this.setCourseID(courseID);
+        this.setCourseName(courseName);
+    }
     // Method to add a prerequisite course
     public void addPrerequisiteCourse(Course course) {
         // Adds a course to the list of prerequisites.

@@ -6,16 +6,13 @@ public class CourseSession extends CourseSection{
 	private String endTime;
 	private String classroom;
     // Constructor    
-    public CourseSession(Course course, int sectionID, String day, String startTime, String endTime, String classroom, int capacity) {
+    public CourseSession(int sectionID, Course course, int capacity, String day, String startTime, String endTime, String classroom) {
     	super(sectionID, course, capacity);
     	this.setDay(day);
     	this.setStartTime(startTime);
     	this.setEndTime(endTime);
     	this.setClassroom(classroom);
     }
-    
-
-    
     
     // Method to check if the session time is valid
     public boolean isValidSession() {

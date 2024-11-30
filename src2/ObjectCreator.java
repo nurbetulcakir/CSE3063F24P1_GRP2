@@ -5,6 +5,7 @@ public class ObjectCreator {
      static ArrayList<Advisor> advisors;
      static ArrayList<Course> courses;
      static ArrayList<Transcript> transcripts = new ArrayList<Transcript>();
+     static ArrayList<CourseSection> courseSections;
     
      
 	public void createObjects() {
@@ -23,6 +24,7 @@ public class ObjectCreator {
         String transcriptFilePath8 = "150121681.json";
         String transcriptFilePath9 = "150121682.json";
         String transcriptFilePath10 = "150121683.json";
+        String courseSectionFilePath = "course_sections.json";
 
         // Load data using DataLoader
         students = DataLoader.loadStudents(studentFilePath);
@@ -38,6 +40,7 @@ public class ObjectCreator {
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath8));
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath9));
         transcripts.addAll(DataLoader.loadTranscripts(transcriptFilePath10));
+        courseSections = DataLoader.loadCourseSections(courseSectionFilePath);
 	}
 	
 	

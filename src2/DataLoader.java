@@ -47,4 +47,14 @@ public class DataLoader {
             return new ArrayList<>();
         }
     }
+    
+    public static ArrayList<CourseSection> loadCourseSections(String filePath) {
+        try (FileReader reader = new FileReader(filePath)) {
+            Type courseSectionListType = new TypeToken<ArrayList<CourseSection>>() {}.getType();
+            return gson.fromJson(reader, courseSectionListType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 }
