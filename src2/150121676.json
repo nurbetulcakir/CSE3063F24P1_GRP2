@@ -3,8 +3,9 @@
     "studentID": {
         "id": "150121676"
       },
-      "firstName": "Nathan",
-      "lastName": "Drake",
+    "firstName": "Nathan",
+    "lastName": "Drake",
+    "term": 5,
     "gpa": 2.46,
     "cgpa": 1.74,
     "creditReceived": 13,
@@ -15,6 +16,8 @@
                 "id": "CSE2225"
               },
               "courseName": "Data Structures",
+              "courseCredit": 7.0,
+              "courseLetterGrade": "CB",
               "prerequisiteCourse":[
                 {
                   "courseID": {
@@ -23,20 +26,16 @@
                   "courseName": "Computer Programming II",
                   "prerequisiteCourse": []
                 }
-              ],
-              "courseTerm": 3,
-              "courseCredit": 7.0,
-              "courseLetterGrade": "CB"
+              ]
         },
         {
           "courseID": {
                     "id": "CSE1242"
                   },
                   "courseName": "Computer Programming II",
-                  "prerequisiteCourse": [],
-                  "courseTerm": 2,
                   "courseCredit": 6.0,
-                  "courseLetterGrade": "CB"
+                  "courseLetterGrade": "CB",
+                  "prerequisiteCourse": []
         }
       ],
       "failedCourses": [
@@ -45,6 +44,8 @@
                     "id": "STAT2253"
                   },
                   "courseName": "Probability and Statistics for Computer Engineering",
+                  "courseCredit": 5.0,
+                  "courseLetterGrade": "FD",
                   "prerequisiteCourse": []
         }
       ]     

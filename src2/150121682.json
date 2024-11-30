@@ -3,8 +3,9 @@
     "studentID": {
         "id": "150121682"
       },
-      "firstName": "Wyll",
-      "lastName": "Ravengard",
+    "firstName": "Wyll",
+    "lastName": "Ravengard",
+    "term": 5,
     "gpa": 2.45,
     "cgpa": 3.00,
     "creditReceived": 18,

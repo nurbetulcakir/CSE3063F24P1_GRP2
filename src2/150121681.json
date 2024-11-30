@@ -3,8 +3,9 @@
     "studentID": {
         "id": "150121681"
       },
-      "firstName": "Jenevelle",
-      "lastName": "Hallowleaf",
+    "firstName": "Jenevelle",
+    "lastName": "Hallowleaf",
+    "term": 5,
     "gpa": 3.02,
     "cgpa": 2.29,
     "creditReceived": 18,
