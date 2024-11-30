@@ -73,6 +73,24 @@
     },
     {
       "studentID": {
+        "id": "150121678"
+      },
+      "firstName": "Alan",
+      "lastName": "Wake",
+      "password": {
+        "password": "Oz+cD$$!-"
+      },
+      "advisor": {
+        "lecturerID": {
+                "id": "100031"
+              },
+        "firstName": "Lara",
+        "lastName": "Croft"
+      },
+      "term": 5
+    },
+    {
+      "studentID": {
         "id": "150121679"
       },
       "firstName": "Chloe",
