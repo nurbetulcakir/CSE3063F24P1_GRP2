@@ -124,6 +124,8 @@ public class StudentInterface {
                 	boolean loopController = true;
                 	currentTranscript.setChosenCourses(new ArrayList<CourseSection>());
                 	CourseSection selectedSection;
+                	int choosable = 0;
+                	final int maxChoosable = 5;
                 	while(loopController) {
                 	System.out.println("Choosable Courses:");
                     CourseSection section = new CourseSection();
@@ -186,6 +188,13 @@ public class StudentInterface {
                         System.out.println("Invalid course choice.");
                         break;
                     	}
+                    if(currentTranscript.getChosenCourses().size() > 5) {
+                    	System.out.println("A student can choose up to 5 courses! Your last chosen course will be deleted...");
+                    	currentTranscript.getChosenCourses().remove(5);
+                    	System.out.println("Exiting from program...");
+                    	return;
+                    }
+                    
                 	}
                     break;
 
