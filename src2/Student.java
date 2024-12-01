@@ -77,7 +77,16 @@ public class Student extends Person {
 	        System.out.println("No advisor assigned to you. Please contact the administration.");
 	        return;
 	      }
+	    if (advisor.getAwaitingStudents() == null) {
+	    advisor.setAwaitingStudents(new ArrayList<Student>());
+	    }
 	    advisor.getAwaitingStudents().add(this);
+	    if (advisor.getReadNotifications() == null) {
+	    	advisor.setReadNotifications(new ArrayList<String>());
+	    }
+	    if (advisor.getUnreadNotifications() == null) {
+	    	advisor.setUnreadNotifications(new ArrayList<String>());
+	    }
 	    advisor.addNotification(this.getFirstName() + " " + this.getLastName() + " is waiting for your registration approve.");
    }
 

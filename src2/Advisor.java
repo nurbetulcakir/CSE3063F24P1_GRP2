@@ -3,12 +3,11 @@ public class Advisor extends Lecturer {
 	
     // Attributes
 	private ArrayList<Student> studentList = new ArrayList<Student>();
-    private ArrayList<Student> awaitingStudents = new ArrayList<Student>();
+    private ArrayList<Student> awaitingStudents;
     private Student advStudent;
     private ArrayList<String> unreadNotifications = new ArrayList<String>();
-    private ArrayList<String> readNotifications = new ArrayList<String>();
-    
-    // Constructor
+
+	// Constructor
     public Advisor(ID lecturerID, String firstName, String lastName, Password password, ArrayList<Student> studentList, ArrayList<Student> awaitingStudents) {
         super(lecturerID,firstName,lastName);
         this.setStudentList(studentList);
@@ -126,5 +125,23 @@ public class Advisor extends Lecturer {
 	public ArrayList<Course> getGivenCourses() {
 		// TODO Auto-generated method stub
 		return super.getGivenCourses();
+	}
+	
+    public ArrayList<String> getUnreadNotifications() {
+		return unreadNotifications;
+	}
+
+	public void setUnreadNotifications(ArrayList<String> unreadNotifications) {
+		this.unreadNotifications = unreadNotifications;
+	}
+
+	private ArrayList<String> readNotifications = new ArrayList<String>();
+    
+    public ArrayList<String> getReadNotifications() {
+		return readNotifications;
+	}
+
+	public void setReadNotifications(ArrayList<String> readNotifications) {
+		this.readNotifications = readNotifications;
 	}
 }
