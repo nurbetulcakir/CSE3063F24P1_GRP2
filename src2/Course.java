@@ -4,6 +4,7 @@ public class Course {
     private ID courseID;
     private String courseName;
     private ArrayList<Course> prerequisiteCourse = new ArrayList<Course>();
+    private ArrayList<CourseSection> courseSections = new ArrayList<CourseSection>();
     private int courseTerm;
     private double courseCredit;
     private String courseLetterGrade;
@@ -35,7 +36,11 @@ public class Course {
         this.setCourseID(courseID);
         this.setCourseName(courseName);
     }
-    // Method to add a prerequisite course
+    public Course() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// Method to add a prerequisite course
     public void addPrerequisiteCourse(Course course) {
         // Adds a course to the list of prerequisites.
         this.prerequisiteCourse.add(course);
@@ -75,6 +80,14 @@ public class Course {
 
 	public void setCourseLetterGrade(String courseLetterGrade) {
 		this.courseLetterGrade = courseLetterGrade;
+	}
+
+	public ArrayList<CourseSection> getCourseSections() {
+		return courseSections;
+	}
+
+	public void setCourseSections(ArrayList<CourseSection> courseSections) {
+		this.courseSections = courseSections;
 	}
     
     

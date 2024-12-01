@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentInterface {
@@ -14,6 +15,9 @@ public class StudentInterface {
 			    System.out.println("6. View notifications");
 			    System.out.println("7. Logout");
 			    System.out.print("Please type the number of your selection: ");
+			    
+			    Student currentStudent = ObjectCreator.students.get(UserInterface.currentStudentsIndex);
+                Transcript currentTranscript = ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex);
 			    
 			    int choice = scanner.nextInt(); 
 			    scanner.nextLine();
@@ -116,12 +120,15 @@ public class StudentInterface {
                     break;
                     
                 case 4:
-                	ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).setChoosableCourses();
+                	currentTranscript.setChoosableCourses();
                 	boolean loopController = true;
+                	currentTranscript.setChosenCourses(new ArrayList<CourseSection>());
+                	CourseSection selectedSection;
                 	while(loopController) {
                 	System.out.println("Choosable Courses:");
-                    Transcript currentTranscript = ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex);
+                    CourseSection section = new CourseSection();
 
+                    
                     for (int i = 0; i < currentTranscript.getChoosableCourses().size(); i++) {
                         System.out.println((i + 1) + ". " + currentTranscript.getChoosableCourses().get(i).getCourseName());
                     }
@@ -137,22 +144,21 @@ public class StudentInterface {
                     }
                     if (courseChoice > 0 && courseChoice <= currentTranscript.getChoosableCourses().size()) {
                         Course selectedCourse = currentTranscript.getChoosableCourses().get(courseChoice - 1);
-
                         // Display available sections for the selected course
                         System.out.println("Available Sections for " + selectedCourse.getCourseName() + ":");
                         
-                        CourseSection section = null;
-                        //burdan sonrası
                         for(int i = 0; i < ObjectCreator.courseSections.size(); i++) {
                         	if(ObjectCreator.courseSections.get(i).getCourse().getCourseID().getId().equals(selectedCourse.getCourseID().getId())) {
                         		section = ObjectCreator.courseSections.get(i);
+                        		selectedCourse.getCourseSections().add(section);
                         	}
                         }
-                        for (int i = 0; i < section.getCourseSessions().size(); i++) {
-                            System.out.println((i + 1) + ". Section " + section.getSectionID() + " | Capacity: " +
-                                    section.getCapacity());
+                        
+                        for (int j = 0; j < selectedCourse.getCourseSections().size(); j++) {
+                            System.out.println((j + 1) + ". Section " + selectedCourse.getCourseSections().get(j).getSectionID() + " | Capacity: " + selectedCourse.getCourseSections().get(j).getCapacity());
                         }
-                        System.out.println((section.getCourseSessions().size() + 1) + ". Main Menu");
+
+                        System.out.println((selectedCourse.getCourseSections().size() + 1) + ". Main Menu");
                         System.out.print("Please select a section to register (type the number): ");
                         int sectionChoice = scanner.nextInt();
                         scanner.nextLine(); // Consume newline
@@ -162,15 +168,15 @@ public class StudentInterface {
                             break;
                         }
                         
-                        if (sectionChoice > 0 && sectionChoice <= section.getCourseSessions().size()) {
-                            CourseSection selectedSection = section.getCourseSessions().get(sectionChoice - 1);
+                        if (sectionChoice > 0 && sectionChoice <= selectedCourse.getCourseSections().size()) {
+                            selectedSection = selectedCourse.getCourseSections().get(sectionChoice - 1);
 
                            // Register for the chosen section
-                           ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).addChosenCourse(selectedSection);
-                           ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).getChoosableCourses().remove(selectedCourse);
+                           currentTranscript.getChosenCourses().add(selectedSection);
+                           currentTranscript.getChoosableCourses().remove(selectedCourse);
                            
                                 System.out.println("Successfully registered for " + selectedCourse.getCourseName() +
-                                        " (Section " + (selectedSection.getSectionID() + 1) + ").");
+                                        " (Section " + selectedSection.getSectionID() + ").");
                         } else {
                             System.out.println("Invalid section choice.");
                             break;
@@ -184,7 +190,47 @@ public class StudentInterface {
                     break;
 
                 case 5:
-                	ObjectCreator.students.get(UserInterface.currentStudentsIndex).sendForApproval();
+                    CourseSection chosenSection = new CourseSection();
+                    if (currentTranscript.getChosenCourses() == null) {
+                        System.out.println("You have no chosen courses to send for approval. Please register for courses first from menu(4).");
+                        break;
+                    }
+
+                    System.out.println("The following courses will be sent to your advisor for approval:");
+                    for (int i = 0; i < currentTranscript.getChosenCourses().size(); i++) {
+                    	chosenSection = currentTranscript.getChosenCourses().get(i);
+                        System.out.println((i + 1) + ". " + chosenSection.getCourse().getCourseName() + " - Section " + chosenSection.getSectionID());
+                    	
+                    }
+
+                    System.out.print("Do you confirm to send for approval? (Y/N) ");
+                    String approvalChoice = scanner.nextLine();
+
+                    if (approvalChoice.equalsIgnoreCase("Y")) { // "y" and "Y" accepted
+
+                        currentStudent.sendForApproval(); // Assuming this method sends the courses to the advisor
+
+                        
+                        System.out.println("Your selected courses have been successfully sent for approval.");
+                        System.out.print("Do you want to exit to main menu? (Y/N) ");
+                        String successOut = scanner.nextLine();
+                        if (successOut.equalsIgnoreCase("Y")) {
+                        	break;
+                        } else if (successOut.equalsIgnoreCase("N")) {
+                        	System.out.println("Not exited to main menu, when you want to exit please press 'Y'. ");
+                            successOut = scanner.nextLine();
+                            if (successOut.equalsIgnoreCase("Y")) {
+                            	break;
+                            }
+                        } else {
+                        	System.out.println("Invalid input. Returning to main menu...");
+                        	
+                        }
+                    } else if (approvalChoice.equalsIgnoreCase("N")) {
+                        System.out.println("Course approval send canceled.");
+                    } else {
+                        System.out.println("Invalid input. Returning to main menu.");
+                    }
                     break;
                     
                 case 6:
@@ -206,49 +252,5 @@ public class StudentInterface {
             }
         }
       }
-	}
-	
-//	public boolean chooseCourse(Student student, CourseSection courseSection) {
-//		// Check prerequisites
-//		if (!student.isPrerequisiteCoursesPassed(courseSection.getCourse())) {
-//			return false;
-//		}
-//	
-//		// Check course capacity
-//		if (courseSection.getCapacity() <= 0) {
-//			return false;
-//		}
-//	
-//		// Check if the student is already enrolled in this course section
-//		if (student.getChosenCourses().contains(courseSection)) {
-//			return false;
-//		}
-//		// Check if the student's term matches the course term
-//		if (student.getTerm() < courseSection.getCourse().getCourseTerm()) {
-//			return false;
-//		}
-//		// Check if the student has reached the maximum number of courses
-//		if (student.getChosenCourses().size() >= 5) {
-//			return false;
-//		}
-//	
-//		student.getChosenCourses().add(courseSection);
-//		courseSection.getEnrolledStudents().add(student);
-//		courseSection.setCapacity(courseSection.getCapacity() - 1);
-//		return true;
-//	}
-	
-	public boolean dropCourse(Student student, CourseSection courseSection) {
-		// Check if the student is enrolled in the course section
-		if (!student.getChosenCourses().contains(courseSection)) {
-			return false;
-		}
-	
-		courseSection.getEnrolledStudents().remove(student);
-		student.getChosenCourses().remove(courseSection);
-		// Increase the capacity by 1 as the student is now unenrolled
-		courseSection.setCapacity(courseSection.getCapacity() + 1);
-	
-		return true;
 	}
 }

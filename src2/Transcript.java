@@ -99,22 +99,6 @@ public boolean isChosenCourse(CourseSection cs) {
     return false;
 }
 	
-  public void addChosenCourse(CourseSection cs) {
-	   
-	   if (isChoosableCourse(cs.getCourse())) {
-	   this.getChosenCourses().add(cs);
-	   this.choosableCourses.remove(cs.getCourse());
-	   }
-}
-
-public void removeChosenCourse(CourseSection cs) {
-	   
-	   if (isChoosableCourse(cs.getCourse()) && isChosenCourse(cs)) {
-	   this.getChosenCourses().remove(cs);
-	   this.choosableCourses.add(cs.getCourse());
-	   } 	   
-}
-	
 
 	public double getGpa() {
 		return gpa;

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class CourseSection{
+public class CourseSection extends Course{
     // Attributes
     private int sectionID;
     private Course course; // Composition relationship with Course
@@ -9,6 +9,7 @@ public class CourseSection{
     // Constructor
     
     public CourseSection(int sectionID, Course course, ArrayList<Student> enrolledStudents) {
+        super(course.getCourseID(), course.getCourseName());
         this.setSectionID(sectionID);
         this.setCourse(course); // Course is a required component for CourseSection (Composition)
         this.setCapacity(capacity);
@@ -16,19 +17,22 @@ public class CourseSection{
     }
     
     public CourseSection(int sectionID, Course course, int capacity, ArrayList<CourseSession> courseSessions) {
-        this.setSectionID(sectionID);
+        super(course.getCourseID(), course.getCourseName());
+    	this.setSectionID(sectionID);
         this.setCourse(course); // Course is a required component for CourseSection (Composition)
         this.setCapacity(capacity);
         this.setCourseSessions(courseSessions);
     }
     
     public CourseSection(int sectionID, Course course, int capacity)  {
+        super(course.getCourseID(), course.getCourseName());
         this.setSectionID(sectionID);
         this.setCourse(course);
         this.setCapacity(capacity);
     }
     
     public CourseSection()  {
+        super();
     }
 
     

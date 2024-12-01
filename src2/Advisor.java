@@ -5,6 +5,8 @@ public class Advisor extends Lecturer {
 	private ArrayList<Student> studentList = new ArrayList<Student>();
     private ArrayList<Student> awaitingStudents = new ArrayList<Student>();
     private Student advStudent;
+    private ArrayList<String> unreadNotifications = new ArrayList<String>();
+    private ArrayList<String> readNotifications = new ArrayList<String>();
     
     // Constructor
     public Advisor(ID lecturerID, String firstName, String lastName, Password password, ArrayList<Student> studentList, ArrayList<Student> awaitingStudents) {
@@ -87,6 +89,14 @@ public class Advisor extends Lecturer {
         this.advStudent.addNotification(sendMessage);
     }
 	
+    public void addNotification(String message) {
+	    this.unreadNotifications.add(message);
+	}
+
+	public void notificationsSeen() {
+	    this.readNotifications.addAll(unreadNotifications);
+	    this.unreadNotifications.clear();
+	}
 
 
 	public ArrayList<Student> getStudentList() {
