@@ -16,33 +16,6 @@ public class Advisor extends Lecturer {
     public Advisor(ID lecturerID) {
         super(lecturerID);
     }
-    
-	public void ViewAdvisorInfo() {
-		
-		String courseId;
-	    String courseName;
-	    int courseTerm ;
-	    double courseCredit;
-	    		System.out.println("ID: " + this.getLecturerID().getId());
-				System.out.println("First Name:" + this.getFirstName());
-				System.out.println("Last Name:" + this.getLastName());
-				System.out.println();
-				System.out.println("Given Courses: ");
-				System.out.printf("%-10s %-60s %-20s %-10s%n", "Course ID", "Course Name", "Course Term", "Course Credit");
-		        System.out.println("---------------------------------------------------------------"
-		        		+ "---------------------------------------------------------------");
-				for(int j = 0; j < this.getGivenCourses().size(); j++) {
-					courseId = this.getGivenCourses().get(j).getCourseID().getId();
-				    courseName = this.getGivenCourses().get(j).getCourseName();
-				    courseTerm = this.getGivenCourses().get(j).getCourseTerm();
-				    courseCredit = this.getGivenCourses().get(j).getCourseCredit();
-
-				    System.out.printf("%-10s %-60s %-20d %-10.1f%n", courseId, courseName, courseTerm, courseCredit);
-					
-					}
-				System.out.println();
-	    
-	    }
 	
 	public void viewStudentList() {
 		for (int i = 0; i < this.getStudentList().size();i++) {
@@ -138,5 +111,10 @@ public class Advisor extends Lecturer {
 
 	public void setAdvStudent(Student advStudent) {
 		this.advStudent = advStudent;
+	}
+
+	public ArrayList<Course> getGivenCourses() {
+		// TODO Auto-generated method stub
+		return super.getGivenCourses();
 	}
 }

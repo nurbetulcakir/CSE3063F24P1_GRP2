@@ -25,6 +25,8 @@ public class StudentInterface {
                     break;
                 case 2:
                 	ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).viewTranscript();
+                	
+                	
                     break;
                 case 3:
                 	for(int i = 0; i < ObjectCreator.advisors.size(); i++) {
@@ -32,7 +34,46 @@ public class StudentInterface {
             	    		UserInterface.currentAdvisorsIndex = i;
                 		}
                 	}
-                	ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).ViewAdvisorInfo();
+                	Advisor advisor = ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex);
+            		String courseId;
+            	    String courseName;
+            	    int courseTerm ;
+            	    double courseCredit;
+            	    		System.out.println("\nAdvisor Information for Student: " + ObjectCreator.students.get(UserInterface.currentStudentsIndex).getFirstName()
+            	    				+ " " + ObjectCreator.students.get(UserInterface.currentStudentsIndex).getLastName() + ".\n");
+            	    		System.out.println("ID: " + advisor.getLecturerID().getId());
+            				System.out.println("First Name:" + advisor.getFirstName());
+            				System.out.println("Last Name:" + advisor.getLastName());
+            				System.out.println();
+            				System.out.println("Given Courses: ");
+            				System.out.printf("%-10s %-60s %-20s %-10s%n", "Course ID", "Course Name", "Course Term", "Course Credit");
+            		        System.out.println("---------------------------------------------------------------"
+            		        		+ "---------------------------------------------------------------");
+            				for(int j = 0; j < advisor.getGivenCourses().size(); j++) {
+            					courseId = advisor.getGivenCourses().get(j).getCourseID().getId();
+            				    courseName = advisor.getGivenCourses().get(j).getCourseName();
+            				    courseTerm = advisor.getGivenCourses().get(j).getCourseTerm();
+            				    courseCredit = advisor.getGivenCourses().get(j).getCourseCredit();
+
+            				    System.out.printf("%-10s %-60s %-20d %-10.1f%n", courseId, courseName, courseTerm, courseCredit);
+            					
+            					}
+            				System.out.println();
+            				
+            			    System.out.print("If you want to go back main menu, please insert 1: ");
+            			    int outChoice = scanner.nextInt(); 
+            			    scanner.nextLine();
+            			    if (outChoice == 1) {
+            			    	break;
+            			    }else {
+            			    	System.out.print("Invalid input, Please insert 1 to go back to main menu");
+                			    int outChoice2 = scanner.nextInt(); 
+                			    scanner.nextLine();
+            			    	if (outChoice2 == 1) {
+            			    		break;
+            			    	}
+            			    }
+            			    
                     break;
                 case 4:
                 	ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).setChoosableCourses();
@@ -98,7 +139,7 @@ public class StudentInterface {
                     else {
                         System.out.println("Invalid course choice.");
                         break;
-                    }
+                    	}
                 	}
                     break;
 

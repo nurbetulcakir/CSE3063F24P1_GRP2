@@ -32,7 +32,7 @@ public class AdvisorInterface {
                 	/*APPROVE/DISAPPROVE COURSES*/
                     break;
                 case 3:
-                    ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).ViewAdvisorInfo();
+                    //ObjectCreator.advisors.get(UserInterface.currentAdvisorsIndex).ViewAdvisorInfo();
                     break;
                 case 4:
                 	/* VIEW NOTIFICATIONS */
