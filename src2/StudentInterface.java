@@ -22,12 +22,51 @@ public class StudentInterface {
                 case 1:
                 	// not finished
                 	ObjectCreator.students.get(UserInterface.currentStudentsIndex).viewSchedule();
+                	
                     break;
+                    
                 case 2:
-                	ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).viewTranscript();
+                	Transcript transcript = ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex);
                 	
-                	
+            		System.out.println("Transcript Details:");
+                    System.out.println("Student ID: " + transcript.getStudentID().getId());
+                    System.out.println("Current Term: " + transcript.getTerm());
+                    System.out.println("First Name: " + transcript.getFirstName());
+                    System.out.println("Last Name: " + transcript.getLastName());
+                    System.out.println("GPA: " + transcript.getGpa());
+                    System.out.println("CGPA: " + transcript.getCgpa());
+                    System.out.println("Credits Received: " + transcript.getCreditReceived());
+                    System.out.println("Credits Earned: " + transcript.getCreditEarned());
+                    System.out.println();
+                    System.out.println("Passed Courses: ");
+                    for(int i=0; i<transcript.getPassedCourses().size(); i++) {
+                    	System.out.println("Course ID: " + transcript.getPassedCourses().get(i).getCourseID().getId());
+                    	System.out.println("Course Name: " + transcript.getPassedCourses().get(i).getCourseName());
+                    	System.out.println("Final Letter Grade: " + transcript.getPassedCourses().get(i).getCourseLetterGrade());
+                    	System.out.println("------------------------------------------");
+            		}
+                    System.out.println("Failed Courses: ");
+                    if (transcript.getFailedCourses().size() > 0) {
+                    for(int i=0; i<transcript.getFailedCourses().size(); i++) {
+                    	System.out.println("Course ID: " + transcript.getFailedCourses().get(i).getCourseID().getId());
+                    	System.out.println("Course Name: " + transcript.getFailedCourses().get(i).getCourseName());
+                    	System.out.println("Final Letter Grade: " + transcript.getFailedCourses().get(i).getCourseLetterGrade());
+                    	System.out.println("------------------------------------------");
+            			}
+                    }
+                    else {
+                    	System.out.println("There is no failed course!");
+                    }
+    			    System.out.print("If you want to go back main menu, please insert 1: ");
+    			    int outChoiceTC = scanner.nextInt(); 
+    			    scanner.nextLine();
+    			    if (outChoiceTC == 1) {
+    			    	break;
+    			    }else {
+    			    	System.out.println("Invalid input. Turning back to main menu...");
+    			    }
                     break;
+                    
                 case 3:
                 	for(int i = 0; i < ObjectCreator.advisors.size(); i++) {
                 		if (ObjectCreator.advisors.get(i).getLecturerID().getId().equals(ObjectCreator.students.get(UserInterface.currentStudentsIndex).getAdvisor().getLecturerID().getId())) {
@@ -75,6 +114,7 @@ public class StudentInterface {
             			    }
             			    
                     break;
+                    
                 case 4:
                 	ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex).setChoosableCourses();
                 	boolean loopController = true;
@@ -146,9 +186,12 @@ public class StudentInterface {
                 case 5:
                 	ObjectCreator.students.get(UserInterface.currentStudentsIndex).sendForApproval();
                     break;
+                    
                 case 6:
+                	
                 	/* VIEW NOTIFICATIONS */
                 	break;
+                	
                 case 7:
                 	System.out.println("Logging out...");
                 	UserInterface.userIdInput = "";
@@ -157,6 +200,7 @@ public class StudentInterface {
                 	UserInterface.currentTranscriptsIndex = 999;
                 	UserInterface.currentAdvisorsIndex = 999;
                     System.exit(0);
+                    
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
