@@ -9,11 +9,11 @@ public class Student extends Person {
     private ArrayList<CourseSection> chosenCourses; // Course Section, because student chooses section on registration system
     private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
     private int approveRequest = 0; // 0 if not send for approval, 1 if send for approval, 2 if approved, 3 if disapproved
-    private ArrayList<String> unreadNotifications = new ArrayList<String>();
-    private ArrayList<String> readNotifications = new ArrayList<String>();
+    private ArrayList<String> unreadNotifications;
+    private ArrayList<String> readNotifications;
     
-    
-    // Constructor
+
+	// Constructor
     public Student(ID studentID, String firstName, String lastName, Password password,
     		Advisor advisor, int term) {
         super(firstName, lastName, password);
@@ -66,7 +66,13 @@ public class Student extends Person {
 	}
 
 	public void notificationsSeen() {
+		if(readNotifications == null) {
+			readNotifications = new ArrayList<String>();
 	    this.readNotifications.addAll(unreadNotifications);
+		}
+		else {
+			this.readNotifications.addAll(unreadNotifications);
+		}
 	    this.unreadNotifications.clear();
 	}
    
@@ -145,6 +151,35 @@ public class Student extends Person {
 
 	public void setTranscript(Transcript transcript) {
 		this.transcript = transcript;
+	}
+	
+    public ArrayList<String> getUnreadNotifications() {
+    	if(unreadNotifications == null) {
+    		unreadNotifications = new ArrayList<String>();
+		return unreadNotifications;
+    	}
+    	else {
+    		return readNotifications;
+    	}
+	}
+
+	public void setUnreadNotifications(ArrayList<String> unreadNotifications) {
+		this.unreadNotifications = unreadNotifications;
+	}
+
+
+    public ArrayList<String> getReadNotifications() {
+    	if(readNotifications == null) {
+    		readNotifications = new ArrayList<String>();
+		return readNotifications;
+    	}
+    	else {
+    		return readNotifications;
+    	}
+	}
+
+	public void setReadNotifications(ArrayList<String> readNotifications) {
+		this.readNotifications = readNotifications;
 	}
 	
    }

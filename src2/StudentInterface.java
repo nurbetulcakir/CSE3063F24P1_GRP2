@@ -236,7 +236,32 @@ public class StudentInterface {
                 case 6:
                 	
                 	/* VIEW NOTIFICATIONS */
-                	break;
+                	System.out.println("Unread Messages: \n");
+                	for (int i = 0; i < currentStudent.getUnreadNotifications().size(); i++) {
+                	System.out.println(currentStudent.getUnreadNotifications().get(i));
+                	}
+                	currentStudent.notificationsSeen();
+                	System.out.print("\nIf you want to see seen messages please insert 'y' : ");
+                	String seenMessages = scanner.nextLine();
+                	
+                	if (seenMessages.equalsIgnoreCase("Y")) {
+                		System.out.println("Read Messages: \n");
+                		for (int i = 0; i < currentStudent.getReadNotifications().size(); i++)
+                			System.out.println(currentStudent.getReadNotifications().get(i));
+                		System.out.print("\nIf you want to exit to main menu please insert 'y' : ");
+                		seenMessages  = scanner.nextLine();
+                		if (seenMessages.equalsIgnoreCase("Y")) {
+                			break;
+                		}
+                		else {
+                			System.out.println("Returning to main menu...");
+                			break;
+                		}
+                    }
+                	else {
+                		System.out.println("Returning to main menu...");
+                		break;
+                	}
                 	
                 case 7:
                 	System.out.println("Logging out...");
