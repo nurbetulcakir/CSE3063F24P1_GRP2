@@ -70,8 +70,6 @@ public class Transcript extends Student{
 			}
 		}
 	}	
-
-	
     if (temp == course.viewPrerequisiteCourses().size()) {
     	return true;
     }
