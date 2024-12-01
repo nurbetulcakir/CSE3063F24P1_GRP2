@@ -59,17 +59,18 @@ public class Transcript extends Student{
   public boolean isPrerequisiteCoursesPassed(Course course) {	
 	int temp = 0;
 	for(int i = 0; i < course.viewPrerequisiteCourses().size(); i++) {
-		// FD is not a passing grade, however with FD student can take the next course
 		if (isPassedCourse(course.viewPrerequisiteCourses().get(i))){
-			
 		temp++;
 		}
-	}	
-	for(int i = 0; i < this.failedCourses.size(); i++) {
-		if(this.failedCourses.get(i).getCourseLetterGrade().equals("FD")) {
-			temp++;
+		for(int j = 0; j < this.failedCourses.size(); j++) {
+			// FD is not a passing grade, however with FD student can take the next course
+			if(this.failedCourses.get(j).getCourseLetterGrade().equals("FD")
+					&& course.viewPrerequisiteCourses().get(i).getCourseID().getId().equals(this.failedCourses.get(j).getCourseID().getId())) {
+				temp++;
+			}
 		}
-	}
+	}	
+
 	
     if (temp == course.viewPrerequisiteCourses().size()) {
     	return true;
