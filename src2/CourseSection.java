@@ -4,8 +4,13 @@ public class CourseSection extends Course{
     private int sectionID;
     private Course course; // Composition relationship with Course
     private ArrayList<Student> enrolledStudents = new ArrayList<Student>();
-    private ArrayList<CourseSession> courseSessions = new ArrayList<CourseSession>();
     private int capacity;
+    
+	private String day;
+	private String startTime;
+	private String endTime;
+	private String classroom;
+	
     // Constructor
     
     public CourseSection(int sectionID, Course course, ArrayList<Student> enrolledStudents) {
@@ -16,12 +21,12 @@ public class CourseSection extends Course{
         this.setEnrolledStudents(enrolledStudents); // Start as an empty list
     }
     
-    public CourseSection(int sectionID, Course course, int capacity, ArrayList<CourseSession> courseSessions) {
+    public CourseSection(int sectionID, Course course, int capacity, ArrayList<CourseSection> courseSections) {
         super(course.getCourseID(), course.getCourseName());
     	this.setSectionID(sectionID);
         this.setCourse(course); // Course is a required component for CourseSection (Composition)
         this.setCapacity(capacity);
-        this.setCourseSessions(courseSessions);
+        
     }
     
     public CourseSection(int sectionID, Course course, int capacity)  {
@@ -31,9 +36,54 @@ public class CourseSection extends Course{
         this.setCapacity(capacity);
     }
     
+    public CourseSection(int sectionID, Course course, int capacity, String day, String startTime, String endTime, String classroom) {
+    	super(sectionID, course, capacity);
+    	this.setDay(day);
+    	this.setStartTime(startTime);
+    	this.setEndTime(endTime);
+    	this.setClassroom(classroom);
+    }
+    
+    public CourseSection(String day, String startTime, String endTime, String classroom)  {
+    	this.setDay(day);
+    	this.setStartTime(startTime);
+    	this.setEndTime(endTime);
+    	this.setClassroom(classroom);
+    }
+    
     public CourseSection()  {
         super();
     }
+    
+    // Method to check if the section time is valid
+    public boolean isValidSection() {
+        // Checks if startDateTime is before endDateTime
+    	return true; //startDateTime.isBefore(endDateTime);
+    }
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	public String getClassroom() {
+		return classroom;
+	}
+	public void setClassroom(String classroom) {
+		this.classroom = classroom;
+	}
 
     
     // This function is different from setEnrolledStudents, this adds one student to already exists list, other is making a new list from beginning.
@@ -65,11 +115,4 @@ public class CourseSection extends Course{
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-	public ArrayList<CourseSession> getCourseSessions() {
-		return this.courseSessions;
-	}
-	public void setCourseSessions(ArrayList<CourseSession> courseSessions) {
-		this.courseSessions = courseSessions;
-	}
-	
  }

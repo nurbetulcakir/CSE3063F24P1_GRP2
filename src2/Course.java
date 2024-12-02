@@ -40,6 +40,10 @@ public class Course {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Course(int sectionID, Course course, int capacity) {
+		// TODO Auto-generated constructor stub
+	}
+
 	// Method to add a prerequisite course
     public void addPrerequisiteCourse(Course course) {
         // Adds a course to the list of prerequisites.

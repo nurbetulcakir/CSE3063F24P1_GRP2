@@ -166,9 +166,7 @@ public class StudentInterface {
                         scanner.nextLine(); // Consume newline
                         
                         // Main Menu
-                        if (sectionChoice == section.getCourseSessions().size() + 1) {
-                            break;
-                        }
+                       
                         
                         if (sectionChoice > 0 && sectionChoice <= selectedCourse.getCourseSections().size()) {
                             selectedSection = selectedCourse.getCourseSections().get(sectionChoice - 1);
