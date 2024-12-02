@@ -22,7 +22,7 @@ public class UserInterface {
         try(Scanner input1 = new Scanner(System.in)) {
 
         	outerloop:
-        		while (true) {
+        		while (true) { 
         			System.out.println("Enter Id:");
         			userIdInput = input1.nextLine();
         			// Prompt for password and store it in the Password class
