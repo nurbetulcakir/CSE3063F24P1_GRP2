@@ -93,6 +93,11 @@ public class Course {
 	public void setCourseSections(ArrayList<CourseSection> courseSections) {
 		this.courseSections = courseSections;
 	}
+
+	public Course[] getPrerequisiteCourse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     
     

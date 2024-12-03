@@ -10,6 +10,7 @@ public class CourseSection extends Course{
 	private String startTime;
 	private String endTime;
 	private String classroom;
+	private Object courseSessions;
 	
     // Constructor
     
@@ -114,5 +115,16 @@ public class CourseSection extends Course{
 	}
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
+	}
+
+	public ArrayList<CourseSession> getCourseSessions() {
+		this.setCourseSessions(new ArrayList<CourseSession>());
+
+		// TODO Auto-generated method stub
+		return this.getCourseSessions();
+	}
+
+	public void setCourseSessions(ArrayList<CourseSession> courseSessions) {
+		this.courseSessions = courseSessions;
 	}
  }
