@@ -4,6 +4,7 @@ public abstract class Person {
     private String lastName;
     private Password password;
     private String schedule;
+    
     // Constructor
     
     public Person(String firstName, String lastName) {
@@ -21,7 +22,7 @@ public abstract class Person {
     	
     }
     
-    public abstract String viewSchedule();
+    public abstract void viewSchedule();
     
 	public String getFirstName() {
 		return firstName;

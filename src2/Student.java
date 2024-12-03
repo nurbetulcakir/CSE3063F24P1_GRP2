@@ -11,6 +11,8 @@ public class Student extends Person {
     private int approveRequest = 0; // 0 if not send for approval, 1 if send for approval, 2 if approved, 3 if disapproved
     private ArrayList<String> unreadNotifications;
     private ArrayList<String> readNotifications;
+    private ArrayList<Notification> notifications;
+
     
 
 	// Constructor
@@ -20,6 +22,7 @@ public class Student extends Person {
         this.setStudentID(studentID);
         this.setAdvisor(advisor);
         this.setTerm(term);
+        this.notifications = new ArrayList<>();
     }
     
     public Student(ID studentID, String firstName, String lastName, Password password,
@@ -32,6 +35,8 @@ public class Student extends Person {
         this.setChosenCourses(chosenCourses);
         this.setApprovedCourses(approvedCourses);
     }
+
+
     
     public Student(ID studentID) {
     	this.setStudentID(studentID);
@@ -52,14 +57,16 @@ public class Student extends Person {
    
 
    
-   public String viewSchedule() {
-//	   String schedule = "";
-//	   for(int i = 0; i < this.chosenCourses.size(); i++) {
-//		   schedule.concat("Course Name:" + this.chosenCourses.get(i).getCourse().getCourseName() + ", Course Section No: " + this.chosenCourses.get(i).getSectionID() +
-//	   				", Section Hours: " + this.chosenCourses.get(i).getAllSessions().get(i).getStartTime() + " - " + this.chosenCourses.get(i).getAllSessions().get(i).getEndTime() + "\n");		
-//	   }
-	   return "";
-   }
+   // In Student.java
+   public void viewSchedule() {
+	    System.out.println("Schedule for " + this.getFirstName() + " " + this.getLastName());
+	    for (CourseSection section : this.getChosenCourses()) {
+	        for (CourseSession session : section.getCourseSessions()) {
+	            System.out.println(section.getCourse().getCourseName() + " - " + session.getDay() + " " + session.getStartTime() + " - " + session.getEndTime());
+	        }
+	    }
+	}
+
    
    public void addNotification(String message) {
 	    this.unreadNotifications.add(message);
@@ -75,6 +82,17 @@ public class Student extends Person {
 		}
 	    this.unreadNotifications.clear();
 	}
+	
+    public void addNotification(Notification notification) {
+        this.notifications.add(notification);
+    }
+
+    public void markNotificationsAsRead() {
+        for (Notification notification : notifications) {
+            notification.markAsRead();
+        }
+    }
+
    
    public void sendForApproval() {
 	   this.approveRequest = 1;
@@ -180,6 +198,14 @@ public class Student extends Person {
 
 	public void setReadNotifications(ArrayList<String> readNotifications) {
 		this.readNotifications = readNotifications;
+	}
+
+	public ArrayList<Notification> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(ArrayList<Notification> notifications) {
+		this.notifications = notifications;
 	}
 	
    }

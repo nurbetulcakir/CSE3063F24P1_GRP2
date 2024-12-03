@@ -18,6 +18,7 @@ public class StudentInterface {
 			    
 			    Student currentStudent = ObjectCreator.students.get(UserInterface.currentStudentsIndex);
                 Transcript currentTranscript = ObjectCreator.transcripts.get(UserInterface.currentTranscriptsIndex);
+                currentStudent.setTranscript(currentTranscript);
 			    
 			    int choice = scanner.nextInt(); 
 			    scanner.nextLine();
@@ -214,61 +215,28 @@ public class StudentInterface {
                     String approvalChoice = scanner.nextLine();
 
                     if (approvalChoice.equalsIgnoreCase("Y")) { // "y" and "Y" accepted
+                    	CourseRegistration.registerStudentForCourse(currentTranscript, chosenSection);
+                        boolean success = CourseRegistration.registerStudentForCourse(currentTranscript, chosenSection);
+                        if (success) {
+                            NotificationSystem.sendStudentNotification(currentStudent, "Successfully registered for " + chosenSection.getCourseName());
 
-                        currentStudent.sendForApproval(); // Assuming this method sends the courses to the advisor
-
-                        
-                        System.out.println("Your selected courses have been successfully sent for approval.");
-                        System.out.print("Do you want to exit to main menu? (Y/N) ");
-                        String successOut = scanner.nextLine();
-                        if (successOut.equalsIgnoreCase("Y")) {
-                        	break;
-                        } else if (successOut.equalsIgnoreCase("N")) {
-                        	System.out.println("Not exited to main menu, when you want to exit please press 'Y'. ");
-                            successOut = scanner.nextLine();
-                            if (successOut.equalsIgnoreCase("Y")) {
-                            	break;
-                            }
-                        } else {
-                        	System.out.println("Invalid input. Returning to main menu...");
-                        	
-                        }
                     } else if (approvalChoice.equalsIgnoreCase("N")) {
                         System.out.println("Course approval send canceled.");
                     } else {
                         System.out.println("Invalid input. Returning to main menu.");
                     }
                     break;
+                    }
                     
                 case 6:
                 	
-                	/* VIEW NOTIFICATIONS */
-                	System.out.println("Unread Messages: \n");
-                	for (int i = 0; i < currentStudent.getUnreadNotifications().size(); i++) {
-                	System.out.println(currentStudent.getUnreadNotifications().get(i));
-                	}
-                	currentStudent.notificationsSeen();
-                	System.out.print("\nIf you want to see seen messages please insert 'y' : ");
-                	String seenMessages = scanner.nextLine();
-                	
-                	if (seenMessages.equalsIgnoreCase("Y")) {
-                		System.out.println("Read Messages: \n");
-                		for (int i = 0; i < currentStudent.getReadNotifications().size(); i++)
-                			System.out.println(currentStudent.getReadNotifications().get(i));
-                		System.out.print("\nIf you want to exit to main menu please insert 'y' : ");
-                		seenMessages  = scanner.nextLine();
-                		if (seenMessages.equalsIgnoreCase("Y")) {
-                			break;
-                		}
-                		else {
-                			System.out.println("Returning to main menu...");
-                			break;
-                		}
+                	NotificationSystem.viewStudentNotifications(currentStudent);
+
+                    System.out.print("\nMark all notifications as read? (y/n): ");
+                    String choice1 = scanner.nextLine();
+                    if (choice1.equalsIgnoreCase("y")) {
+                        NotificationSystem.markStudentNotificationsAsRead(currentStudent);
                     }
-                	else {
-                		System.out.println("Returning to main menu...");
-                		break;
-                	}
                 	
                 case 7:
                 	System.out.println("Logging out...");

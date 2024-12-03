@@ -21,7 +21,7 @@ public class Lecturer extends Person{
 	
 	
 	@Override
-	public String viewSchedule() {
+	public void viewSchedule() {
 		
 		for (int i = 0; i < 5; i++) {
 			System.out.println("Lecturer ID: " + this.getLecturerID() + ", Lecturer Name: " + this.getFirstName() + " " + this.getLastName());
@@ -30,7 +30,7 @@ public class Lecturer extends Person{
 			
 		}
 		
-		return null;
+		
 	}
 	
 	

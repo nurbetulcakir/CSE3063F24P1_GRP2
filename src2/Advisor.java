@@ -6,14 +6,22 @@ public class Advisor extends Lecturer {
     private ArrayList<Student> awaitingStudents;
     private Student advStudent;
     private ArrayList<String> unreadNotifications = new ArrayList<String>();
+	private ArrayList<Course> approvedCourses;
+	 private ArrayList<Notification> notifications;
+
+
 
 	// Constructor
     public Advisor(ID lecturerID, String firstName, String lastName, Password password, ArrayList<Student> studentList, ArrayList<Student> awaitingStudents) {
         super(lecturerID,firstName,lastName);
         this.setStudentList(studentList);
         this.setAwaitingStudents(awaitingStudents);
+        this.notifications = new ArrayList<>();
+
     }
-    
+    public void addToApprovedCourses(CourseSection courseSection) {
+        this.approvedCourses.add(courseSection);  // Add the approved course section
+    }
     public Advisor(ID lecturerID) {
         super(lecturerID);
     }
@@ -69,6 +77,12 @@ public class Advisor extends Lecturer {
 	        this.removeAwaitingStudent(this.advStudent);
 	        this.setAdvStudent(null);
 	}
+	
+    public void addNotification(Notification notification) {
+        this.notifications.add(notification);
+ 
+    }
+
 	
     public void sendNotification(String message, int req) {
         
@@ -143,5 +157,11 @@ public class Advisor extends Lecturer {
 
 	public void setReadNotifications(ArrayList<String> readNotifications) {
 		this.readNotifications = readNotifications;
+	}
+	public ArrayList<Notification> getNotifications() {
+		return notifications;
+	}
+	public void setNotifications(ArrayList<Notification> notifications) {
+		this.notifications = notifications;
 	}
 }
