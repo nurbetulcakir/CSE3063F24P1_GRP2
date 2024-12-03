@@ -8,53 +8,38 @@ import java.util.ArrayList;
 public class DataLoader {
     private static final Gson gson = new Gson();
 
+    // Load students from JSON
     public static ArrayList<Student> loadStudents(String filePath) {
-        try (FileReader reader = new FileReader(filePath)) {
-            Type studentListType = new TypeToken<ArrayList<Student>>() {}.getType();
-            return gson.fromJson(reader, studentListType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
+        return loadData(filePath, new TypeToken<ArrayList<Student>>() {}.getType());
     }
 
+    // Load advisors from JSON
     public static ArrayList<Advisor> loadAdvisors(String filePath) {
-        try (FileReader reader = new FileReader(filePath)) {
-            Type advisorListType = new TypeToken<ArrayList<Advisor>>() {}.getType();
-            return gson.fromJson(reader, advisorListType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
+        return loadData(filePath, new TypeToken<ArrayList<Advisor>>() {}.getType());
     }
 
+    // Load courses from JSON
     public static ArrayList<Course> loadCourses(String filePath) {
-        try (FileReader reader = new FileReader(filePath)) {
-            Type courseListType = new TypeToken<ArrayList<Course>>() {}.getType();
-            return gson.fromJson(reader, courseListType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
+        return loadData(filePath, new TypeToken<ArrayList<Course>>() {}.getType());
     }
-    
-    public static ArrayList<Transcript> loadTranscripts(String filePath) {
-        try (FileReader reader = new FileReader(filePath)) {
-            Type transcriptListType = new TypeToken<ArrayList<Transcript>>() {}.getType();
-            return gson.fromJson(reader, transcriptListType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }
-    
+
+    // Load course sections from JSON
     public static ArrayList<CourseSection> loadCourseSections(String filePath) {
+        return loadData(filePath, new TypeToken<ArrayList<CourseSection>>() {}.getType());
+    }
+
+    // Load transcripts from JSON
+    public static ArrayList<Transcript> loadTranscripts(String filePath) {
+        return loadData(filePath, new TypeToken<ArrayList<Transcript>>() {}.getType());
+    }
+
+    // Generic method to load data
+    private static <T> T loadData(String filePath, Type type) {
         try (FileReader reader = new FileReader(filePath)) {
-            Type courseSectionListType = new TypeToken<ArrayList<CourseSection>>() {}.getType();
-            return gson.fromJson(reader, courseSectionListType);
+            return gson.fromJson(reader, type);
         } catch (IOException e) {
             e.printStackTrace();
-            return new ArrayList<>();
+            return null;
         }
     }
 }
