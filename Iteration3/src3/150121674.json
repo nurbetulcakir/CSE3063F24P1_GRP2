@@ -1,0 +1,52 @@
+[
+    {
+      "studentID": {
+                "id": "150121674"
+              },
+      "firstName": "Gordon",
+      "lastName": "Freeman",
+      "term": 5,
+      "gpa": 4.0,
+      "cgpa": 4.0,
+      "creditReceived": 18,
+      "creditEarned": 18,
+      "passedCourses": [
+        {
+          "courseID": {
+                "id": "CSE2225"
+              },
+              "courseName": "Data Structures",
+              "courseCredit": 7.0,
+              "courseLetterGrade": "AA",
+              "prerequisiteCourse":[
+                {
+                  "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "courseName": "Computer Programming II",
+                  "prerequisiteCourse": []
+                }
+              ]
+        },
+        {
+          "courseID": {
+                    "id": "CSE1242"
+                  },
+                  "courseName": "Computer Programming II",
+                  "courseCredit": 6.0,
+                  "courseLetterGrade": "AA",
+                  "prerequisiteCourse": []
+        },
+        {
+          "courseID": {
+                    "id": "STAT2253"
+                  },
+                  "courseName": "Probability and Statistics for Computer Engineering",
+                  "courseCredit": 5.0,
+                  "courseLetterGrade": "AA",
+                  "prerequisiteCourse": []
+        }
+      ],
+      "failedCourses": []     
+    }
+]
