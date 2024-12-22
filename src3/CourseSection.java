@@ -7,7 +7,7 @@ public class CourseSection extends Course {
     private Course course; // Composition relationship with Course
     private ArrayList<Student> enrolledStudents = new ArrayList<>();
     private int capacity;
-    private String day;
+    protected String day;
     private String startTime;
     private String endTime;
     private String classroom;

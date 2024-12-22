@@ -20,6 +20,16 @@ public class NotificationSystem {
             System.out.println("Failed to send notification: Invalid advisor or message.");
         }
     }
+    
+	public static void sendAdvisorNotification(Advisor advisor, String message) {
+        if (advisor != null && message != null && !message.toString().trim().isEmpty()) {
+            advisor.addNotification(message.toString()); // Add to advisor's unread notifications
+            System.out.println("Notification sent to " + advisor.getFirstName());
+        } else {
+            System.out.println("Failed to send notification: Invalid advisor or message.");
+        }
+		
+	}
 
     public static void viewStudentNotifications(Student student) {
         if (student != null) {
@@ -70,4 +80,6 @@ public class NotificationSystem {
             System.out.println("Invalid advisor.");
         }
     }
+
+
 }

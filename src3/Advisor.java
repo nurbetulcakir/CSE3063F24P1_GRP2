@@ -121,6 +121,14 @@ public class Advisor extends Lecturer {
             notifications.add(message);
         }
     }
+    
+	public void addNotification(String message) {
+        if (message != null) {
+        	
+            notifications.get(notifications.size() - 1).setMessage(message);
+        }
+		
+	}
 
     // Send a notification to the current student
     public void sendNotification(String message, int req) {
@@ -190,4 +198,5 @@ public class Advisor extends Lecturer {
     public void setNotifications(ArrayList<Notification> notifications) {
         this.notifications = notifications != null ? notifications : new ArrayList<>();
     }
+
 }

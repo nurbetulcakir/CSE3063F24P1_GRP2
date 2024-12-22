@@ -53,3 +53,5 @@
 /CourseRegistration.class
 /AdvisorApproval.class
 /Notification.class
+/CourseSessionDeserializer.class
+/DataLoader$6.class
