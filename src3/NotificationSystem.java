@@ -1,44 +1,73 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationSystem {
 
-    // Send notification to a student
     public static void sendStudentNotification(Student student, String message) {
-        student.addNotification(message);  // Add to student's unread notifications
-        System.out.println("Notification sent to " + student.getFirstName() + ": " + message);
+        if (student != null && message != null && !message.trim().isEmpty()) {
+            student.addNotification(message); // Add to student's unread notifications
+            System.out.println("Notification sent to " + student.getFirstName() + ": " + message);
+        } else {
+            System.out.println("Failed to send notification: Invalid student or message.");
+        }
     }
 
-    // Send notification to an advisor
-    public static void sendAdvisorNotification(Advisor advisor, String message) {
-        advisor.addNotification(message);  // Add to advisor's unread notifications
-        System.out.println("Notification sent to " + advisor.getFirstName() + ": " + message);
+
+    public static void sendAdvisorNotification(Advisor advisor, Notification message) {
+        if (advisor != null && message != null && !message.toString().trim().isEmpty()) {
+            advisor.addNotification(message); // Add to advisor's unread notifications
+            System.out.println("Notification sent to " + advisor.getFirstName());
+        } else {
+            System.out.println("Failed to send notification: Invalid advisor or message.");
+        }
     }
 
-    // View unread notifications for a student
     public static void viewStudentNotifications(Student student) {
-        System.out.println("Unread Notifications for " + student.getFirstName() + ":");
-        for (String notification : student.getUnreadNotifications()) {
-            System.out.println(notification);
+        if (student != null) {
+            List<String> unreadNotifications = student.getUnreadNotifications();
+            if (unreadNotifications.isEmpty()) {
+                System.out.println("No unread notifications for " + student.getFirstName() + ".");
+            } else {
+                System.out.println("Unread Notifications for " + student.getFirstName() + ":");
+                for (String notification : unreadNotifications) {
+                    System.out.println("- " + notification);
+                }
+            }
+        } else {
+            System.out.println("Invalid student.");
         }
     }
 
-    // View unread notifications for an advisor
     public static void viewAdvisorNotifications(Advisor advisor) {
-        System.out.println("Unread Notifications for " + advisor.getFirstName() + ":");
-        for (String notification : advisor.getUnreadNotifications()) {
-            System.out.println(notification);
+        if (advisor != null) {
+            List<String> unreadNotifications = advisor.getUnreadNotifications();
+            if (unreadNotifications.isEmpty()) {
+                System.out.println("No unread notifications for " + advisor.getFirstName() + ".");
+            } else {
+                System.out.println("Unread Notifications for " + advisor.getFirstName() + ":");
+                for (String notification : unreadNotifications) {
+                    System.out.println("- " + notification);
+                }
+            }
+        } else {
+            System.out.println("Invalid advisor.");
         }
     }
 
-    // Mark all notifications as read for a student
     public static void markStudentNotificationsAsRead(Student student) {
-        student.notificationsSeen();
-        System.out.println("All notifications for " + student.getFirstName() + " are marked as read.");
+        if (student != null) {
+            student.setNotifications(null);
+            System.out.println("All notifications for " + student.getFirstName() + " are marked as read.");
+        } else {
+            System.out.println("Invalid student.");
+        }
     }
 
-    // Mark all notifications as read for an advisor
     public static void markAdvisorNotificationsAsRead(Advisor advisor) {
-        advisor.notificationsSeen();
-        System.out.println("All notifications for " + advisor.getFirstName() + " are marked as read.");
+        if (advisor != null) {
+            advisor.notificationsSeen();
+            System.out.println("All notifications for " + advisor.getFirstName() + " are marked as read.");
+        } else {
+            System.out.println("Invalid advisor.");
+        }
     }
 }
