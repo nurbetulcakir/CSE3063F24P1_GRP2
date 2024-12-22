@@ -21,6 +21,7 @@ public class NotificationSystem {
         }
     }
 
+
     public static void viewStudentNotifications(Student student) {
         if (student != null) {
             List<String> unreadNotifications = student.getUnreadNotifications();
@@ -70,4 +71,6 @@ public class NotificationSystem {
             System.out.println("Invalid advisor.");
         }
     }
+
+
 }

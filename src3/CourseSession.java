@@ -1,7 +1,6 @@
 public class CourseSession extends CourseSection {
 
-    // Attributes
-    private String day;        // Day of the session (e.g., Monday)
+    // Attributes 
     private String startTime;  // Start time of the session (e.g., "09:00")
     private String endTime;    // End time of the session (e.g., "10:30")
     private String classroom;  // Classroom where the session is held
@@ -9,7 +8,6 @@ public class CourseSession extends CourseSection {
     // Constructor for creating a course session with all details
     public CourseSession(int sectionID, Course course, int capacity, String day, String startTime, String endTime, String classroom) {
         super(sectionID, course, capacity);
-        this.day = day;
         this.startTime = startTime;
         this.endTime = endTime;
         this.classroom = classroom;
@@ -17,13 +15,16 @@ public class CourseSession extends CourseSection {
 
     // Constructor for creating a course session without linking to a course section
     public CourseSession(String day, String startTime, String endTime, String classroom) {
-        this.day = day;
         this.startTime = startTime;
         this.endTime = endTime;
         this.classroom = classroom;
     }
 
-    // Method to check if the session's time is valid
+    public CourseSession() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// Method to check if the session's time is valid
     public boolean isValidSession() {
         // Checks if the start time is before the end time
         if (startTime == null || endTime == null) {
@@ -33,14 +34,6 @@ public class CourseSession extends CourseSection {
         return startTime.compareTo(endTime) < 0;
     }
 
-    // Getters and Setters
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
 
     public String getStartTime() {
         return startTime;
@@ -68,7 +61,7 @@ public class CourseSession extends CourseSection {
 
     // Method to display session details
     public void displaySessionDetails() {
-        System.out.println("Day: " + day);
+        System.out.println("Day: " + super.day);
         System.out.println("Start Time: " + startTime);
         System.out.println("End Time: " + endTime);
         System.out.println("Classroom: " + classroom);

@@ -78,19 +78,10 @@ public class UserInterface {
         					System.out.println("Id or password is wrong. Please try again.");
         				}
 
-        			} else if (userIdInput.length() == 8) {  // Student login check
-        				Scheduler sc = new Scheduler();
-        				if (userIdInput.equals(sc.id)&& passwordInput.equalsIgnoreCase(sc.password)) {
-        					sc.run();
-        					break outerloop;
-        					} else {
-        						System.out.println("Id or password is wrong. Please try again.");
-        						break;
-        						}
-        					} else {
-                				System.out.println("Invalid id or password");
-                			}
+        			} else {
+        				System.out.println("Invalid id or password");
+        			}
         		}
-        }
-    }
-}
+        	}
+    	}
+	}
