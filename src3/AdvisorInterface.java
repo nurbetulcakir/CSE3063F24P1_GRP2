@@ -2,19 +2,13 @@ import java.util.Scanner;
 
 public class AdvisorInterface {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     // Main method to run the Advisor Interface
     public void run() {
         while (true) {
-            System.out.println("\n=== Advisor Menu ===");
-            System.out.println("1. View Students");
-            System.out.println("2. Approve/Disapprove Courses");
-            System.out.println("3. View Notifications");
-            System.out.println("4. Logout");
-            System.out.print("Please select an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();  
+            displayMenu();
+            int choice = getUserInput();
 
             switch (choice) {
                 case 1:
@@ -28,34 +22,65 @@ public class AdvisorInterface {
                     break;
                 case 4:
                     System.out.println("Logging out...");
-                    return;  // Logout
+                    return; // Logout
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
         }
     }
 
+    // Display the Advisor menu
+    private void displayMenu() {
+        System.out.println("\n=== Advisor Menu ===");
+        System.out.println("1. View Students");
+        System.out.println("2. Approve/Disapprove Courses");
+        System.out.println("3. View Notifications");
+        System.out.println("4. Logout");
+        System.out.print("Please select an option: ");
+    }
+
+    // Safely get user input as an integer
+    private int getUserInput() {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.nextLine();
+        }
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Clear buffer
+        return choice;
+    }
+
     // Method to view all students under this advisor
     private void viewStudents() {
         Advisor currentAdvisor = getCurrentAdvisor();
+
+        if (currentAdvisor.getStudentList().isEmpty()) {
+            System.out.println("No students are currently assigned to you.");
+            return;
+        }
+
+        System.out.println("\n=== List of Students ===");
         currentAdvisor.viewStudentList();
     }
 
     // Method to approve or disapprove student courses
     private void approveDisapproveCourses() {
         Advisor currentAdvisor = getCurrentAdvisor();
-        System.out.println("\nSelect a student to approve/disapprove courses:");
 
-        // Display all awaiting students
+        if (currentAdvisor.getAwaitingStudents().isEmpty()) {
+            System.out.println("No students are awaiting approval.");
+            return;
+        }
+
+        System.out.println("\n=== Awaiting Students ===");
         for (int i = 0; i < currentAdvisor.getAwaitingStudents().size(); i++) {
             Student student = currentAdvisor.getAwaitingStudents().get(i);
             System.out.println((i + 1) + ". " + student.getFirstName() + " " + student.getLastName());
         }
-        
-        System.out.print("Select student (1 to " + currentAdvisor.getAwaitingStudents().size() + "): ");
-        int studentIndex = scanner.nextInt();
-        scanner.nextLine();  
 
+        System.out.print("Select a student (1 to " + currentAdvisor.getAwaitingStudents().size() + "): ");
+        int studentIndex = getUserInput();
+        
         if (studentIndex < 1 || studentIndex > currentAdvisor.getAwaitingStudents().size()) {
             System.out.println("Invalid selection.");
             return;
@@ -63,33 +88,46 @@ public class AdvisorInterface {
 
         Student selectedStudent = currentAdvisor.getAwaitingStudents().get(studentIndex - 1);
 
-        // Approve or Disapprove courses for the student
-        System.out.println("Select an option:");
-        System.out.println("1. Approve Courses");
+        System.out.println("\n1. Approve Courses");
         System.out.println("2. Disapprove Courses");
-        int action = scanner.nextInt();
-        scanner.nextLine();  
+        System.out.print("Select an option: ");
+        int action = getUserInput();
 
-        if (action == 1) {
-            currentAdvisor.approveCourses();  // Approve selected student's courses
-            NotificationSystem.sendAdvisorNotification(currentAdvisor, selectedStudent.getFirstName() + " " + selectedStudent.getLastName() + "'s courses have been approved.");
-        } else if (action == 2) {
-            currentAdvisor.disapproveCourses();  // Disapprove selected student's courses
-            NotificationSystem.sendAdvisorNotification(currentAdvisor, selectedStudent.getFirstName() + " " + selectedStudent.getLastName() + "'s courses have been disapproved.");
-        } else {
-            System.out.println("Invalid option.");
+        switch (action) {
+            case 1:
+                currentAdvisor.approveCourses();
+                NotificationSystem.sendAdvisorNotification(currentAdvisor, selectedStudent.getFirstName() + " " + selectedStudent.getLastName() + "'s courses have been approved.");
+                System.out.println("Courses approved for " + selectedStudent.getFirstName() + " " + selectedStudent.getLastName());
+                break;
+            case 2:
+                currentAdvisor.disapproveCourses();
+                NotificationSystem.sendAdvisorNotification(currentAdvisor, selectedStudent.getFirstName() + " " + selectedStudent.getLastName() + "'s courses have been disapproved.");
+                System.out.println("Courses disapproved for " + selectedStudent.getFirstName() + " " + selectedStudent.getLastName());
+                break;
+            default:
+                System.out.println("Invalid option.");
         }
     }
 
-    // Method to view the notifications for the advisor
+    // Method to view notifications for the advisor
     private void viewNotifications() {
         Advisor currentAdvisor = getCurrentAdvisor();
+
         NotificationSystem.viewAdvisorNotifications(currentAdvisor);
-        
+
+        if (currentAdvisor.getUnreadNotifications().isEmpty()) {
+            System.out.println("You have no unread notifications.");
+            return;
+        }
+
         System.out.print("\nMark all notifications as read? (y/n): ");
         String choice = scanner.nextLine();
+
         if (choice.equalsIgnoreCase("y")) {
             NotificationSystem.markAdvisorNotificationsAsRead(currentAdvisor);
+            System.out.println("All notifications marked as read.");
+        } else {
+            System.out.println("Notifications remain unread.");
         }
     }
 

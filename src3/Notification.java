@@ -1,22 +1,26 @@
 public class Notification {
-    private String message;
-    private String date;
-    private boolean isRead;
+    private String message;   // Notification message
+    private String date;      // Notification date (e.g., "YYYY-MM-DD")
+    private boolean isRead;   // Read status of the notification
 
     // Constructor
     public Notification(String message, String date) {
-        this.message = message;
-        this.date = date;
-        this.setRead(false);  // Default is unread
+        this.message = message != null ? message : "No message";  // Ensure non-null message
+        this.date = date != null ? date : "Unknown date";          // Ensure non-null date
+        this.isRead = false;                                      // Default is unread
     }
 
-    // Getter and setter methods
+    // Getter and Setter methods
     public String getMessage() {
         return message;
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        if (message != null && !message.trim().isEmpty()) {
+            this.message = message;
+        } else {
+            System.out.println("Invalid message. Cannot be empty or null.");
+        }
     }
 
     public String getDate() {
@@ -24,21 +28,31 @@ public class Notification {
     }
 
     public void setDate(String date) {
-        this.date = date;
+        if (date != null && !date.trim().isEmpty()) {
+            this.date = date;
+        } else {
+            System.out.println("Invalid date. Cannot be empty or null.");
+        }
     }
 
-	public boolean isRead() {
-		return isRead;
-	}
-	
-	public void markAsRead() {
-		
-		isRead = true;
-	}
+    public boolean isRead() {
+        return isRead;
+    }
 
-	public void setRead(boolean isRead) {
-		this.isRead = isRead;
-	}
+    // Mark the notification as read
+    public void markAsRead() {
+        this.isRead = true;
+    }
 
+    // Mark the notification as unread
+    public void markAsUnread() {
+        this.isRead = false;
+    }
 
+    // Display notification details
+    public void displayNotification() {
+        System.out.println("Message: " + message);
+        System.out.println("Date: " + date);
+        System.out.println("Status: " + (isRead ? "Read" : "Unread"));
+    }
 }

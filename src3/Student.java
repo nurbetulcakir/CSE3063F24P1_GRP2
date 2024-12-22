@@ -6,206 +6,193 @@ public class Student extends Person {
     private Advisor advisor;
     private Transcript transcript;
     private int term;
-    private ArrayList<CourseSection> chosenCourses; // Course Section, because student chooses section on registration system
-    private ArrayList<CourseSection> approvedCourses = new ArrayList<CourseSection>();
-    private int approveRequest = 0; // 0 if not send for approval, 1 if send for approval, 2 if approved, 3 if disapproved
-    private ArrayList<String> unreadNotifications;
-    private ArrayList<String> readNotifications;
-    private ArrayList<Notification> notifications;
+    private ArrayList<CourseSection> chosenCourses = new ArrayList<>();
+    private ArrayList<CourseSection> approvedCourses = new ArrayList<>();
+    private int approveRequest = 0; // 0: not sent, 1: sent, 2: approved, 3: disapproved
+    private ArrayList<String> unreadNotifications = new ArrayList<>();
+    private ArrayList<String> readNotifications = new ArrayList<>();
+    private ArrayList<Notification> notifications = new ArrayList<>();
 
-    
-
-	// Constructor
-    public Student(ID studentID, String firstName, String lastName, Password password,
-    		Advisor advisor, int term) {
+    // Constructor
+    public Student(ID studentID, String firstName, String lastName, Password password, Advisor advisor, int term) {
         super(firstName, lastName, password);
-        this.setStudentID(studentID);
-        this.setAdvisor(advisor);
-        this.setTerm(term);
-        this.notifications = new ArrayList<>();
-    }
-    
-    public Student(ID studentID, String firstName, String lastName, Password password,
-    		Advisor advisor, int term, ArrayList<Course> passedCourses, ArrayList<Course> failedCourses,
-    		ArrayList<CourseSection> chosenCourses, ArrayList<CourseSection> approvedCourses) {
-        super(firstName, lastName, password);
-        this.setStudentID(studentID);
-        this.setAdvisor(advisor);
-        this.setTerm(term);
-        this.setChosenCourses(chosenCourses);
-        this.setApprovedCourses(approvedCourses);
+        this.studentID = studentID;
+        this.advisor = advisor;
+        this.term = term;
     }
 
+    public Student(ID studentID, String firstName, String lastName, Password password, Advisor advisor, int term,
+                   ArrayList<CourseSection> chosenCourses, ArrayList<CourseSection> approvedCourses) {
+        super(firstName, lastName, password);
+        this.studentID = studentID;
+        this.advisor = advisor;
+        this.term = term;
+        this.chosenCourses = chosenCourses != null ? chosenCourses : new ArrayList<>();
+        this.approvedCourses = approvedCourses != null ? approvedCourses : new ArrayList<>();
+    }
 
-    
     public Student(ID studentID) {
-    	this.setStudentID(studentID);
+        this.studentID = studentID;
     }
 
-   public void addChosenCourse(CourseSection cs) {
-	   this.chosenCourses.add(cs); 
-   }
-   
-   public void removeChosenCourse(CourseSection cs) {
-	   this.chosenCourses.remove(cs);
-   }
-  
-
-   public void addToApprovedCourses(CourseSection cs) {
-	   this.approvedCourses.add(cs);
-   }
-   
-
-   
-   // In Student.java
-   public void viewSchedule() {
-	    System.out.println("Schedule for " + this.getFirstName() + " " + this.getLastName());
-	    for (CourseSection section : this.getChosenCourses()) {
-	        for (CourseSession session : section.getCourseSessions()) {
-	            System.out.println(section.getCourse().getCourseName() + " - " + session.getDay() + " " + session.getStartTime() + " - " + session.getEndTime());
-	        }
-	    }
-	}
-
-   
-   public void addNotification(String message) {
-	    this.unreadNotifications.add(message);
-	}
-
-	public void notificationsSeen() {
-		if(readNotifications == null) {
-			readNotifications = new ArrayList<String>();
-	    this.readNotifications.addAll(unreadNotifications);
-		}
-		else {
-			this.readNotifications.addAll(unreadNotifications);
-		}
-	    this.unreadNotifications.clear();
-	}
-	
-    public void addNotification(Notification notification) {
-        this.notifications.add(notification);
-    }
-
-    public void markNotificationsAsRead() {
-        for (Notification notification : notifications) {
-            notification.markAsRead();
+    // Methods for managing chosen courses
+    public void addChosenCourse(CourseSection cs) {
+        if (cs != null) {
+            chosenCourses.add(cs);
+        } else {
+            System.out.println("Invalid course section.");
         }
     }
 
-   
-   public void sendForApproval() {
-	   this.approveRequest = 1;
-	   Advisor advisor = this.getAdvisor();
-	    if (advisor == null) {
-	        System.out.println("No advisor assigned to you. Please contact the administration.");
-	        return;
-	      }
-	    if (advisor.getAwaitingStudents() == null) {
-	    advisor.setAwaitingStudents(new ArrayList<Student>());
-	    }
-	    advisor.getAwaitingStudents().add(this);
-	    if (advisor.getReadNotifications() == null) {
-	    	advisor.setReadNotifications(new ArrayList<String>());
-	    }
-	    if (advisor.getUnreadNotifications() == null) {
-	    	advisor.setUnreadNotifications(new ArrayList<String>());
-	    }
-	    advisor.addNotification(this.getFirstName() + " " + this.getLastName() + " is waiting for your registration approve.");
-   }
+    public void removeChosenCourse(CourseSection cs) {
+        if (cs != null && chosenCourses.contains(cs)) {
+            chosenCourses.remove(cs);
+        } else {
+            System.out.println("Course section not found in chosen courses.");
+        }
+    }
 
-	public ID getStudentID() {
-		return studentID;
-	}
+    public void addToApprovedCourses(CourseSection cs) {
+        if (cs != null) {
+            approvedCourses.add(cs);
+        } else {
+            System.out.println("Invalid course section.");
+        }
+    }
 
-	public void setStudentID(ID studentID) {
-		this.studentID = studentID;
-	}
+    // View schedule
+    public void viewSchedule() {
+        System.out.println("Schedule for " + getFirstName() + " " + getLastName() + ":");
+        if (chosenCourses.isEmpty()) {
+            System.out.println("No courses selected.");
+            return;
+        }
+        for (CourseSection section : chosenCourses) {
+            if (section.getCourseSessions() != null) {
+                for (CourseSession session : section.getCourseSessions()) {
+                    System.out.println(section.getCourse().getCourseName() + " - " + session.getDay() + " " +
+                            session.getStartTime() + " - " + session.getEndTime());
+                }
+            } else {
+                System.out.println(section.getCourse().getCourseName() + " - No scheduled sessions.");
+            }
+        }
+    }
 
-	public Advisor getAdvisor() {
-		return advisor;
-	}
+    // Notification methods
+    public void addNotification(String message) {
+        if (message != null && !message.trim().isEmpty()) {
+            unreadNotifications.add(message);
+        } else {
+            System.out.println("Invalid notification message.");
+        }
+    }
 
-	public void setAdvisor(Advisor advisor) {
-		this.advisor = advisor;
-	}
+    public void markNotificationsAsRead() {
+        readNotifications.addAll(unreadNotifications);
+        unreadNotifications.clear();
+    }
 
-	public int getTerm() {
-		return term;
-	}
+    public void addNotification(Notification notification) {
+        if (notification != null) {
+            notifications.add(notification);
+        } else {
+            System.out.println("Invalid notification.");
+        }
+    }
 
-	public void setTerm(int term) {
-		this.term = term;
-	}
+    // Request approval
+    public void sendForApproval() {
+        this.approveRequest = 1;
+        if (advisor == null) {
+            System.out.println("No advisor assigned. Please contact the administration.");
+            return;
+        }
+        if (advisor.getAwaitingStudents() == null) {
+            advisor.setAwaitingStudents(new ArrayList<>());
+        }
+        advisor.getAwaitingStudents().add(this);
+        advisor.addNotification(getFirstName() + " " + getLastName() + " is waiting for your registration approval.");
+    }
 
+    // Getters and Setters
+    public ID getStudentID() {
+        return studentID;
+    }
 
-	public ArrayList<CourseSection> getChosenCourses() {
-		return chosenCourses;
-	}
+    public void setStudentID(ID studentID) {
+        this.studentID = studentID;
+    }
 
-	public void setChosenCourses(ArrayList<CourseSection> chosenCourses) {
-		this.chosenCourses = chosenCourses;
-	}
+    public Advisor getAdvisor() {
+        return advisor;
+    }
 
-	public ArrayList<CourseSection> getApprovedCourses() {
-		return approvedCourses;
-	}
+    public void setAdvisor(Advisor advisor) {
+        this.advisor = advisor;
+    }
 
-	public void setApprovedCourses(ArrayList<CourseSection> approvedCourses) {
-		this.approvedCourses = approvedCourses;
-	}
+    public int getTerm() {
+        return term;
+    }
 
-	public int getApproveRequest() {
-		return approveRequest;
-	}
+    public void setTerm(int term) {
+        this.term = term;
+    }
 
-	public void setApproveRequest(int approveRequest) {
-		this.approveRequest = approveRequest;
-	}
+    public ArrayList<CourseSection> getChosenCourses() {
+        return new ArrayList<>(chosenCourses);
+    }
 
-	public Transcript getTranscript() {
-		return transcript;
-	}
+    public void setChosenCourses(ArrayList<CourseSection> chosenCourses) {
+        this.chosenCourses = chosenCourses != null ? chosenCourses : new ArrayList<>();
+    }
 
-	public void setTranscript(Transcript transcript) {
-		this.transcript = transcript;
-	}
-	
+    public ArrayList<CourseSection> getApprovedCourses() {
+        return new ArrayList<>(approvedCourses);
+    }
+
+    public void setApprovedCourses(ArrayList<CourseSection> approvedCourses) {
+        this.approvedCourses = approvedCourses != null ? approvedCourses : new ArrayList<>();
+    }
+
+    public int getApproveRequest() {
+        return approveRequest;
+    }
+
+    public void setApproveRequest(int approveRequest) {
+        this.approveRequest = approveRequest;
+    }
+
+    public Transcript getTranscript() {
+        return transcript;
+    }
+
+    public void setTranscript(Transcript transcript) {
+        this.transcript = transcript;
+    }
+
     public ArrayList<String> getUnreadNotifications() {
-    	if(unreadNotifications == null) {
-    		unreadNotifications = new ArrayList<String>();
-		return unreadNotifications;
-    	}
-    	else {
-    		return readNotifications;
-    	}
-	}
+        return new ArrayList<>(unreadNotifications);
+    }
 
-	public void setUnreadNotifications(ArrayList<String> unreadNotifications) {
-		this.unreadNotifications = unreadNotifications;
-	}
-
+    public void setUnreadNotifications(ArrayList<String> unreadNotifications) {
+        this.unreadNotifications = unreadNotifications != null ? unreadNotifications : new ArrayList<>();
+    }
 
     public ArrayList<String> getReadNotifications() {
-    	if(readNotifications == null) {
-    		readNotifications = new ArrayList<String>();
-		return readNotifications;
-    	}
-    	else {
-    		return readNotifications;
-    	}
-	}
+        return new ArrayList<>(readNotifications);
+    }
 
-	public void setReadNotifications(ArrayList<String> readNotifications) {
-		this.readNotifications = readNotifications;
-	}
+    public void setReadNotifications(ArrayList<String> readNotifications) {
+        this.readNotifications = readNotifications != null ? readNotifications : new ArrayList<>();
+    }
 
-	public ArrayList<Notification> getNotifications() {
-		return notifications;
-	}
+    public ArrayList<Notification> getNotifications() {
+        return new ArrayList<>(notifications);
+    }
 
-	public void setNotifications(ArrayList<Notification> notifications) {
-		this.notifications = notifications;
-	}
-	
-   }
+    public void setNotifications(ArrayList<Notification> notifications) {
+        this.notifications = notifications != null ? notifications : new ArrayList<>();
+    }
+}
