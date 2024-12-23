@@ -10,32 +10,23 @@ class ObjectCreator:
 
     @staticmethod
     def create_objects():
-        # File paths for the JSON files
-        student_file_path = "students.json"
-        advisor_file_path = "advisors.json"
-        course_file_path = "courses.json"
-        transcript_file_paths = [
-            "150121674.json",
-            "150121675.json",
-            "150121676.json",
-            "150121677.json",
-            "150121678.json",
-            "150121679.json",
-            "150121680.json",
-            "150121681.json",
-            "150121682.json",
-            "150121683.json"
-        ]
-        course_section_file_path = "course_sections.json"
 
-        # Load data using DataLoader
-        ObjectCreator.students = DataLoader.load_students(student_file_path)
-        ObjectCreator.advisors = DataLoader.load_advisors(advisor_file_path)
-        ObjectCreator.courses = DataLoader.load_courses(course_file_path)
+        try:
+            print("Loading students...")
+            ObjectCreator.students = DataLoader.load_students("students.json")
+            print(f"{len(ObjectCreator.students)} students loaded.")
 
-        for file_path in transcript_file_paths:
-            transcripts = DataLoader.load_transcripts(file_path)
-            if transcripts:
-                ObjectCreator.transcripts.extend(transcripts)
+            print("Loading advisors...")
+            ObjectCreator.advisors = DataLoader.load_advisors("advisors.json")
+            print(f"{len(ObjectCreator.advisors)} advisors loaded.")
 
-        ObjectCreator.course_sections = DataLoader.load_course_sections(course_section_file_path)
+            print("Loading courses...")
+            ObjectCreator.courses = DataLoader.load_courses("courses.json")
+            print(f"{len(ObjectCreator.courses)} courses loaded.")
+
+            print("Loading course sections...")
+            ObjectCreator.course_sections = DataLoader.load_courses("course_sections.json")
+            print(f"{len(ObjectCreator.course_sections)} course sections loaded.")
+
+        except Exception as e:
+            print(f"An error occurred while creating objects: {e}")
