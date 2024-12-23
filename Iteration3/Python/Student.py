@@ -1,4 +1,4 @@
-from Person import Person
+import Person
 
 
 class Student(Person):

@@ -1,6 +1,6 @@
-from NotificationSystem import NotificationSystem
-from ObjectCreator import ObjectCreator
-from UserInterface import UserInterface
+import NotificationSystem
+import ObjectCreator
+import UserInterface
 
 
 class AdvisorInterface:

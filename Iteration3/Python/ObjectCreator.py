@@ -1,4 +1,4 @@
-from DataLoader import DataLoader
+import DataLoader
 
 
 class ObjectCreator:

@@ -1,13 +1,10 @@
-from abc import ABC, abstractmethod
-
-class Person(ABC):
+class Person():
     def __init__(self, first_name=None, last_name=None, password=None):
         self.first_name = first_name
         self.last_name = last_name
         self.password = password
         self.schedule = None
 
-    @abstractmethod
     def view_schedule(self):
         pass
 

@@ -1,5 +1,5 @@
-from ObjectCreator import ObjectCreator
-from Student import Student
+import ObjectCreator
+import Student
 
 
 class Transcript(Student):

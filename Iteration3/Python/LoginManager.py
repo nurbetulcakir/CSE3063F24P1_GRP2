@@ -1,4 +1,4 @@
-from ObjectCreator import ObjectCreator
+import ObjectCreator
 
 
 class LoginManager:

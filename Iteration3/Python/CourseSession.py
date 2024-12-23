@@ -1,4 +1,4 @@
-from CourseSection import CourseSection
+import CourseSection
 
 
 class CourseSession(CourseSection):

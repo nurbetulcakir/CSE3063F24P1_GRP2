@@ -1,3 +1,6 @@
+import Lecturer
+
+
 class Advisor(Lecturer):
     
     def __init__(self, lecturer_id, first_name=None, last_name=None, password=None, student_list=None, awaiting_students=None):

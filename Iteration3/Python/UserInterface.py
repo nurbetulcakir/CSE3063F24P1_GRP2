@@ -1,6 +1,6 @@
-from AdvisorInterface import AdvisorInterface
-from AdvisorInterface import ObjectCreator
-from StudentInterface import StudentInterface
+import AdvisorInterface
+import ObjectCreator
+import StudentInterface
 
 
 class UserInterface:
@@ -9,6 +9,7 @@ class UserInterface:
     current_students_index = None
     current_transcripts_index = None
     current_advisors_index = None
+    
 
     @staticmethod
     def main():
@@ -16,6 +17,7 @@ class UserInterface:
         oc.create_objects()
         ui = UserInterface()
         ui.login()
+        print( "Hellol")
 
     def login(self):
         oc = ObjectCreator()
@@ -64,3 +66,5 @@ class UserInterface:
 
             else:
                 print("Invalid id or password")
+main()
+
