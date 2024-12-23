@@ -1,3 +1,6 @@
+from Person import Person
+
+
 class Student(Person):
     def __init__(self, student_id, first_name=None, last_name=None, password=None, advisor=None, term=None, 
                  chosen_courses=None, approved_courses=None):

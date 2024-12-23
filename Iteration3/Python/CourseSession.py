@@ -1,3 +1,6 @@
+from CourseSection import CourseSection
+
+
 class CourseSession(CourseSection):
     def __init__(self, section_id=None, course=None, capacity=None, day=None, start_time=None, end_time=None, classroom=None):
         super().__init__(section_id=section_id, course=course, capacity=capacity)

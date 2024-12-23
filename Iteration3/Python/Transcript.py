@@ -1,3 +1,7 @@
+from ObjectCreator import ObjectCreator
+from Student import Student
+
+
 class Transcript(Student):
     def __init__(self, student_id, first_name=None, last_name=None, term=None, gpa=None, cgpa=None,
                  credit_received=None, credit_earned=None, total_credit_received=None, total_credit_earned=None,

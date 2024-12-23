@@ -1,3 +1,6 @@
+from ObjectCreator import ObjectCreator
+
+
 class LoginManager:
     @staticmethod
     def login_student(student_id, password):
