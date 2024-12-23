@@ -9,6 +9,10 @@ public class Scheduler {
 	
 	private String id = "20242212";
 	private String password = "Nightrein2077";
+	ScheduleData.Day day;
+	ScheduleData.StartTime startTime;
+	ScheduleData.Classroom classroom;
+	static int currentSectionIndex;
 
     // Data Structures
     private Map<ScheduleData.Day, Map<ScheduleData.StartTime, CourseSection>> scheduleMap;
@@ -78,21 +82,64 @@ public class Scheduler {
 
     public void scheduleCourse() {
     	
-    	System.out.println("Please enter the section id for scheduling Course:");//içi yapılmadı
+    	System.out.println("Please enter the section id for scheduling Course:");
+    	String id;
+    	id = scanner.nextLine(); 
+    	boolean sectionFound = false;
+    	for (int i = 0;i < ObjectCreator.courseSections.size();i++) {
+    		
+    		if (ObjectCreator.courseSections.get(i).equals(id) ) {
+    			System.out.println("selected course and section:" + ObjectCreator.courseSections.get(i).getCourseName() + " " + id.charAt(id.length() - 1));
+    			sectionFound = true;
+    			currentSectionIndex = i;
+    		}
+    		
+    	}
+    	if (sectionFound == false) {
+    		
+    		System.out.println("You entered wrong or invalid section number.Please try again.");
+    		
+    	} //no loop here. then later !!!!!!!
+    	
     	System.out.println("Please enter date id time scheduling Course:\nDay:");
-    	ScheduleData.Day day = scanner.nextLine();
+    	
+    	try {
+    		day = ScheduleData.Day.valueOf(scanner.nextLine().toUpperCase()); 
+    	    System.out.println("selected day: " + day);
+    	} catch (IllegalArgumentException e) {
+    	    System.out.println("you entered invalid day. Please try again.");
+    	}
+    	
+    	
     	System.out.println("Time:");
-    	ScheduleData.StartTime startTime = scanner.nextLine();
+    	try {
+    		startTime = ScheduleData.StartTime.valueOf(scanner.nextLine().toUpperCase()); 
+    	    System.out.println("selected time: " + startTime);
+    	} catch (IllegalArgumentException e) {
+    	    System.out.println("you entered invalid time. Please try again.");
+    	}
+    	
+    	
+    	
         // Check if the time slot is available
         if (scheduleMap.get(day).get(startTime) != null) {
             System.out.println("Time slot is already occupied.");
         }
         System.out.println("Please enter classroom for scheduling Course:");
-        ScheduleData.Classroom classroom = scanner.nextLine();
+        try {
+        	classroom = ScheduleData.Classroom.valueOf(scanner.nextLine().toUpperCase()); 
+    	    System.out.println("selected day: " + day);
+    	} catch (IllegalArgumentException e) {
+    	    System.out.println("you entered invalid classroom. Please try again.");
+    	}
+        
+        
         // Check if the classroom is available
         if (!availableClassrooms.contains(classroom)) {
             System.out.println("Classroom is not available.");
         }
+        
+        CourseSection courseSection = new CourseSection(ObjectCreator.courseSections.get(currentSectionIndex).getSectionID(),ObjectCreator.courseSections.get(currentSectionIndex).getCourseName(),30);
 
         // Assign course to schedule
         scheduleMap.get(day).put(startTime, courseSection);
